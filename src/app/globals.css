@@ -1,26 +1,105 @@
 @import "tailwindcss";
 
+@plugin "tailwindcss-animate";
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F8F3EA;
+  --foreground: #070707;
+
+  --card: #F4EBDD;
+  --card-foreground: #070707;
+
+  --popover: #F8F3EA;
+  --popover-foreground: #070707;
+
+  --primary: #C9983A;
+  --primary-foreground: #070707;
+
+  --secondary: #111111;
+  --secondary-foreground: #F8F3EA;
+
+  --muted: #EFE4D3;
+  --muted-foreground: #5F5A52;
+
+  --accent: #D6A84D;
+  --accent-foreground: #070707;
+
+  --destructive: #ff4d4f;
+  --destructive-foreground: #ffffff;
+
+  --border: rgba(201, 152, 58, 0.25);
+  --input: rgba(201, 152, 58, 0.25);
+  --ring: #C9983A;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #0B0B0D;
+  --foreground: #F8F3EA;
+
+  --card: #111111;
+  --card-foreground: #F8F3EA;
+
+  --popover: #0B0B0D;
+  --popover-foreground: #F8F3EA;
+
+  --primary: #C9983A;
+  --primary-foreground: #070707;
+
+  --secondary: #222222;
+  --secondary-foreground: #F8F3EA;
+
+  --muted: #1a1a1a;
+  --muted-foreground: #A19D95;
+
+  --accent: #D6A84D;
+  --accent-foreground: #070707;
+
+  --destructive: #ff4d4f;
+  --destructive-foreground: #ffffff;
+
+  --border: rgba(201, 152, 58, 0.25);
+  --input: rgba(201, 152, 58, 0.25);
+  --ring: #C9983A;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: var(--font-inter), sans-serif;
+  --font-heading: var(--font-space-grotesk), sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--border);
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
 }
