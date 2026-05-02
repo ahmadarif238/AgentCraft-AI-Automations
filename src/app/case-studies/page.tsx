@@ -151,7 +151,7 @@ export default function CaseStudiesPage() {
                   <h3 className="text-sm font-bold text-foreground mb-3 uppercase tracking-wider">Technologies Used</h3>
                   <div className="flex flex-wrap gap-2">
                     {system.technologies.map(tech => (
-                      <span key={tech} className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-foreground border border-border">
+                      <span key={tech} className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground border border-border">
                         {tech}
                       </span>
                     ))}

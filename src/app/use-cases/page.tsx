@@ -72,7 +72,7 @@ export default function UseCasesPage() {
                     <h3 className="text-xs font-bold uppercase tracking-wider text-foreground mb-3">Commonly Integrated Tools</h3>
                     <div className="flex flex-wrap gap-2">
                       {useCase.tools.map((tool, i) => (
-                        <span key={i} className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-foreground border border-border">
+                        <span key={i} className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground border border-border">
                           {tool}
                         </span>
                       ))}

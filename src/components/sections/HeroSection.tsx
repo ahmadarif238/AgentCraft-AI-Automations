@@ -67,7 +67,7 @@ export function HeroSection() {
             <div className="flex flex-col gap-4 animate-in fade-in duration-700 delay-500">
               <div className="flex flex-wrap gap-2 max-w-lg">
                 {badges.map((badge, i) => (
-                  <span key={i} className="px-3 py-1 text-xs font-medium rounded-full bg-secondary/50 text-foreground border border-border/50">
+                  <span key={i} className="px-3 py-1 text-xs font-medium rounded-full bg-secondary/50 text-secondary-foreground border border-border/50">
                     {badge}
                   </span>
                 ))}

@@ -73,7 +73,7 @@ export default function ServicesPage() {
                   <h3 className="text-lg font-bold text-foreground mb-4 border-b border-border pb-2">Tools & Technologies</h3>
                   <div className="flex flex-wrap gap-2">
                     {service.tools.map(tool => (
-                      <span key={tool} className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-foreground border border-border">
+                      <span key={tool} className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground border border-border">
                         {tool}
                       </span>
                     ))}
