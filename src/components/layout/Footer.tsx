@@ -10,17 +10,13 @@ export function Footer() {
           
           {/* Brand */}
           <div className="lg:col-span-2 flex flex-col gap-6">
-            <Link href="/" className="flex items-center gap-2 group w-fit">
-              <div className="relative flex items-center justify-center w-8 h-8 rounded bg-background/10 border border-border group-hover:border-primary transition-colors">
-                <BrainCircuit className="w-4 h-4 text-primary" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading font-bold text-base leading-none tracking-tight text-foreground">
-                  AgentCraft
-                </span>
-                <span className="text-[9px] uppercase tracking-widest text-primary font-semibold">
-                  AI Automations
-                </span>
+            <Link href="/" className="flex items-center group w-fit">
+              <div className="relative w-48 h-12 overflow-hidden flex items-center p-2 rounded-lg border border-white/10 hover:border-primary/50 transition-colors">
+                <img 
+                  src="/images/logo.png" 
+                  alt="AgentCraft AI Automations" 
+                  className="object-contain w-full h-full object-left invert mix-blend-screen opacity-90 group-hover:opacity-100 transition-opacity"
+                />
               </div>
             </Link>
             <p className="text-sm text-foreground/80 max-w-sm leading-relaxed">

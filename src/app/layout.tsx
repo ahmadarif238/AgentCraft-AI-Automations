@@ -61,7 +61,8 @@ export const metadata: Metadata = {
     creator: "@agentcraftai",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
   },
 };
 
@@ -78,7 +79,7 @@ export default function RootLayout({
         "@id": `${siteConfig.url}/#organization`,
         name: siteConfig.name,
         url: siteConfig.url,
-        logo: `${siteConfig.url}/og-image.jpg`,
+        logo: `${siteConfig.url}/images/logo.png`,
         sameAs: [siteConfig.links.linkedin, siteConfig.links.github, siteConfig.links.twitter],
       },
       {

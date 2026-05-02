@@ -124,6 +124,31 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Flyer / Company Overview */}
+        <div className="max-w-4xl mx-auto mb-32 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="bg-secondary/50 rounded-3xl p-8 md:p-12 border border-border flex flex-col md:flex-row items-center gap-12 shadow-2xl">
+            <div className="w-full md:w-1/2 flex justify-center">
+              <div className="relative w-full max-w-[350px] aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border border-border/50 group">
+                <img src="/images/flyer.png" alt="AgentCraft AI Automations Flyer" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <a href="/images/flyer.png" download className="bg-primary text-primary-foreground font-semibold px-6 py-2 rounded-full hover:bg-primary/90 transition-colors">
+                    Download PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 text-left">
+              <h2 className="text-3xl font-heading font-bold mb-4 text-foreground">Our Company Overview</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                Want to share what we do with your team? Download our quick one-page overview detailing our services, technical capabilities, and business benefits.
+              </p>
+              <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
+                <a href="/images/flyer.png" download>Download Overview</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+
         {/* CTA */}
         <div className="max-w-4xl mx-auto bg-card border border-border rounded-3xl p-8 md:p-16 text-center shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />

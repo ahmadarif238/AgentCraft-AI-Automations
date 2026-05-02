@@ -39,18 +39,13 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-lg bg-secondary border border-border group-hover:border-primary transition-colors overflow-hidden">
-            <BrainCircuit className="w-5 h-5 text-primary" />
-            <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-heading font-bold text-lg leading-none tracking-tight text-foreground">
-              AgentCraft
-            </span>
-            <span className="text-[10px] uppercase tracking-widest text-primary font-semibold">
-              AI Automations
-            </span>
+        <Link href="/" className="flex items-center group">
+          <div className="relative w-48 h-12 overflow-hidden flex items-center">
+            <img 
+              src="/images/logo.png" 
+              alt="AgentCraft AI Automations" 
+              className="object-contain w-full h-full object-left mix-blend-multiply group-hover:opacity-90 transition-opacity"
+            />
           </div>
         </Link>
 
