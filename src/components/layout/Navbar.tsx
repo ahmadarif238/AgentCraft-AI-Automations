@@ -3,16 +3,16 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, BrainCircuit } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
 
 const navLinks = [
-  { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "Use Cases", href: "/use-cases" },
   { name: "Case Studies", href: "/case-studies" },
   { name: "Process", href: "/process" },
+  { name: "Pricing", href: "/pricing" },
   { name: "About", href: "/about" },
 ];
 
@@ -33,7 +33,7 @@ export function Navbar() {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md border-border"
+          ? "bg-background/90 backdrop-blur-xl border-border/50 shadow-sm"
           : "bg-transparent border-transparent"
       }`}
     >
@@ -55,7 +55,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -72,8 +72,8 @@ export function Navbar() {
         {/* CTA & Mobile Toggle */}
         <div className="flex items-center gap-4">
           <div className="hidden md:block">
-            <Button variant="gold" asChild>
-              <Link href="/contact">Book Free Audit</Link>
+            <Button variant="gold" className="shadow-[0_0_15px_rgba(201,152,58,0.15)] hover:shadow-[0_0_20px_rgba(201,152,58,0.3)] transition-all" asChild>
+              <Link href={siteConfig.links.booking}>Book Free Audit</Link>
             </Button>
           </div>
           <button
@@ -86,44 +86,37 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-50 bg-background flex flex-col pt-20 px-6 pb-6 md:hidden overflow-y-auto"
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-xl flex flex-col pt-20 px-6 pb-6 md:hidden overflow-y-auto animate-in slide-in-from-top-4 duration-300">
+          <button
+            className="absolute top-6 right-6 p-2 text-foreground"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Close Menu"
           >
-            <button
-              className="absolute top-6 right-6 p-2 text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-              aria-label="Close Menu"
-            >
-              <X className="w-6 h-6" />
-            </button>
-            <div className="flex flex-col gap-6 mt-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`text-2xl font-heading font-semibold transition-colors ${
-                    pathname === link.href ? "text-primary" : "text-foreground"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <div className="mt-8 pt-8 border-t border-border">
-                <Button variant="gold" size="lg" className="w-full" asChild onClick={() => setMobileMenuOpen(false)}>
-                  <Link href="/contact">Book Free Audit</Link>
-                </Button>
-              </div>
+            <X className="w-6 h-6" />
+          </button>
+          <div className="flex flex-col gap-6 mt-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`text-2xl font-heading font-semibold transition-colors ${
+                  pathname === link.href ? "text-primary" : "text-foreground"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <div className="mt-8 pt-8 border-t border-border">
+              <Button variant="gold" size="lg" className="w-full" asChild onClick={() => setMobileMenuOpen(false)}>
+                <Link href={siteConfig.links.booking}>Book Free Audit</Link>
+              </Button>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

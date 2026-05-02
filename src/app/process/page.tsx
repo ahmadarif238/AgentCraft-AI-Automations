@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { CTASection } from "@/components/sections/CTASection";
 
@@ -42,7 +41,7 @@ export default function ProcessPage() {
     <>
       <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-background border-b border-border">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
             <Badge variant="gold" className="mb-6">Our Process</Badge>
             <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 text-foreground">
               A Proven Path to Automation
@@ -54,7 +53,7 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      <section className="py-24 bg-secondary/30 relative">
+      <section className="py-24 bg-secondary relative">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto relative">
             
@@ -63,23 +62,27 @@ export default function ProcessPage() {
 
             <div className="space-y-16">
               {processSteps.map((step, index) => (
-                <div key={index} className="relative flex flex-col md:flex-row items-center">
+                <div 
+                  key={index} 
+                  className="relative flex flex-col md:flex-row items-center animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
                   
                   {/* Left Side */}
                   <div className={`w-full md:w-1/2 flex ${index % 2 === 0 ? "md:justify-end md:pr-12" : "md:justify-start md:pl-12 md:order-2"}`}>
-                    <div className="bg-card border border-border p-8 rounded-2xl shadow-lg w-full md:max-w-md relative hover:border-primary/50 transition-colors">
+                    <div className="bg-card/40 border border-border p-8 rounded-2xl shadow-lg w-full md:max-w-md relative hover:bg-card hover:border-primary/50 transition-colors">
                       <div className="text-6xl font-heading font-bold text-primary/10 absolute top-4 right-6 pointer-events-none">
                         {step.num}
                       </div>
-                      <h3 className="text-2xl font-heading font-bold mb-4 relative z-10">{step.title}</h3>
-                      <p className="text-muted-foreground relative z-10">
+                      <h3 className="text-2xl font-heading font-bold mb-4 relative z-10 text-foreground">{step.title}</h3>
+                      <p className="text-muted-foreground relative z-10 leading-relaxed">
                         {step.description}
                       </p>
                     </div>
                   </div>
 
                   {/* Center Node */}
-                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-background border-4 border-secondary items-center justify-center z-10">
+                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-secondary border-4 border-border items-center justify-center z-10">
                     <div className="w-4 h-4 rounded-full bg-primary" />
                   </div>
 

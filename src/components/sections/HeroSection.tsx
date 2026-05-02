@@ -1,23 +1,23 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, BrainCircuit, Workflow, Database, LineChart, Network, Folder } from "lucide-react";
+import { ArrowRight, Sparkles, BrainCircuit, Settings, Users, Database, Network, BarChart3 } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const badges = [
   "Workflow Automation",
-  "AI Agents",
+  "Custom AI Agents",
   "RAG Assistants",
   "CRM Automation",
   "API Integrations",
-  "Ongoing Support"
+  "Ongoing Support",
 ];
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden py-16 md:py-24 lg:py-32 bg-background">
+    <section className="relative overflow-hidden py-16 md:py-24 lg:py-32 xl:min-h-[85vh] flex items-center bg-background">
       {/* Background glow */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-60 rounded-full blur-3xl pointer-events-none translate-x-1/3 -translate-y-1/3" />
       
@@ -40,113 +40,142 @@ export function HeroSection() {
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl leading-relaxed">
-                Custom AI agents, workflow automations, RAG assistants, and business integrations built to eliminate repetitive work and help your company grow faster.
+                AgentCraft AI Automations builds custom AI agents, workflow automations, RAG assistants, and business integrations that eliminate repetitive work and help companies grow faster.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-              <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2 shadow-[0_0_20px_rgba(201,152,58,0.2)] hover:shadow-[0_0_30px_rgba(201,152,58,0.4)] transition-all" asChild>
-                <Link href="/contact">
-                  <Sparkles className="w-4 h-4" />
-                  Book a Free Automation Audit
-                </Link>
-              </Button>
-              <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2 border-border hover:bg-secondary hover:text-secondary-foreground transition-all" asChild>
-                <Link href="/services">
-                  Explore Services
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Button>
+            <div className="flex flex-col w-full sm:w-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+              <div className="flex flex-col sm:flex-row items-center gap-4 mb-3 w-full">
+                <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2 shadow-[0_0_20px_rgba(201,152,58,0.2)] hover:shadow-[0_0_30px_rgba(201,152,58,0.4)] transition-all" asChild>
+                  <Link href="/contact">
+                    <Sparkles className="w-4 h-4" />
+                    Book a Free Automation Audit
+                  </Link>
+                </Button>
+                <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2 border-border hover:bg-secondary hover:text-secondary-foreground transition-all" asChild>
+                  <Link href="/services">
+                    Explore Services
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+              </div>
+              <p className="text-xs text-muted-foreground mb-8 max-w-md">
+                Free audit includes workflow review, automation opportunities, and a practical implementation roadmap.
+              </p>
             </div>
 
-            <div className="flex flex-wrap gap-2 max-w-lg animate-in fade-in duration-700 delay-500">
-              {badges.map((badge, i) => (
-                <span key={i} className="px-3 py-1 text-xs font-medium rounded-full bg-secondary/50 text-foreground border border-border/50">
-                  {badge}
-                </span>
-              ))}
+            <div className="flex flex-col gap-4 animate-in fade-in duration-700 delay-500">
+              <div className="flex flex-wrap gap-2 max-w-lg">
+                {badges.map((badge, i) => (
+                  <span key={i} className="px-3 py-1 text-xs font-medium rounded-full bg-secondary/50 text-foreground border border-border/50">
+                    {badge}
+                  </span>
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mt-2">
+                Built with LangGraph, FastAPI, n8n, Zapier, Make, Power Automate, and RAG systems.
+              </p>
             </div>
           </div>
 
           {/* Right Side: Animated Hub */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative lg:h-[550px] w-full flex items-center justify-center mt-12 lg:mt-0"
-          >
-            {/* Base Hub Card */}
-            <div className="absolute inset-0 bg-secondary/40 border border-border/40 rounded-3xl backdrop-blur-sm shadow-2xl overflow-hidden" />
-            
-            {/* Grid background */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(201,152,58,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(201,152,58,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
+          <div className="relative h-[400px] lg:h-[600px] hidden lg:flex items-center justify-center animate-in fade-in zoom-in-95 duration-1000 delay-300">
+            {/* The animated grid/hub */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(201,152,58,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(201,152,58,0.05)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
             
             {/* Central Node */}
-            <div className="relative z-20 w-32 h-32 rounded-2xl bg-secondary border border-primary shadow-[0_0_40px_rgba(201,152,58,0.3)] flex items-center justify-center">
-              <div className="absolute inset-0 rounded-2xl bg-primary/10 animate-pulse" />
-              <BrainCircuit className="w-16 h-16 text-primary" />
-            </div>
+            <motion.div 
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+              className="relative z-20 w-28 h-28 rounded-2xl bg-secondary border border-primary shadow-[0_0_50px_rgba(201,152,58,0.4)] flex items-center justify-center"
+            >
+              <span className="font-heading font-bold text-5xl text-primary tracking-tighter">A</span>
+              <div className="absolute inset-0 rounded-2xl border border-primary/20 animate-ping opacity-20" style={{ animationDuration: '3s' }} />
+            </motion.div>
 
-            {/* Orbiting Elements */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            {/* Orbiting / Connecting Nodes */}
+            <div className="absolute inset-0 w-full h-full pointer-events-none">
               
-              {/* Ring 1 */}
-              <div className="absolute w-[280px] h-[280px] rounded-full border border-primary/10" />
-              
-              {/* Ring 2 */}
-              <div className="absolute w-[420px] h-[420px] rounded-full border border-primary/5" />
-
-              {/* Connecting lines */}
-              <div className="absolute w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent rotate-45" />
-              <div className="absolute w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent -rotate-45" />
-
-              {/* Node 1: Workflow */}
-              <motion.div 
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-[15%] left-[20%] w-14 h-14 rounded-xl bg-card border border-border shadow-lg flex items-center justify-center z-10"
-              >
-                <Workflow className="w-6 h-6 text-foreground" />
-              </motion.div>
-
-              {/* Node 2: Database */}
+              {/* Node 1: AI Agents */}
               <motion.div 
                 animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-[10%] right-[25%] w-14 h-14 rounded-xl bg-card border border-border shadow-lg flex items-center justify-center z-10"
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 0.5 }}
+                className="absolute top-[15%] right-[15%] z-10 flex flex-col items-center gap-2"
               >
-                <Database className="w-6 h-6 text-foreground" />
+                <div className="w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg relative">
+                  <BrainCircuit className="w-6 h-6 text-foreground" />
+                  <div className="absolute -left-16 top-1/2 h-px w-16 bg-gradient-to-r from-transparent to-primary/50" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-background/80 px-2 rounded">AI Agents</span>
               </motion.div>
 
-              {/* Node 3: Analytics */}
+              {/* Node 2: Workflow Automation */}
               <motion.div 
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                className="absolute bottom-[20%] right-[15%] w-14 h-14 rounded-xl bg-card border border-border shadow-lg flex items-center justify-center z-10"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1 }}
+                className="absolute top-[20%] left-[10%] z-10 flex flex-col items-center gap-2"
               >
-                <LineChart className="w-6 h-6 text-foreground" />
+                <div className="w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg relative">
+                  <Settings className="w-6 h-6 text-foreground" />
+                  <div className="absolute -right-12 top-1/2 h-px w-12 bg-gradient-to-l from-transparent to-primary/50" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-background/80 px-2 rounded">Workflows</span>
               </motion.div>
 
-              {/* Node 4: APIs */}
+              {/* Node 3: CRM */}
+              <motion.div 
+                animate={{ x: [0, 8, 0] }}
+                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1.5 }}
+                className="absolute bottom-[35%] left-[5%] z-10 flex flex-col items-center gap-2"
+              >
+                <div className="w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg relative">
+                  <Users className="w-6 h-6 text-foreground" />
+                  <div className="absolute -right-20 top-1/2 h-px w-20 bg-gradient-to-l from-transparent to-primary/50" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-background/80 px-2 rounded">CRM</span>
+              </motion.div>
+
+              {/* Node 4: Documents (RAG) */}
+              <motion.div 
+                animate={{ y: [0, -12, 0] }}
+                transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 2 }}
+                className="absolute bottom-[15%] left-[25%] z-10 flex flex-col items-center gap-2"
+              >
+                <div className="w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg relative">
+                  <Database className="w-6 h-6 text-foreground" />
+                  <div className="absolute -top-16 left-1/2 w-px h-16 bg-gradient-to-t from-transparent to-primary/50" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-background/80 px-2 rounded">Documents</span>
+              </motion.div>
+
+              {/* Node 5: APIs */}
               <motion.div 
                 animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute bottom-[15%] left-[25%] w-14 h-14 rounded-xl bg-card border border-border shadow-lg flex items-center justify-center z-10"
+                transition={{ repeat: Infinity, duration: 5.5, ease: "easeInOut", delay: 0.8 }}
+                className="absolute bottom-[20%] right-[20%] z-10 flex flex-col items-center gap-2"
               >
-                <Network className="w-6 h-6 text-foreground" />
+                <div className="w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg relative">
+                  <Network className="w-6 h-6 text-foreground" />
+                  <div className="absolute -left-12 -top-8 w-16 h-px bg-gradient-to-r from-transparent to-primary/50 origin-left -rotate-45" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-background/80 px-2 rounded">APIs</span>
               </motion.div>
 
-              {/* Node 5: Documents */}
+              {/* Node 6: Reports */}
               <motion.div 
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                className="absolute top-[45%] left-[5%] w-14 h-14 rounded-xl bg-card border border-border shadow-lg flex items-center justify-center z-10"
+                animate={{ x: [0, -8, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 2.5 }}
+                className="absolute top-[45%] right-[5%] z-10 flex flex-col items-center gap-2"
               >
-                <Folder className="w-6 h-6 text-foreground" />
+                <div className="w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg relative">
+                  <BarChart3 className="w-6 h-6 text-foreground" />
+                  <div className="absolute -left-20 top-1/2 h-px w-20 bg-gradient-to-r from-transparent to-primary/50" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-background/80 px-2 rounded">Reports</span>
               </motion.div>
+
             </div>
-            
-          </motion.div>
+          </div>
 
         </div>
       </div>

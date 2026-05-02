@@ -40,7 +40,8 @@ export function ProblemSection() {
     <section className="py-24 bg-secondary text-secondary-foreground relative border-y border-border">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6">
+          <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-4 block">Symptoms of Poor Operations</span>
+          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-secondary-foreground">
             Manual Work Is Quietly <br className="hidden md:block" /> Slowing Your Business Down.
           </h2>
           <p className="text-muted-foreground/80 text-lg">

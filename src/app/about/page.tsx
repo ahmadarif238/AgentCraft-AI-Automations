@@ -1,113 +1,146 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import { CTASection } from "@/components/sections/CTASection";
-import { Code2, Server, Database, BrainCircuit, Rocket } from "lucide-react";
+import { CheckCircle2, Code2, Database, BrainCircuit, Rocket, ShieldCheck, Cpu } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
+
+const expertise = [
+  { icon: BrainCircuit, label: "Multi-agent AI Systems (LangGraph)" },
+  { icon: Database, label: "RAG & Vector Search (Pinecone, Weaviate)" },
+  { icon: Rocket, label: "Workflow Automation (n8n, Zapier, Make)" },
+  { icon: Code2, label: "Backend AI Applications (FastAPI, PostgreSQL)" },
+  { icon: Cpu, label: "Microsoft Power Automate & Power Platform" },
+  { icon: ShieldCheck, label: "Cloud & Deployment (AWS, Azure, Docker)" },
+];
+
+const values = [
+  {
+    title: "Honest Engineering",
+    description: "We don't sell hype or impossible AI dreams. We build reliable, grounded systems that actually work in production."
+  },
+  {
+    title: "Founder-to-Founder Delivery",
+    description: "When you work with AgentCraft, you work directly with the founder. No junior account managers, no offshore handoffs."
+  },
+  {
+    title: "Security by Default",
+    description: "Your data is yours. We implement human-in-the-loop approvals and secure API handling from day one."
+  }
+];
 
 export default function AboutPage() {
   return (
-    <>
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-background border-b border-border">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <Badge variant="gold" className="mb-6">About AgentCraft</Badge>
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 text-foreground">
-              Practical Automation. <br /> Not Hype.
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              We are a founder-led AI automation studio helping businesses build intelligent systems that solve real workflow problems.
+    <div className="py-24 md:py-32 bg-background">
+      <div className="container mx-auto px-4 md:px-6">
+        
+        {/* Header */}
+        <div className="max-w-3xl mx-auto text-center mb-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-4 block">About Us</span>
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-foreground">
+            A Founder-Led AI Automation Studio.
+          </h1>
+          <p className="text-xl text-muted-foreground leading-relaxed">
+            We bridge the gap between complex AI research and practical business operations.
+          </p>
+        </div>
+
+        {/* Founder Profile */}
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center mb-32">
+          <div className="md:col-span-5 w-full aspect-[4/5] rounded-3xl bg-secondary border border-border shadow-2xl relative overflow-hidden flex items-center justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-50" />
+            <div className="text-center relative z-10">
+              <div className="w-24 h-24 rounded-full bg-card border-2 border-primary/50 flex items-center justify-center mx-auto mb-4 text-3xl font-heading font-bold text-foreground">
+                {siteConfig.founderName.split(" ").map(n => n[0]).join("")}
+              </div>
+              <h3 className="text-2xl font-heading font-bold text-foreground">{siteConfig.founderName}</h3>
+              <p className="text-primary font-medium">{siteConfig.founderTitle}</p>
+            </div>
+          </div>
+          <div className="md:col-span-7 flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+            <h2 className="text-3xl font-heading font-bold mb-6 text-foreground">Meet the Founder</h2>
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+              <p>
+                {siteConfig.founderName} is an AI Engineer specializing in Agentic AI, Generative AI, Retrieval-Augmented Generation systems, multi-agent workflows, and business automation.
+              </p>
+              <p>
+                Frustrated by the hype surrounding AI, {siteConfig.founderName.split(" ")[0]} founded AgentCraft AI Automations to build practical, secure, and highly reliable systems using LangGraph, LangChain, FastAPI, vector databases, n8n, Zapier, Make, Microsoft Power Automate, and modern backend infrastructure.
+              </p>
+              <p>
+                The goal is simple: Help companies eliminate repetitive work so they can scale without scaling headcount.
+              </p>
+            </div>
+            <div className="flex gap-4 mt-8">
+              <Button variant="outline" asChild>
+                <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+              </Button>
+              <Button variant="ghost" asChild>
+                <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer">GitHub Projects</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Technical Expertise */}
+        <div className="max-w-5xl mx-auto mb-32">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-heading font-bold mb-4 text-foreground">Technical Expertise</h2>
+            <p className="text-muted-foreground">The stack we use to build robust automation systems.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {expertise.map((item, i) => (
+              <div key={i} className="flex items-center gap-4 bg-card/40 border border-border p-4 rounded-xl">
+                <div className="w-10 h-10 rounded bg-secondary flex items-center justify-center shrink-0">
+                  <item.icon className="w-5 h-5 text-primary" />
+                </div>
+                <span className="font-semibold text-sm text-foreground">{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Why Founder-Led & Values */}
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-32">
+          <div>
+            <h2 className="text-3xl font-heading font-bold mb-6 text-foreground">Why Founder-Led Delivery Matters</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              Many agencies sell you using senior partners, only to hand the actual work to junior developers. 
+              At AgentCraft, the person designing your system architecture is the same person writing the code and setting up the webhooks.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              This ensures higher quality, faster communication, and a deep understanding of your business goals throughout the entire project lifecycle.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* Founder Section */}
-      <section className="py-24 bg-secondary/30">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row gap-16 items-center max-w-5xl mx-auto">
-            <div className="w-full md:w-1/3 aspect-[3/4] rounded-2xl bg-card border border-border shadow-2xl relative overflow-hidden flex items-center justify-center">
-              {/* Photo Placeholder */}
-              <div className="absolute inset-0 bg-gradient-to-t from-secondary to-transparent opacity-80" />
-              <div className="text-center relative z-10 p-6">
-                <div className="w-20 h-20 bg-primary/20 rounded-full mx-auto mb-4 border-2 border-primary/50 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-primary">AK</span>
+          <div className="space-y-8">
+            {values.map((value, i) => (
+              <div key={i} className="flex gap-4">
+                <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
+                <div>
+                  <h3 className="font-heading font-bold text-xl mb-2 text-foreground">{value.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{value.description}</p>
                 </div>
               </div>
-              <div className="absolute bottom-6 left-6 right-6 text-center">
-                <h3 className="text-xl font-heading font-bold text-foreground">Arif Ahmad Khan</h3>
-                <p className="text-sm text-primary">Founder & AI Engineer</p>
-              </div>
-            </div>
-            
-            <div className="w-full md:w-2/3">
-              <h2 className="text-3xl font-heading font-bold mb-6">Expert Engineering. Direct Communication.</h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                AgentCraft AI Automations was built on the belief that AI should generate ROI, not just headlines. 
-              </p>
-              <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-                As an AI Engineer specializing in Agentic AI, Generative AI, Retrieval-Augmented Generation (RAG) systems, and multi-agent workflows, I build production-ready applications that connect your business tools and automate repetitive work.
-              </p>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-card border border-border flex items-center gap-3">
-                  <BrainCircuit className="w-5 h-5 text-primary" />
-                  <span className="font-medium text-sm">Agentic AI & RAG</span>
-                </div>
-                <div className="p-4 rounded-xl bg-card border border-border flex items-center gap-3">
-                  <Code2 className="w-5 h-5 text-primary" />
-                  <span className="font-medium text-sm">LangGraph & FastAPI</span>
-                </div>
-                <div className="p-4 rounded-xl bg-card border border-border flex items-center gap-3">
-                  <Server className="w-5 h-5 text-primary" />
-                  <span className="font-medium text-sm">n8n, Zapier, Make</span>
-                </div>
-                <div className="p-4 rounded-xl bg-card border border-border flex items-center gap-3">
-                  <Database className="w-5 h-5 text-primary" />
-                  <span className="font-medium text-sm">Vector DBs & SQL</span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
-      </section>
 
-      {/* Values Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6">Why Founder-Led Matters</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-card p-8 rounded-2xl border border-border text-center">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Rocket className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Fast Implementation</h3>
-              <p className="text-muted-foreground text-sm">No bureaucratic delays. We move from strategy to deployment quickly, focusing on immediate business value.</p>
-            </div>
-            
-            <div className="bg-card p-8 rounded-2xl border border-border text-center relative overflow-hidden border-primary/30 shadow-[0_0_20px_rgba(201,152,58,0.1)]">
-              <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10">
-                <Server className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-4 relative z-10">Scalable Architecture</h3>
-              <p className="text-muted-foreground text-sm relative z-10">Systems built correctly from day one. We use proper engineering practices so your automation doesn't break as you grow.</p>
-            </div>
-            
-            <div className="bg-card p-8 rounded-2xl border border-border text-center">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Code2 className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Custom Solutions</h3>
-              <p className="text-muted-foreground text-sm">No forced templates. Every workflow is mapped to your specific business logic, tools, and operational goals.</p>
-            </div>
-          </div>
+        {/* CTA */}
+        <div className="max-w-4xl mx-auto bg-card border border-border rounded-3xl p-8 md:p-16 text-center shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 text-card-foreground">
+            Let's Build Something Impactful.
+          </h2>
+          <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
+            Book a call directly with the founder to discuss your operations and see how AI can help you scale.
+          </p>
+          <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2 shadow-[0_0_20px_rgba(201,152,58,0.2)]" asChild>
+            <Link href={siteConfig.links.booking}>
+              Book a Free Automation Audit
+            </Link>
+          </Button>
         </div>
-      </section>
 
-      <CTASection />
-    </>
+      </div>
+    </div>
   );
 }

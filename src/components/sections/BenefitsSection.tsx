@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
 const benefits = [
@@ -28,33 +27,30 @@ export function BenefitsSection() {
             </p>
             <ul className="space-y-4">
               {benefits.map((benefit, i) => (
-                <motion.li 
+                <li 
                   key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.1 }}
-                  className="flex items-center gap-3 text-foreground font-medium"
+                  className="flex items-center gap-3 text-foreground font-medium animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both"
+                  style={{ animationDelay: `${i * 100}ms` }}
                 >
                   <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
                   <span>{benefit}</span>
-                </motion.li>
+                </li>
               ))}
             </ul>
           </div>
 
           {/* Right Visual / Mini ROI */}
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
             <div className="bg-card border border-border rounded-2xl p-8 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent" />
               
-              <h3 className="text-xl font-heading font-bold mb-6">Automation ROI Estimator</h3>
+              <h3 className="text-xl font-heading font-bold mb-6 text-foreground">Automation ROI Estimator</h3>
               
               <div className="space-y-6">
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Hours wasted weekly</span>
-                    <span className="font-bold">20 hours</span>
+                    <span className="font-bold text-foreground">20 hours</span>
                   </div>
                   <div className="w-full bg-secondary h-2 rounded-full overflow-hidden">
                     <div className="bg-primary w-1/2 h-full rounded-full" />
@@ -64,7 +60,7 @@ export function BenefitsSection() {
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Avg. Hourly Rate</span>
-                    <span className="font-bold">$40/hr</span>
+                    <span className="font-bold text-foreground">$40/hr</span>
                   </div>
                   <div className="w-full bg-secondary h-2 rounded-full overflow-hidden">
                     <div className="bg-primary w-1/3 h-full rounded-full" />
@@ -74,13 +70,16 @@ export function BenefitsSection() {
                 <div className="pt-6 border-t border-border">
                   <div className="flex justify-between items-end">
                     <div>
-                      <p className="text-sm text-muted-foreground uppercase tracking-wider font-bold mb-1">Estimated Annual Cost</p>
+                      <p className="text-xs text-muted-foreground uppercase tracking-wider font-bold mb-1">Estimated Annual Cost</p>
                       <p className="text-3xl font-heading font-bold text-foreground">$41,600</p>
                     </div>
                     <div className="text-right">
                       <p className="text-sm text-primary font-bold">You could automate this.</p>
                     </div>
                   </div>
+                  <p className="text-[10px] text-muted-foreground/60 mt-4 text-center">
+                    Estimate only. Actual results depend on workflow complexity.
+                  </p>
                 </div>
               </div>
               
