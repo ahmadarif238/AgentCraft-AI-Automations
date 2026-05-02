@@ -40,11 +40,11 @@ export function Navbar() {
       <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center group">
-          <div className="relative w-48 h-12 overflow-hidden flex items-center">
+          <div className="relative w-48 h-14 overflow-hidden flex items-center justify-start">
             <img 
               src="/images/logo.png" 
               alt="AgentCraft AI Automations" 
-              className="object-contain w-full h-full object-left mix-blend-multiply group-hover:opacity-90 transition-opacity"
+              className="object-cover w-full h-full object-center scale-[1.35] mix-blend-multiply group-hover:opacity-90 transition-opacity"
             />
           </div>
         </Link>

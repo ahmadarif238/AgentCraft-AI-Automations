@@ -7,6 +7,7 @@ import { CaseStudiesPreviewSection } from "@/components/sections/CaseStudiesPrev
 import { ProcessPreviewSection } from "@/components/sections/ProcessPreviewSection";
 import { BenefitsSection } from "@/components/sections/BenefitsSection";
 import { SecuritySection } from "@/components/sections/SecuritySection";
+import { FlyerSection } from "@/components/sections/FlyerSection";
 import { CTASection } from "@/components/sections/CTASection";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <ProcessPreviewSection />
       <BenefitsSection />
       <SecuritySection />
+      <FlyerSection />
       <CTASection />
     </>
   );
