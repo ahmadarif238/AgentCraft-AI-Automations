@@ -43,7 +43,7 @@ export function CaseStudiesPreviewSection() {
               </Badge>
               <h3 className="text-xl font-heading font-bold mb-3">{study.title}</h3>
               <p className="text-muted-foreground text-sm mb-6 flex-1">
-                {study.description}
+                {study.overview}
               </p>
               
               <div className="mt-auto pt-6 border-t border-border flex items-center text-sm font-semibold text-foreground group-hover:text-primary-strong transition-colors">

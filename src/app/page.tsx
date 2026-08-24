@@ -13,7 +13,10 @@ import { FaqSection } from "@/components/sections/FaqSection";
 import { CTASection } from "@/components/sections/CTASection";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: { "text/markdown": "/index.md" },
+  },
 };
 
 export default function Home() {

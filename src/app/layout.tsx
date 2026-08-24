@@ -60,6 +60,13 @@ export const metadata: Metadata = {
   },
   // Icons come from the app/icon.png, app/apple-icon.png and app/favicon.ico
   // file conventions, which are the square "A" mark rather than the wide lockup.
+
+  // Google Search Console ownership. Set GOOGLE_SITE_VERIFICATION in Vercel to
+  // the token from the "HTML tag" verification method; omitted when unset so
+  // no empty meta tag is emitted.
+  ...(process.env.GOOGLE_SITE_VERIFICATION && {
+    verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
+  }),
 };
 
 export const viewport: Viewport = {

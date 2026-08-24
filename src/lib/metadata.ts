@@ -25,7 +25,12 @@ export function pageMetadata({
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: {
+      canonical: path,
+      // Point assistants and AI crawlers at the clean markdown mirror of this
+      // page rather than making them parse the rendered markup.
+      types: { "text/markdown": path === "/" ? "/index.md" : `${path}.md` },
+    },
     openGraph: {
       type: "website",
       siteName: siteConfig.name,
