@@ -31,6 +31,8 @@
 
   --accent: #D6A84D;
   --accent-foreground: #070707;
+  /* Text-safe accent, same 40deg hue, 4.55:1 on cream. Pairs with --primary-strong. */
+  --accent-strong: #8D6921;
 
   --destructive: #ff4d4f;
   --destructive-foreground: #ffffff;
@@ -70,6 +72,8 @@
 
   --accent: #D6A84D;
   --accent-foreground: #070707;
+  /* On dark the brand accent already has ample contrast. */
+  --accent-strong: #D6A84D;
 
   --destructive: #ff4d4f;
   --destructive-foreground: #ffffff;
@@ -89,6 +93,7 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-strong: var(--primary-strong);
+  --color-accent-strong: var(--accent-strong);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);

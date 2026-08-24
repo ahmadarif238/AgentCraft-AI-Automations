@@ -38,7 +38,7 @@ export function CaseStudiesPreviewSection() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="bg-card border border-border rounded-2xl p-8 hover:shadow-xl hover:border-primary/50 transition-all flex flex-col h-full group"
             >
-              <Badge variant="outline" className="w-fit mb-4 text-primary border-primary/30 bg-primary/5">
+              <Badge variant="outline" className="w-fit mb-4 text-primary-strong border-primary/30 bg-primary/5">
                 {study.category}
               </Badge>
               <h3 className="text-xl font-heading font-bold mb-3">{study.title}</h3>
@@ -46,7 +46,7 @@ export function CaseStudiesPreviewSection() {
                 {study.description}
               </p>
               
-              <div className="mt-auto pt-6 border-t border-border flex items-center text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+              <div className="mt-auto pt-6 border-t border-border flex items-center text-sm font-semibold text-foreground group-hover:text-primary-strong transition-colors">
                 Learn more
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </div>

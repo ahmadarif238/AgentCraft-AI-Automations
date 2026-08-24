@@ -78,7 +78,7 @@ export default function ProcessPage() {
                   {/* Left Side */}
                   <div className={`w-full md:w-1/2 flex ${index % 2 === 0 ? "md:justify-end md:pr-12" : "md:justify-start md:pl-12 md:order-2"}`}>
                     <div className="bg-card/40 border border-border p-8 rounded-2xl shadow-lg w-full md:max-w-md relative hover:bg-card hover:border-primary/50 transition-colors">
-                      <div className="text-6xl font-heading font-bold text-primary/10 absolute top-4 right-6 pointer-events-none">
+                      <div className="text-6xl font-heading font-bold text-primary-strong/10 absolute top-4 right-6 pointer-events-none">
                         {step.num}
                       </div>
                       <h3 className="text-2xl font-heading font-bold mb-4 relative z-10 text-foreground">{step.title}</h3>
@@ -95,7 +95,7 @@ export default function ProcessPage() {
 
                   {/* Mobile Node / Spacer */}
                   <div className="md:hidden flex items-center gap-4 my-6 w-full px-6">
-                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs">
+                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary-strong font-bold text-xs">
                       {step.num}
                     </div>
                     <div className="h-px bg-border flex-1" />

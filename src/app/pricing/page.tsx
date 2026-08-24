@@ -4,14 +4,22 @@ import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FaqSection } from "@/components/sections/FaqSection";
-import { formatPrice, pricingDrivers, pricingPackages } from "@/data/pricing";
+import {
+  buildAddOns,
+  buildServices,
+  formatAddOnPrice,
+  formatPrice,
+  formatTierPrice,
+  pricingDrivers,
+  pricingPackages,
+} from "@/data/pricing";
 import { objectionFaqs } from "@/data/faqs";
 import { bookingUrl } from "@/config/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Pricing & Packages",
   description:
-    "Free automation audit, fixed-scope workflow sprints, custom AI agent builds, and monthly automation partnerships. We scope and quote a fixed price before any build starts.",
+    "Transparent starting prices: workflow sprints from $750, custom AI agents from $2,000, monthly automation partnership from $500, plus websites, apps and chatbots priced by tier.",
   path: "/pricing",
 });
 
@@ -67,7 +75,7 @@ export default function PricingPage() {
                   <ul className="space-y-4">
                     {pkg.includes.map((feature) => (
                       <li key={feature} className="flex items-start gap-3 text-sm text-muted-foreground">
-                        <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                        <CheckCircle2 className="w-5 h-5 text-primary-strong shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -88,8 +96,83 @@ export default function PricingPage() {
         </div>
       </div>
 
-      {/* What drives the number — so "custom quote" isn't a black box. */}
+      {/* Build work, priced by tier. */}
       <section className="py-24 bg-secondary/30 border-t border-border">
+        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-foreground">
+              Websites, Apps &amp; Chatbots
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Build work is priced by tier so you can see where you land before you
+              talk to us.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {buildServices.map((service) => (
+              <div
+                key={service.id}
+                className="flex flex-col bg-card border border-border rounded-2xl p-7 hover:border-primary/50 transition-colors"
+              >
+                <h3 className="font-heading font-bold text-xl mb-2 text-foreground">
+                  {service.name}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-6">{service.summary}</p>
+                <ul className="flex flex-col gap-4 flex-1">
+                  {service.tiers.map((tier) => (
+                    <li
+                      key={tier.name}
+                      className="flex items-start justify-between gap-4 pb-4 border-b border-border/60 last:border-b-0 last:pb-0"
+                    >
+                      <span>
+                        <span className="block text-sm font-semibold text-foreground">
+                          {tier.name}
+                        </span>
+                        {tier.note && (
+                          <span className="block text-xs text-muted-foreground mt-0.5">
+                            {tier.note}
+                          </span>
+                        )}
+                      </span>
+                      <span className="font-heading font-bold text-lg text-foreground whitespace-nowrap">
+                        {formatTierPrice(tier)}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 gap-4">
+            {buildAddOns.map((addOn) => (
+              <div
+                key={addOn.name}
+                className="flex flex-wrap items-center justify-between gap-4 bg-primary/5 border border-primary/20 rounded-2xl p-6"
+              >
+                <div className="max-w-2xl">
+                  <p className="font-heading font-bold text-foreground mb-1">
+                    Add-on: {addOn.name}
+                  </p>
+                  <p className="text-sm text-muted-foreground">{addOn.description}</p>
+                </div>
+                <span className="font-heading font-bold text-2xl text-primary-strong whitespace-nowrap">
+                  {formatAddOnPrice(addOn.price)}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-8 text-center text-sm text-muted-foreground">
+            Prices are starting points for a defined scope. Anything larger is quoted
+            fixed-price after the free audit.
+          </p>
+        </div>
+      </section>
+
+      {/* What drives the number — so "custom quote" isn't a black box. */}
+      <section className="py-24 bg-background border-t border-border">
         <div className="container mx-auto px-4 md:px-6 max-w-5xl">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-foreground">

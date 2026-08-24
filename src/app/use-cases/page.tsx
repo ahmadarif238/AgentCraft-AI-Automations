@@ -57,7 +57,7 @@ export default function UseCasesPage() {
                     <p className="text-sm text-muted-foreground">{useCase.before}</p>
                   </div>
                   <div className="bg-primary/10 border border-primary/20 p-4 rounded-xl">
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-primary mb-2">After AgentCraft</h3>
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-primary-strong mb-2">After AgentCraft</h3>
                     <p className="text-sm text-foreground font-medium">{useCase.after}</p>
                   </div>
                 </div>
@@ -68,7 +68,7 @@ export default function UseCasesPage() {
                     <ul className="space-y-3">
                       {useCase.workflows.map((workflow, i) => (
                         <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                          <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                          <CheckCircle2 className="w-5 h-5 text-primary-strong shrink-0" />
                           <span>{workflow}</span>
                         </li>
                       ))}

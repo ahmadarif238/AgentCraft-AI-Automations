@@ -32,14 +32,14 @@ export function ServicesPreviewSection() {
               style={{ animationDelay: `${i * 100}ms` }}
             >
               <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors">
-                <service.icon className="w-6 h-6 text-foreground group-hover:text-primary transition-colors" />
+                <service.icon className="w-6 h-6 text-foreground group-hover:text-primary-strong transition-colors" />
               </div>
               <h3 className="text-xl font-heading font-bold mb-3">{service.title}</h3>
               <p className="text-muted-foreground text-sm flex-1">
                 {service.description}
               </p>
               
-              <Link href={`/services#${service.id}`} className="mt-6 flex items-center text-sm font-semibold text-primary/80 group-hover:text-primary transition-colors">
+              <Link href={`/services#${service.id}`} className="mt-6 flex items-center text-sm font-semibold text-primary-strong/80 group-hover:text-primary-strong transition-colors">
                 Learn more
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>

@@ -13,7 +13,7 @@ export function FlyerSection() {
           <div className="w-full lg:w-1/2 text-left space-y-6">
             <h2 className="text-3xl md:text-5xl font-heading font-bold text-foreground leading-tight">
               Get the Full <br className="hidden lg:block" />
-              <span className="text-primary">Executive Overview</span>
+              <span className="text-primary-strong">Executive Overview</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
               Download our one-page automation overview. Share it with your team or

@@ -35,7 +35,8 @@ export function HeroSection() {
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold tracking-tight text-foreground leading-[1.1] mb-6">
                 We Automate Workflows. <br className="hidden sm:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                {/* Text-safe gradient stops: the brand gold reads at only 2.36:1 on cream. */}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-strong to-accent-strong">
                   You Scale Effortlessly.
                 </span>
               </h1>
@@ -89,7 +90,7 @@ export function HeroSection() {
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
               className="relative z-20 w-28 h-28 rounded-2xl bg-secondary border border-primary shadow-[0_0_50px_rgba(201,152,58,0.4)] flex items-center justify-center"
             >
-              <span className="font-heading font-bold text-5xl text-primary tracking-tighter">A</span>
+              <span className="font-heading font-bold text-5xl text-primary-strong tracking-tighter">A</span>
               <div className="absolute inset-0 rounded-2xl border border-primary/20 animate-ping opacity-20" style={{ animationDuration: '3s' }} />
             </motion.div>
 

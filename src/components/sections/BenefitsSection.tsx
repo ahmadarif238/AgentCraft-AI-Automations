@@ -31,7 +31,7 @@ export function BenefitsSection() {
                   className="flex items-center gap-3 text-foreground font-medium animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both"
                   style={{ animationDelay: `${i * 100}ms` }}
                 >
-                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-primary-strong shrink-0" />
                   <span>{benefit}</span>
                 </li>
               ))}

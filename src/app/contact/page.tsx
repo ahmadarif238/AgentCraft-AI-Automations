@@ -55,7 +55,7 @@ export default function ContactPage() {
                     className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors"
                   >
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                      <MessageCircle className="w-6 h-6 text-primary" />
+                      <MessageCircle className="w-6 h-6 text-primary-strong" />
                     </div>
                     <div>
                       <h3 className="font-bold text-foreground">WhatsApp</h3>
@@ -72,7 +72,7 @@ export default function ContactPage() {
                     className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors"
                   >
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                      <Mail className="w-6 h-6 text-primary" />
+                      <Mail className="w-6 h-6 text-primary-strong" />
                     </div>
                     <div>
                       <h3 className="font-bold text-foreground">Email</h3>
@@ -87,7 +87,7 @@ export default function ContactPage() {
                     className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors"
                   >
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                      <Phone className="w-6 h-6 text-primary" />
+                      <Phone className="w-6 h-6 text-primary-strong" />
                     </div>
                     <div>
                       <h3 className="font-bold text-foreground">Phone</h3>
@@ -104,19 +104,19 @@ export default function ContactPage() {
                   className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors"
                 >
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                    <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg className="w-6 h-6 text-primary-strong" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
                     </svg>
                   </div>
                   <div>
                     <h3 className="font-bold text-foreground">LinkedIn</h3>
-                    <p className="text-sm text-muted-foreground">{siteConfig.founderName}</p>
+                    <p className="text-sm text-muted-foreground">{siteConfig.name}</p>
                   </div>
                 </a>
                 )}
 
                 <div className="flex items-center gap-3 px-4 pt-2 text-sm text-muted-foreground">
-                  <Clock className="w-4 h-4 shrink-0 text-primary" />
+                  <Clock className="w-4 h-4 shrink-0 text-primary-strong" />
                   We reply {siteConfig.responseTime}.
                 </div>
               </div>
@@ -124,7 +124,7 @@ export default function ContactPage() {
               <div className="p-8 rounded-2xl bg-primary/5 border border-primary/20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent pointer-events-none" />
                 <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6 relative z-10">
-                  <Calendar className="w-6 h-6 text-primary" />
+                  <Calendar className="w-6 h-6 text-primary-strong" />
                 </div>
                 <h3 className="text-2xl font-heading font-bold mb-4 relative z-10 text-foreground">
                   {hasLiveScheduler ? "Prefer to book directly?" : "What the free audit covers"}

@@ -102,7 +102,7 @@ export default function CaseStudiesPage() {
                   <div className="w-3 h-3 rounded-full bg-border/80" />
                 </div>
                 <div className="flex-1 p-6 flex flex-col items-center justify-center text-center bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent">
-                  <Workflow className="w-12 h-12 text-primary/40 mb-4" />
+                  <Workflow className="w-12 h-12 text-primary-strong/40 mb-4" />
                   <span className="font-heading font-bold text-foreground/80">{system.title} Architecture</span>
                   <span className="text-xs text-muted-foreground mt-2">Interactive Demo Coming Soon</span>
                 </div>
@@ -111,7 +111,7 @@ export default function CaseStudiesPage() {
               {/* Content Side */}
               <div className="lg:col-span-7 flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
-                  <Badge variant="outline" className="text-primary border-primary/30 bg-primary/5">
+                  <Badge variant="outline" className="text-primary-strong border-primary/30 bg-primary/5">
                     {system.category}
                   </Badge>
                   <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider bg-secondary px-2 py-1 rounded">
@@ -144,11 +144,11 @@ export default function CaseStudiesPage() {
                 <div className="mb-6">
                   <h3 className="text-sm font-bold text-foreground mb-3 uppercase tracking-wider">Business Value</h3>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-primary-strong shrink-0" />
                     <p className="text-foreground font-medium">{system.businessValue}</p>
                   </div>
                   <div className="flex items-start gap-3 mt-3">
-                    <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-primary-strong shrink-0" />
                     <p className="text-foreground font-medium">{system.adaptation}</p>
                   </div>
                 </div>

@@ -7,7 +7,7 @@
  */
 
 /** Digits only, including country code, no "+" or spaces. Used to build wa.me links. */
-const whatsappNumber = ""; // e.g. "923001234567"
+const whatsappNumber = "923710962883";
 
 /**
  * Fields you are expected to fill in later. Typed as plain `string` rather than
@@ -57,9 +57,9 @@ export const siteConfig: {
   url: "https://agent-craft-ai-automations.vercel.app",
 
   /** Public inbox. Leave "" until it is a real, monitored address. */
-  email: "",
+  email: "agentcraftaiautomations@gmail.com",
   /** Public phone in display form. Leave "" to hide. */
-  phone: "",
+  phone: "+92 371 0962883",
   whatsappNumber,
   /** Prefilled first message so enquiries arrive with context. */
   whatsappMessage:
@@ -82,13 +82,13 @@ export const siteConfig: {
   links: {
     github: "https://github.com/ahmadarif238",
     /**
-     * The founder's personal profile.
-     * TODO(verify): inferred from the GitHub handle — confirm this resolves to
-     * the right person, or replace it. Set to "" to hide every LinkedIn link.
+     * The founder's personal profile. Intentionally blank: the previously
+     * hard-coded value pointed at someone else's profile, and a wrong link is
+     * worse than none. Fill in the real URL to show the About page button.
      */
-    linkedin: "https://www.linkedin.com/in/ahmadarif238",
-    /** The company page. Leave "" until one exists — the footer falls back to the personal profile. */
-    linkedinCompany: "",
+    linkedin: "",
+    /** The company page — preferred everywhere a company link is shown. */
+    linkedinCompany: "https://www.linkedin.com/company/agentcraft-ai-automations",
     twitter: "",
     /**
      * Live scheduler (Cal.com / Calendly). While this is "", every "Book a call"

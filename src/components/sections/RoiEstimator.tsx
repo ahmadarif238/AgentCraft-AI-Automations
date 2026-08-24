@@ -117,7 +117,7 @@ export function RoiEstimator() {
               <p className="text-xs text-muted-foreground uppercase tracking-wider font-bold mb-1">
                 Typically recoverable
               </p>
-              <p className="text-2xl font-heading font-bold text-primary tabular-nums">
+              <p className="text-2xl font-heading font-bold text-primary-strong tabular-nums">
                 {currency.format(recoverable)}
               </p>
             </div>

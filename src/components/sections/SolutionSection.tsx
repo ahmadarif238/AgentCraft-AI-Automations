@@ -47,7 +47,7 @@ export function SolutionSection() {
               style={{ animationDelay: `${i * 100}ms` }}
             >
               <div className="w-24 h-24 rounded-full bg-card border-4 border-background flex items-center justify-center mb-6 shadow-xl group-hover:border-primary/50 transition-colors">
-                <step.icon className="w-10 h-10 text-primary" />
+                <step.icon className="w-10 h-10 text-primary-strong" />
               </div>
               <h3 className="text-xl font-heading font-bold mb-3">{step.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-[250px]">

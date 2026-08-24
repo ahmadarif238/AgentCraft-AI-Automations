@@ -20,7 +20,7 @@ export default function ServicesPage() {
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-4 block">Our Services</span>
+          <span className="text-primary-strong font-semibold tracking-wider uppercase text-sm mb-4 block">Our Services</span>
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-foreground">
             AI Automation Services
           </h1>
@@ -40,11 +40,11 @@ export default function ServicesPage() {
             >
               <div className="lg:col-span-5 flex flex-col gap-6 sticky top-32">
                 <div className="w-16 h-16 rounded-2xl bg-secondary border border-border flex items-center justify-center shadow-lg">
-                  <service.icon className="w-8 h-8 text-primary" />
+                  <service.icon className="w-8 h-8 text-primary-strong" />
                 </div>
                 <div>
                   <h2 className="text-3xl font-heading font-bold mb-4 text-foreground">{service.title}</h2>
-                  <p className="text-xl text-primary font-semibold leading-snug mb-6">{service.headline}</p>
+                  <p className="text-xl text-primary-strong font-semibold leading-snug mb-6">{service.headline}</p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     {service.description}
                   </p>
@@ -69,7 +69,7 @@ export default function ServicesPage() {
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3 text-muted-foreground">
-                        <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                        <CheckCircle2 className="w-5 h-5 text-primary-strong shrink-0" />
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}

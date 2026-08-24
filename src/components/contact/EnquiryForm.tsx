@@ -70,13 +70,13 @@ export function EnquiryForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
           <label htmlFor="name" className="text-sm font-medium text-foreground">
-            Name <span className="text-primary">*</span>
+            Name <span className="text-primary-strong">*</span>
           </label>
           <input id="name" name="name" required autoComplete="name" maxLength={120} className={INPUT_CLASS} placeholder="Jane Doe" />
         </div>
         <div className="space-y-2">
           <label htmlFor="email" className="text-sm font-medium text-foreground">
-            Email <span className="text-primary">*</span>
+            Email <span className="text-primary-strong">*</span>
           </label>
           <input id="email" name="email" type="email" required autoComplete="email" maxLength={200} className={INPUT_CLASS} placeholder="jane@company.com" />
         </div>
@@ -102,7 +102,7 @@ export function EnquiryForm() {
 
       <div className="space-y-2">
         <label htmlFor="workflow" className="text-sm font-medium text-foreground">
-          What do you want to automate? <span className="text-primary">*</span>
+          What do you want to automate? <span className="text-primary-strong">*</span>
         </label>
         <input id="workflow" name="workflow" required maxLength={400} className={INPUT_CLASS} placeholder="e.g. Lead follow-up, document processing..." />
       </div>
@@ -114,7 +114,7 @@ export function EnquiryForm() {
 
       <div className="space-y-2">
         <label htmlFor="message" className="text-sm font-medium text-foreground">
-          Message <span className="text-primary">*</span>
+          Message <span className="text-primary-strong">*</span>
         </label>
         <textarea
           id="message"

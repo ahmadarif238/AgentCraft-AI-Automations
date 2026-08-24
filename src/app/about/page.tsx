@@ -44,7 +44,7 @@ export default function AboutPage() {
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-4 block">About Us</span>
+          <span className="text-primary-strong font-semibold tracking-wider uppercase text-sm mb-4 block">About Us</span>
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-foreground">
             A Founder-Led AI Automation Studio.
           </h1>
@@ -62,7 +62,7 @@ export default function AboutPage() {
                 {siteConfig.founderName.split(" ").map(n => n[0]).join("")}
               </div>
               <h3 className="text-2xl font-heading font-bold text-foreground">{siteConfig.founderName}</h3>
-              <p className="text-primary font-medium">{siteConfig.founderTitle}</p>
+              <p className="text-primary-strong font-medium">{siteConfig.founderTitle}</p>
             </div>
           </div>
           <div className="md:col-span-7 flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
@@ -101,7 +101,7 @@ export default function AboutPage() {
             {expertise.map((item, i) => (
               <div key={i} className="flex items-center gap-4 bg-card/40 border border-border p-4 rounded-xl">
                 <div className="w-10 h-10 rounded bg-secondary flex items-center justify-center shrink-0">
-                  <item.icon className="w-5 h-5 text-primary" />
+                  <item.icon className="w-5 h-5 text-primary-strong" />
                 </div>
                 <span className="font-semibold text-sm text-foreground">{item.label}</span>
               </div>
@@ -127,7 +127,7 @@ export default function AboutPage() {
           <div className="space-y-8">
             {values.map((value, i) => (
               <div key={i} className="flex gap-4">
-                <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
+                <CheckCircle2 className="w-6 h-6 text-primary-strong shrink-0 mt-1" />
                 <div>
                   <h3 className="font-heading font-bold text-xl mb-2 text-foreground">{value.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{value.description}</p>
