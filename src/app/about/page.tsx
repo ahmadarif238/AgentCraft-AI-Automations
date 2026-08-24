@@ -55,14 +55,23 @@ export default function AboutPage() {
 
         {/* Founder Profile */}
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center mb-32">
-          <div className="md:col-span-5 w-full aspect-[4/5] rounded-3xl bg-secondary border border-border shadow-2xl relative overflow-hidden flex items-center justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-50" />
-            <div className="text-center relative z-10">
-              <div className="w-24 h-24 rounded-full bg-card border-2 border-primary/50 flex items-center justify-center mx-auto mb-4 text-3xl font-heading font-bold text-foreground">
-                {siteConfig.founderName.split(" ").map(n => n[0]).join("")}
-              </div>
-              <h3 className="text-2xl font-heading font-bold text-foreground">{siteConfig.founderName}</h3>
-              <p className="text-primary-strong font-medium">{siteConfig.founderTitle}</p>
+          <div className="md:col-span-5 w-full aspect-[4/5] rounded-3xl bg-secondary border border-border shadow-2xl relative overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+            <Image
+              src="/images/founder.webp"
+              alt={`${siteConfig.founderName}, ${siteConfig.founderTitle} at ${siteConfig.name}`}
+              width={900}
+              height={1125}
+              sizes="(max-width: 768px) 90vw, 420px"
+              className="absolute inset-0 h-full w-full object-cover object-top"
+              priority
+            />
+            {/* Scrim so the name stays legible over the photograph. */}
+            <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/85 via-black/45 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6">
+              <h3 className="text-2xl font-heading font-bold text-white drop-shadow-sm">
+                {siteConfig.founderName}
+              </h3>
+              <p className="font-medium text-primary">{siteConfig.founderTitle}</p>
             </div>
           </div>
           <div className="md:col-span-7 flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">

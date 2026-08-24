@@ -1,11 +1,9 @@
-"use client";
-
-import { ArrowRight, Sparkles, BrainCircuit, Settings, Users, Database, Network, BarChart3 } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BookingLink } from "@/components/ui/BookingLink";
-import { motion } from "framer-motion";
+import { HeroVisual } from "@/components/hero/HeroVisual";
 
 const badges = [
   "Workflow Automation",
@@ -80,104 +78,8 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Side: Animated Hub */}
-          <div className="relative h-[400px] lg:h-[600px] hidden lg:flex items-center justify-center animate-in fade-in zoom-in-95 duration-1000 delay-300">
-            {/* The animated grid/hub */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(201,152,58,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(201,152,58,0.05)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
-            
-            {/* Central Node */}
-            <motion.div 
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-              className="relative z-20 w-28 h-28 rounded-2xl bg-secondary border border-primary shadow-[0_0_50px_rgba(201,152,58,0.4)] flex items-center justify-center"
-            >
-              <span className="font-heading font-bold text-5xl text-primary-strong tracking-tighter">A</span>
-              <div className="absolute inset-0 rounded-2xl border border-primary/20 animate-ping opacity-20" style={{ animationDuration: '3s' }} />
-            </motion.div>
-
-            {/* Orbiting / Connecting Nodes */}
-            <div className="absolute inset-0 w-full h-full pointer-events-none">
-              
-              {/* Node 1: AI Agents */}
-              <motion.div 
-                animate={{ y: [0, 10, 0] }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 0.5 }}
-                className="absolute top-[15%] right-[15%] z-10 flex flex-col items-center gap-2"
-              >
-                <div className="w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg relative">
-                  <BrainCircuit className="w-6 h-6 text-foreground" />
-                  <div className="absolute -left-16 top-1/2 h-px w-16 bg-gradient-to-r from-transparent to-primary/50" />
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-background/80 px-2 rounded">AI Agents</span>
-              </motion.div>
-
-              {/* Node 2: Workflow Automation */}
-              <motion.div 
-                animate={{ y: [0, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1 }}
-                className="absolute top-[20%] left-[10%] z-10 flex flex-col items-center gap-2"
-              >
-                <div className="w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg relative">
-                  <Settings className="w-6 h-6 text-foreground" />
-                  <div className="absolute -right-12 top-1/2 h-px w-12 bg-gradient-to-l from-transparent to-primary/50" />
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-background/80 px-2 rounded">Workflows</span>
-              </motion.div>
-
-              {/* Node 3: CRM */}
-              <motion.div 
-                animate={{ x: [0, 8, 0] }}
-                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1.5 }}
-                className="absolute bottom-[35%] left-[5%] z-10 flex flex-col items-center gap-2"
-              >
-                <div className="w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg relative">
-                  <Users className="w-6 h-6 text-foreground" />
-                  <div className="absolute -right-20 top-1/2 h-px w-20 bg-gradient-to-l from-transparent to-primary/50" />
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-background/80 px-2 rounded">CRM</span>
-              </motion.div>
-
-              {/* Node 4: Documents (RAG) */}
-              <motion.div 
-                animate={{ y: [0, -12, 0] }}
-                transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 2 }}
-                className="absolute bottom-[15%] left-[25%] z-10 flex flex-col items-center gap-2"
-              >
-                <div className="w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg relative">
-                  <Database className="w-6 h-6 text-foreground" />
-                  <div className="absolute -top-16 left-1/2 w-px h-16 bg-gradient-to-t from-transparent to-primary/50" />
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-background/80 px-2 rounded">Documents</span>
-              </motion.div>
-
-              {/* Node 5: APIs */}
-              <motion.div 
-                animate={{ y: [0, 8, 0] }}
-                transition={{ repeat: Infinity, duration: 5.5, ease: "easeInOut", delay: 0.8 }}
-                className="absolute bottom-[20%] right-[20%] z-10 flex flex-col items-center gap-2"
-              >
-                <div className="w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg relative">
-                  <Network className="w-6 h-6 text-foreground" />
-                  <div className="absolute -left-12 -top-8 w-16 h-px bg-gradient-to-r from-transparent to-primary/50 origin-left -rotate-45" />
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-background/80 px-2 rounded">APIs</span>
-              </motion.div>
-
-              {/* Node 6: Reports */}
-              <motion.div 
-                animate={{ x: [0, -8, 0] }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 2.5 }}
-                className="absolute top-[45%] right-[5%] z-10 flex flex-col items-center gap-2"
-              >
-                <div className="w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg relative">
-                  <BarChart3 className="w-6 h-6 text-foreground" />
-                  <div className="absolute -left-20 top-1/2 h-px w-20 bg-gradient-to-r from-transparent to-primary/50" />
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-background/80 px-2 rounded">Reports</span>
-              </motion.div>
-
-            </div>
-          </div>
+          {/* Right Side: 3D workflow graph, with a static fallback. */}
+          <HeroVisual />
 
         </div>
       </div>
