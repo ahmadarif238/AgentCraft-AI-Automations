@@ -19,6 +19,19 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
+/**
+ * Search Console shows the verification token wrapped in a full `<meta>` tag,
+ * so it is easy to paste the whole fragment into the environment variable.
+ * Next wants the bare token, and a wrapped value silently produces a tag that
+ * never verifies. Accept either form rather than making that a support issue.
+ */
+function googleVerificationToken(): string | undefined {
+  const raw = process.env.GOOGLE_SITE_VERIFICATION?.trim();
+  if (!raw) return undefined;
+  const wrapped = raw.match(/content=["']([^"']+)["']/i);
+  return (wrapped ? wrapped[1] : raw).replace(/["'/>\s]+$/g, "").trim() || undefined;
+}
+
 const OG_IMAGE = {
   url: "/og-image.png",
   width: 1200,
@@ -61,11 +74,10 @@ export const metadata: Metadata = {
   // Icons come from the app/icon.png, app/apple-icon.png and app/favicon.ico
   // file conventions, which are the square "A" mark rather than the wide lockup.
 
-  // Google Search Console ownership. Set GOOGLE_SITE_VERIFICATION in Vercel to
-  // the token from the "HTML tag" verification method; omitted when unset so
-  // no empty meta tag is emitted.
-  ...(process.env.GOOGLE_SITE_VERIFICATION && {
-    verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
+  // Google Search Console ownership; omitted when unset so no empty meta tag
+  // is emitted. See googleVerificationToken() for why the value is sanitised.
+  ...(googleVerificationToken() && {
+    verification: { google: googleVerificationToken() },
   }),
 };
 
