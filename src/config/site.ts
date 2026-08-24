@@ -82,9 +82,10 @@ export const siteConfig: {
   links: {
     github: "https://github.com/ahmadarif238",
     /**
-     * The founder's personal profile. Intentionally blank: the previously
-     * hard-coded value pointed at someone else's profile, and a wrong link is
-     * worse than none. Fill in the real URL to show the About page button.
+     * The founder's personal profile. Intentionally unused — the company page
+     * below is the one we point people at. Every LinkedIn link falls back to
+     * it, and the About page's personal-profile button stays hidden while this
+     * is blank.
      */
     linkedin: "",
     /** The company page — preferred everywhere a company link is shown. */
