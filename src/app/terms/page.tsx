@@ -1,3 +1,13 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Terms of Service",
+  description:
+    "The terms governing use of the AgentCraft AI Automations website and services.",
+  path: "/terms",
+});
+
 export default function TermsPage() {
   return (
     <section className="pt-32 pb-24 bg-background min-h-screen">

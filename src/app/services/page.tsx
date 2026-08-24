@@ -1,10 +1,17 @@
-"use client";
-
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/config/site";
+import { enquiryUrl } from "@/config/site";
+
+export const metadata: Metadata = pageMetadata({
+  title: "AI Automation Services",
+  description:
+    "Workflow automation, custom AI agents, RAG and knowledge systems, CRM and lead automation, and API integrations built around the tools you already use.",
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (
@@ -82,7 +89,7 @@ export default function ServicesPage() {
 
                 <div className="pt-4">
                   <Button variant="gold" size="lg" className="w-full sm:w-auto shadow-[0_0_15px_rgba(201,152,58,0.15)] hover:shadow-[0_0_20px_rgba(201,152,58,0.3)] transition-all" asChild>
-                    <Link href={`${siteConfig.links.booking}?service=${service.id}`}>
+                    <Link href={enquiryUrl({ service: service.id })}>
                       Automate This Workflow
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>

@@ -1,5 +1,3 @@
-"use client";
-
 import { ShieldCheck, KeyRound, DatabaseZap, FileCode2, Activity, Presentation } from "lucide-react";
 
 const securityFeatures = [
@@ -44,7 +42,7 @@ export function SecuritySection() {
             Built With Security and Reliability in Mind.
           </h2>
           <p className="text-muted-foreground text-lg">
-            We don't build brittle web scrapers. We engineer robust, secure, and documented systems that enterprises can trust.
+            We don&apos;t build brittle web scrapers. We engineer robust, secure, and documented systems that enterprises can trust.
           </p>
         </div>
 

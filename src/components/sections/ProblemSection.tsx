@@ -1,5 +1,3 @@
-"use client";
-
 import { FileText, Clock, Database, MessageSquare, Search, FileBarChart } from "lucide-react";
 
 const problems = [

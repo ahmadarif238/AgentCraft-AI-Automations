@@ -1,9 +1,15 @@
-"use client";
-
-import { ArrowRight, FileCode2, ExternalLink, Workflow, CheckCircle } from "lucide-react";
-import Link from "next/link";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
+import { FileCode2, ExternalLink, Workflow, CheckCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Case Studies & AI Systems",
+  description:
+    "Multi-agent systems, RAG implementations and workflow automations built by AgentCraft AI - the problem, the architecture, and the business value in each.",
+  path: "/case-studies",
+});
 
 const systems = [
   {

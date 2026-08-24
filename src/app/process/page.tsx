@@ -1,7 +1,14 @@
-"use client";
-
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { Badge } from "@/components/ui/badge";
 import { CTASection } from "@/components/sections/CTASection";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Our Process",
+  description:
+    "From free automation audit to scoping, build, testing, handover and ongoing support - how an AgentCraft AI automation project actually runs.",
+  path: "/process",
+});
 
 const processSteps = [
   {
@@ -47,7 +54,7 @@ export default function ProcessPage() {
               A Proven Path to Automation
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              We don't just write code. We map your business logic and engineer reliable systems that scale.
+              We don&apos;t just write code. We map your business logic and engineer reliable systems that scale.
             </p>
           </div>
         </div>

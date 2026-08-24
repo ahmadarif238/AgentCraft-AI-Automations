@@ -1,5 +1,3 @@
-"use client";
-
 import { Search, Cog, Network, TrendingUp } from "lucide-react";
 
 const steps = [

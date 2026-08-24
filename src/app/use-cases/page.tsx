@@ -1,12 +1,19 @@
-"use client";
-
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useCases } from "@/data/useCases";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/sections/CTASection";
-import { siteConfig } from "@/config/site";
+import { enquiryUrl } from "@/config/site";
+
+export const metadata: Metadata = pageMetadata({
+  title: "AI Automation Use Cases by Industry",
+  description:
+    "How AI agents and workflow automation are applied across sales, legal, operations, support, finance, healthcare, e-commerce and more.",
+  path: "/use-cases",
+});
 
 export default function UseCasesPage() {
   return (
@@ -80,7 +87,7 @@ export default function UseCasesPage() {
                   </div>
 
                   <Button variant="outline" className="w-full sm:w-auto mt-4" asChild>
-                    <Link href={`${siteConfig.links.booking}?industry=${useCase.industry.toLowerCase()}`}>
+                    <Link href={enquiryUrl({ industry: useCase.industry.toLowerCase() })}>
                       Discuss Your Use Case <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>

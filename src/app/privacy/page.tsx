@@ -1,3 +1,13 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Privacy Policy",
+  description:
+    "How AgentCraft AI Automations collects, uses and protects information submitted through this website.",
+  path: "/privacy",
+});
+
 export default function PrivacyPage() {
   return (
     <section className="pt-32 pb-24 bg-background min-h-screen">
@@ -6,7 +16,7 @@ export default function PrivacyPage() {
         <div className="prose prose-invert max-w-none text-muted-foreground space-y-6">
           <p>Last updated: {new Date().toLocaleDateString()}</p>
           <p>
-            AgentCraft AI Automations ("we", "our", or "us") respects your privacy and is committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.
+            AgentCraft AI Automations (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;) respects your privacy and is committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.
           </p>
           <h2 className="text-2xl font-bold text-foreground mt-8">1. Information We Collect</h2>
           <p>

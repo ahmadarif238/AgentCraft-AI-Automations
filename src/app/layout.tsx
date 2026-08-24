@@ -1,69 +1,72 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
 import { siteConfig } from "@/config/site";
+import { faqs } from "@/data/faqs";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
 });
+
+const OG_IMAGE = {
+  url: "/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: `${siteConfig.name} — AI Agents & Workflow Automation`,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: `${siteConfig.name} | AI Agents & Workflow Automation`,
-    template: `%s | ${siteConfig.name}`,
+    template: `%s | ${siteConfig.shortName}`,
   },
   description: siteConfig.description,
-  keywords: [
-    "AI automation agency",
-    "AI agents",
-    "workflow automation",
-    "business automation",
-    "RAG assistant",
-    "CRM automation",
-    "n8n automation",
-    "Zapier automation",
-    "Power Automate",
-    "LangGraph AI agents",
-    "custom AI assistants",
-  ],
+  applicationName: siteConfig.name,
   authors: [{ name: siteConfig.founderName }],
   creator: siteConfig.founderName,
+  publisher: siteConfig.name,
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: siteConfig.name,
+    title: `${siteConfig.name} | AI Agents & Workflow Automation`,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: `${siteConfig.name} - AI Agents & Workflow Automation`,
-      },
-    ],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
+    title: `${siteConfig.name} | AI Agents & Workflow Automation`,
     description: siteConfig.description,
-    images: ["/og-image.jpg"],
-    creator: "@agentcraftai",
+    images: [OG_IMAGE.url],
   },
-  icons: {
-    icon: "/images/logo.png",
-    apple: "/images/logo.png",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
+  // Icons come from the app/icon.png, app/apple-icon.png and app/favicon.ico
+  // file conventions, which are the square "A" mark rather than the wide lockup.
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#F8F3EA" },
+    { media: "(prefers-color-scheme: dark)", color: "#0B0B0D" },
+  ],
 };
 
 export default function RootLayout({
@@ -80,29 +83,57 @@ export default function RootLayout({
         name: siteConfig.name,
         url: siteConfig.url,
         logo: `${siteConfig.url}/images/logo.png`,
-        sameAs: [siteConfig.links.linkedin, siteConfig.links.github, siteConfig.links.twitter],
+        description: siteConfig.description,
+        founder: { "@type": "Person", name: siteConfig.founderName, jobTitle: siteConfig.founderTitle },
+        sameAs: [
+          siteConfig.links.linkedinCompany,
+          siteConfig.links.linkedin,
+          siteConfig.links.github,
+          siteConfig.links.twitter,
+        ].filter(Boolean),
+        ...(siteConfig.email && { email: siteConfig.email }),
+        ...(siteConfig.phone && { telephone: siteConfig.phone }),
       },
       {
         "@type": "ProfessionalService",
         "@id": `${siteConfig.url}/#service`,
         name: siteConfig.name,
-        image: `${siteConfig.url}/og-image.jpg`,
+        image: `${siteConfig.url}/og-image.png`,
         url: siteConfig.url,
-        telephone: "", // Add telephone here if applicable
+        parentOrganization: { "@id": `${siteConfig.url}/#organization` },
         priceRange: "$$",
+        serviceType: [
+          "AI agent development",
+          "Workflow automation",
+          "RAG and knowledge systems",
+          "CRM and lead automation",
+          "API and data integration",
+        ],
         address: {
           "@type": "PostalAddress",
-          addressCountry: "US", // Placeholder
+          addressLocality: siteConfig.location.city,
+          addressCountry: siteConfig.location.countryCode,
         },
+        // Delivery is remote, so the served area is global rather than a local radius.
+        areaServed: { "@type": "Place", name: "Worldwide" },
+        ...(siteConfig.phone && { telephone: siteConfig.phone }),
       },
       {
         "@type": "WebSite",
         "@id": `${siteConfig.url}/#website`,
         url: siteConfig.url,
         name: siteConfig.name,
-        publisher: {
-          "@id": `${siteConfig.url}/#organization`,
-        },
+        inLanguage: "en",
+        publisher: { "@id": `${siteConfig.url}/#organization` },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${siteConfig.url}/#faq`,
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
       },
     ],
   };
@@ -112,16 +143,15 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased bg-background text-foreground`}
     >
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
       <body className="min-h-full flex flex-col pt-20">
         <Navbar />
         <main className="flex-1 flex flex-col">{children}</main>
         <Footer />
+        <WhatsAppFab />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </body>
     </html>
   );

@@ -14,6 +14,14 @@
 
   --primary: #C9983A;
   --primary-foreground: #070707;
+  /*
+   * Text-safe gold. The brand gold above is only 2.36:1 against this cream
+   * background, which fails WCAG AA even for large text. This darker tone sits
+   * on the same hue (39deg) and reaches 5.03:1, so use it for gold *text* and
+   * meaningful icons on light surfaces. The brand gold stays correct for
+   * button fills and borders, where the dark foreground provides the contrast.
+   */
+  --primary-strong: #836324;
 
   --secondary: #111111;
   --secondary-foreground: #F8F3EA;
@@ -34,6 +42,11 @@
   --radius: 0.5rem;
 }
 
+/*
+ * Inert today: nothing adds the `dark` class to <html>, so these values never
+ * apply. Kept as a ready-made palette for when a theme toggle is added — wire
+ * it up by toggling `dark` on the root element.
+ */
 .dark {
   --background: #0B0B0D;
   --foreground: #F8F3EA;
@@ -46,6 +59,8 @@
 
   --primary: #C9983A;
   --primary-foreground: #070707;
+  /* On the dark surface the brand gold is already 7.23:1, so no shift needed. */
+  --primary-strong: #C9983A;
 
   --secondary: #222222;
   --secondary-foreground: #F8F3EA;
@@ -73,6 +88,7 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-strong: var(--primary-strong);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -101,5 +117,31 @@
     background-color: var(--background);
     color: var(--foreground);
     font-family: var(--font-sans);
+  }
+}
+
+/*
+ * Respect an explicit request for less motion.
+ *
+ * Several reveals here are built on `animate-in fade-in`, which starts at
+ * opacity 0. Without this block a reduced-motion user can be left looking at
+ * content that never fades in, so the animations are neutralised to their
+ * finished state rather than merely shortened.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Guarantee the end state regardless of whether the keyframes ran. */
+  [class*="animate-in"] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

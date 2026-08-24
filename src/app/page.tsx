@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ProblemSection } from "@/components/sections/ProblemSection";
 import { SolutionSection } from "@/components/sections/SolutionSection";
@@ -8,7 +9,12 @@ import { ProcessPreviewSection } from "@/components/sections/ProcessPreviewSecti
 import { BenefitsSection } from "@/components/sections/BenefitsSection";
 import { SecuritySection } from "@/components/sections/SecuritySection";
 import { FlyerSection } from "@/components/sections/FlyerSection";
+import { FaqSection } from "@/components/sections/FaqSection";
 import { CTASection } from "@/components/sections/CTASection";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
@@ -23,6 +29,8 @@ export default function Home() {
       <BenefitsSection />
       <SecuritySection />
       <FlyerSection />
+      {/* Objections answered before the final ask, not after someone has already converted. */}
+      <FaqSection />
       <CTASection />
     </>
   );
