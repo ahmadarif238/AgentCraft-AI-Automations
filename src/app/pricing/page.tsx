@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
-import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BookingLink } from "@/components/ui/BookingLink";
 import { FaqSection } from "@/components/sections/FaqSection";
 import {
   buildAddOns,
@@ -14,7 +14,6 @@ import {
   pricingPackages,
 } from "@/data/pricing";
 import { objectionFaqs } from "@/data/faqs";
-import { bookingUrl } from "@/config/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Pricing & Packages",
@@ -88,7 +87,7 @@ export default function PricingPage() {
                   className="w-full"
                   asChild
                 >
-                  <Link href={bookingUrl}>{pkg.cta}</Link>
+                  <BookingLink>{pkg.cta}</BookingLink>
                 </Button>
               </div>
             ))}
@@ -195,7 +194,7 @@ export default function PricingPage() {
           </div>
           <div className="mt-12 text-center">
             <Button variant="gold" size="lg" asChild>
-              <Link href={bookingUrl}>Get a Fixed Quote</Link>
+              <BookingLink>Get a Fixed Quote</BookingLink>
             </Button>
             <p className="text-sm text-muted-foreground mt-4">
               The audit and the quote are both free.

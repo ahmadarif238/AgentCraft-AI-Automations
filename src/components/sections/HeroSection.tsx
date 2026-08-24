@@ -4,6 +4,7 @@ import { ArrowRight, Sparkles, BrainCircuit, Settings, Users, Database, Network,
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { BookingLink } from "@/components/ui/BookingLink";
 import { motion } from "framer-motion";
 
 const badges = [
@@ -48,10 +49,10 @@ export function HeroSection() {
             <div className="flex flex-col w-full sm:w-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
               <div className="flex flex-col sm:flex-row items-center gap-4 mb-3 w-full">
                 <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2 shadow-[0_0_20px_rgba(201,152,58,0.2)] hover:shadow-[0_0_30px_rgba(201,152,58,0.4)] transition-all" asChild>
-                  <Link href="/contact">
+                  <BookingLink>
                     <Sparkles className="w-4 h-4" />
                     Book a Free Automation Audit
-                  </Link>
+                  </BookingLink>
                 </Button>
                 <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2 border-border hover:bg-secondary hover:text-secondary-foreground transition-all" asChild>
                   <Link href="/services">

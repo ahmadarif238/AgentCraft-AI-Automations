@@ -17,7 +17,7 @@ export function CaseStudiesPreviewSection() {
               AI Systems Built for Real Business Workflows.
             </h2>
             <p className="text-muted-foreground text-lg">
-              Explore founder-built systems and demos showcasing advanced Agentic AI, RAG, and automation architectures.
+              Real systems we have designed and shipped, showcasing advanced Agentic AI, RAG, and automation architectures.
             </p>
           </div>
           <Button variant="outline" asChild className="shrink-0 group">

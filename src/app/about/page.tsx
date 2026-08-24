@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import { CheckCircle2, Code2, Database, BrainCircuit, Rocket, ShieldCheck, Cpu } from "lucide-react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { bookingUrl, siteConfig } from "@/config/site";
+import { BookingLink } from "@/components/ui/BookingLink";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "About Us",
@@ -183,9 +183,9 @@ export default function AboutPage() {
             Book a free automation audit and we&apos;ll map out which of your workflows are worth automating first.
           </p>
           <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2 shadow-[0_0_20px_rgba(201,152,58,0.2)]" asChild>
-            <Link href={bookingUrl}>
+            <BookingLink>
               Book a Free Automation Audit
-            </Link>
+            </BookingLink>
           </Button>
         </div>
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Sparkles, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BookingLink } from "@/components/ui/BookingLink";
 
 export function CTASection() {
   return (
@@ -23,13 +24,13 @@ export function CTASection() {
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2" asChild>
-                <Link href="/contact">
+                <BookingLink>
                   <Sparkles className="w-4 h-4" />
                   Book Free Automation Audit
-                </Link>
+                </BookingLink>
               </Button>
               <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2" asChild>
-                <Link href="/contact">
+                <Link href="/contact#enquiry-form">
                   <MessageSquare className="w-4 h-4" />
                   Send a Message
                 </Link>

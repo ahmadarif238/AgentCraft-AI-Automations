@@ -68,6 +68,9 @@ export function Footer() {
               <li><Link href="/services#ai-agents" className="hover:text-primary transition-colors">AI Agents Development</Link></li>
               <li><Link href="/services#rag-systems" className="hover:text-primary transition-colors">RAG &amp; Knowledge Systems</Link></li>
               <li><Link href="/services#crm-automation" className="hover:text-primary transition-colors">CRM &amp; Lead Automation</Link></li>
+              <li><Link href="/services#ai-chatbots" className="hover:text-primary transition-colors">AI Chatbots &amp; Assistants</Link></li>
+              <li><Link href="/services#web-development" className="hover:text-primary transition-colors">Website Development</Link></li>
+              <li><Link href="/services#app-development" className="hover:text-primary transition-colors">Application Development</Link></li>
               <li><Link href="/services#data-integration" className="hover:text-primary transition-colors">Data Integration &amp; APIs</Link></li>
             </ul>
           </div>

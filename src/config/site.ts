@@ -92,10 +92,12 @@ export const siteConfig: {
     linkedinCompany: "https://www.linkedin.com/company/agentcraft-ai-automations",
     twitter: "",
     /**
-     * Live scheduler (Cal.com / Calendly). While this is "", every "Book a call"
-     * CTA points at the contact form instead of a broken link.
+     * Live scheduler. Every "Book a call" CTA points here, and the surrounding
+     * copy switches from "request an audit" to "pick a time". Set this back to
+     * "" and everything falls back to the contact form — never a broken link.
+     * The 30-minute event is the one the site's copy promises.
      */
-    booking: "",
+    booking: "https://cal.com/agentcraft-ai-automations-rzmkhu/30min",
   },
 
   /** The downloadable one-pager. A real PDF, not an image named like one. */

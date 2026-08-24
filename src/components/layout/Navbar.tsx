@@ -5,8 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BookingLink } from "@/components/ui/BookingLink";
 import { BrandLogo } from "@/components/ui/BrandLogo";
-import { bookingUrl, whatsappUrl } from "@/config/site";
+import { whatsappUrl } from "@/config/site";
 
 const navLinks = [
   { name: "Services", href: "/services" },
@@ -98,7 +99,7 @@ export function Navbar() {
               className="shadow-[0_0_15px_rgba(201,152,58,0.15)] hover:shadow-[0_0_20px_rgba(201,152,58,0.3)] transition-all"
               asChild
             >
-              <Link href={bookingUrl}>Book Free Audit</Link>
+              <BookingLink>Book Free Audit</BookingLink>
             </Button>
           </div>
           <button
@@ -151,7 +152,7 @@ export function Navbar() {
 
           <div className="mt-auto pt-10 flex flex-col gap-3 border-t border-border">
             <Button variant="gold" size="lg" className="w-full" asChild>
-              <Link href={bookingUrl} onClick={closeMenu}>Book Free Audit</Link>
+              <BookingLink onClick={closeMenu}>Book Free Audit</BookingLink>
             </Button>
             {whatsappUrl && (
               <Button variant="outline" size="lg" className="w-full gap-2" asChild>

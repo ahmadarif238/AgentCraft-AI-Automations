@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
-import { bookingUrl } from "@/config/site";
+import { BookingLink } from "@/components/ui/BookingLink";
 
 export const metadata: Metadata = {
   title: "Page Not Found",
@@ -36,7 +36,7 @@ export default function NotFound() {
         </div>
 
         <Button variant="gold" size="lg" asChild>
-          <Link href={bookingUrl}>Book a Free Automation Audit</Link>
+          <BookingLink>Book a Free Automation Audit</BookingLink>
         </Button>
       </div>
     </section>

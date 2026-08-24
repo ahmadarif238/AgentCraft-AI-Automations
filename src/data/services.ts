@@ -7,6 +7,9 @@ import {
   Network,
   BarChart3,
   Wrench,
+  MessageSquare,
+  Globe,
+  Smartphone,
   type LucideIcon
 } from "lucide-react";
 
@@ -134,6 +137,54 @@ export const services: Service[] = [
     ],
     tools: ["Power BI", "Looker Studio", "Python", "Make"],
     idealFor: "Founders and executives who need data without the manual work."
+  },
+  {
+    id: "ai-chatbots",
+    title: "AI Chatbots & Website Assistants",
+    headline: "Answer Customers Instantly, Day and Night, On Your Own Site.",
+    description: "Chat assistants trained on your own documents, products and policies, embedded directly into your website and styled to match your brand.",
+    solves: "Stops repetitive pre-sales questions and support tickets from eating your team's day, and captures the leads that would otherwise leave without contacting you.",
+    icon: MessageSquare,
+    features: [
+      "Assistant trained on your docs, FAQs and product data",
+      "Embedded and styled to match your website",
+      "Lead capture and qualification inside the chat",
+      "Handover to a human with the full conversation attached"
+    ],
+    tools: ["OpenAI", "LangChain", "Vector Databases", "Next.js", "Webhooks"],
+    idealFor: "Businesses fielding the same customer questions over and over."
+  },
+  {
+    id: "web-development",
+    title: "Website Development",
+    headline: "Fast, Modern Websites Built to Convert, Not Just to Look Good.",
+    description: "Marketing sites and business websites built on a modern stack, with the option to wire AI features and automations straight into them.",
+    solves: "Replaces slow, hard-to-edit websites with something fast, searchable and built around turning visitors into enquiries.",
+    icon: Globe,
+    features: [
+      "Responsive design across every screen size",
+      "SEO fundamentals, structured data and fast page loads",
+      "Content management so your team can edit without a developer",
+      "Optional AI features and automation built in"
+    ],
+    tools: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+    idealFor: "Businesses whose current site is slow, dated, or generating nothing."
+  },
+  {
+    id: "app-development",
+    title: "Application Development",
+    headline: "Custom Applications With Real Business Logic Behind Them.",
+    description: "Web applications with authentication, databases, dashboards and integrations, built to run the parts of your operation that spreadsheets have outgrown.",
+    solves: "Replaces the tangle of spreadsheets, shared inboxes and manual handoffs that your team has quietly built a business process on top of.",
+    icon: Smartphone,
+    features: [
+      "User accounts, roles and permissions",
+      "Dashboards and internal admin tools",
+      "Integrations with the systems you already run",
+      "Optional AI agents and automated workflows built in"
+    ],
+    tools: ["Next.js", "FastAPI", "PostgreSQL", "Supabase", "Docker"],
+    idealFor: "Teams running a core process on spreadsheets that keeps breaking."
   },
   {
     id: "ongoing-support",
