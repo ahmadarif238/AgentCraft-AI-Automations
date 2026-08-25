@@ -20,7 +20,7 @@ export default function ServicesPage() {
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <span className="text-primary-strong font-semibold tracking-wider uppercase text-sm mb-4 block">Our Services</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary mb-4 block">Our Services</span>
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-foreground">
             AI Automation Services
           </h1>
@@ -50,7 +50,7 @@ export default function ServicesPage() {
                   </p>
                 </div>
                 <div className="bg-card/40 border border-border p-5 rounded-xl">
-                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2 block">Ideal For:</span>
+                  <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground mb-2 block">Ideal For:</span>
                   <p className="text-sm font-medium text-foreground">{service.idealFor}</p>
                 </div>
               </div>
@@ -88,7 +88,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="pt-4">
-                  <Button variant="gold" size="lg" className="w-full sm:w-auto shadow-[0_0_15px_rgba(201,152,58,0.15)] hover:shadow-[0_0_20px_rgba(201,152,58,0.3)] transition-all" asChild>
+                  <Button variant="gold" size="lg" className="w-full sm:w-auto shadow-[0_0_15px_rgba(173,255,47,0.15)] hover:shadow-[0_0_20px_rgba(173,255,47,0.3)] transition-all" asChild>
                     <Link href={enquiryUrl({ service: service.id })}>
                       Automate This Workflow
                       <ArrowRight className="w-4 h-4 ml-2" />

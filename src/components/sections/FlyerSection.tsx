@@ -40,7 +40,7 @@ export function FlyerSection() {
             <a
               href={siteConfig.overviewPdf}
               download
-              className="relative w-full max-w-[380px] aspect-[2/3] rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] border-2 border-border group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-12px_rgba(201,152,58,0.3)] transition-all duration-500 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
+              className="relative w-full max-w-[380px] aspect-[2/3] rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] border-2 border-border group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-12px_rgba(173,255,47,0.3)] transition-all duration-500 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
             >
               <Image
                 src="/images/flyer.webp"

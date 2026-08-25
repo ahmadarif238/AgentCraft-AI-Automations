@@ -22,9 +22,9 @@ const NODES = [
 export function StaticHeroVisual() {
   return (
     <div className="absolute inset-0 flex items-center justify-center">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(201,152,58,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(201,152,58,0.05)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(42,49,60,0.35)_1px,transparent_1px),linear-gradient(to_bottom,rgba(42,49,60,0.35)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 
-      <div className="relative z-20 w-28 h-28 rounded-2xl bg-secondary border border-primary shadow-[0_0_50px_rgba(201,152,58,0.35)] flex items-center justify-center">
+      <div className="relative z-20 w-28 h-28 rounded-2xl bg-canvas border border-primary shadow-[0_0_50px_rgba(173,255,47,0.28)] flex items-center justify-center">
         <Image
           src="/images/mark-light.png"
           alt=""
@@ -44,7 +44,7 @@ export function StaticHeroVisual() {
             <div className="w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg">
               <Icon className="w-6 h-6 text-foreground" aria-hidden="true" />
             </div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-background/80 px-2 rounded">
+            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground bg-background/80 px-2 rounded">
               {label}
             </span>
           </div>

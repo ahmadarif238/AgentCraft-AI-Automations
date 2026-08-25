@@ -2,90 +2,65 @@
 
 @plugin "tailwindcss-animate";
 
-:root {
-  --background: #F8F3EA;
-  --foreground: #070707;
-
-  --card: #F4EBDD;
-  --card-foreground: #070707;
-
-  --popover: #F8F3EA;
-  --popover-foreground: #070707;
-
-  --primary: #C9983A;
-  --primary-foreground: #070707;
-  /*
-   * Text-safe gold. The brand gold above is only 2.36:1 against this cream
-   * background, which fails WCAG AA even for large text. This darker tone sits
-   * on the same hue (39deg) and reaches 5.03:1, so use it for gold *text* and
-   * meaningful icons on light surfaces. The brand gold stays correct for
-   * button fills and borders, where the dark foreground provides the contrast.
-   */
-  --primary-strong: #836324;
-
-  --secondary: #111111;
-  --secondary-foreground: #F8F3EA;
-
-  --muted: #EFE4D3;
-  --muted-foreground: #5F5A52;
-
-  --accent: #D6A84D;
-  --accent-foreground: #070707;
-  /* Text-safe accent, same 40deg hue, 4.55:1 on cream. Pairs with --primary-strong. */
-  --accent-strong: #8D6921;
-
-  --destructive: #ff4d4f;
-  --destructive-foreground: #ffffff;
-
-  --border: rgba(201, 152, 58, 0.25);
-  --input: rgba(201, 152, 58, 0.25);
-  --ring: #C9983A;
-
-  --radius: 0.5rem;
-}
-
 /*
- * Inert today: nothing adds the `dark` class to <html>, so these values never
- * apply. Kept as a ready-made palette for when a theme toggle is added — wire
- * it up by toggling `dark` on the root element.
+ * Halogen Kit.
+ *
+ * Dark canvas, one high-voltage accent. The semantic token names are unchanged
+ * from the previous theme, so every component that already styles itself
+ * through them (bg-card, text-muted-foreground, border-border) moves over
+ * without edits; only the values below changed.
+ *
+ * Contrast on this palette, measured: body text 16.82:1 on the base canvas and
+ * 14.17:1 on surfaces, muted text 6.46:1 and 5.44:1, accent 15.07:1 and
+ * 12.70:1, and dark-on-accent for filled buttons 15.07:1.
  */
-.dark {
-  --background: #0B0B0D;
-  --foreground: #F8F3EA;
 
-  --card: #111111;
-  --card-foreground: #F8F3EA;
+:root {
+  /* Base canvas, one step up for raised areas, two for cards. */
+  --background: #101419;
+  --foreground: #F2F5F1;
 
-  --popover: #0B0B0D;
-  --popover-foreground: #F8F3EA;
+  --canvas: #161A21;
 
-  --primary: #C9983A;
-  --primary-foreground: #070707;
-  /* On the dark surface the brand gold is already 7.23:1, so no shift needed. */
-  --primary-strong: #C9983A;
+  --card: #1F242D;
+  --card-foreground: #F2F5F1;
 
-  --secondary: #222222;
-  --secondary-foreground: #F8F3EA;
+  --popover: #161A21;
+  --popover-foreground: #F2F5F1;
 
-  --muted: #1a1a1a;
-  --muted-foreground: #A19D95;
+  /* The single accent. Everything that matters is lit with this and nothing else. */
+  --primary: #ADFF2F;
+  --primary-foreground: #101419;
+  /*
+   * On the old cream theme the accent needed a darker variant to stay legible.
+   * Lime clears 15:1 on this canvas, so text and fill share one value.
+   */
+  --primary-strong: #ADFF2F;
 
-  --accent: #D6A84D;
-  --accent-foreground: #070707;
-  /* On dark the brand accent already has ample contrast. */
-  --accent-strong: #D6A84D;
+  --secondary: #161A21;
+  --secondary-foreground: #F2F5F1;
 
-  --destructive: #ff4d4f;
-  --destructive-foreground: #ffffff;
+  --muted: #1F242D;
+  --muted-foreground: #8E9AA8;
 
-  --border: rgba(201, 152, 58, 0.25);
-  --input: rgba(201, 152, 58, 0.25);
-  --ring: #C9983A;
+  --accent: #ADFF2F;
+  --accent-foreground: #101419;
+  --accent-strong: #ADFF2F;
+
+  --destructive: #FF5C5C;
+  --destructive-foreground: #101419;
+
+  --border: #2A313C;
+  --input: #2A313C;
+  --ring: #ADFF2F;
+
+  --radius: 0.75rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-canvas: var(--canvas);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
@@ -93,13 +68,13 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-strong: var(--primary-strong);
-  --color-accent-strong: var(--accent-strong);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-strong: var(--accent-strong);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -110,8 +85,9 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
 
-  --font-sans: var(--font-inter), sans-serif;
+  --font-sans: var(--font-jakarta), sans-serif;
   --font-heading: var(--font-space-grotesk), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
 @layer base {
@@ -122,16 +98,81 @@
     background-color: var(--background);
     color: var(--foreground);
     font-family: var(--font-sans);
+    overflow-x: hidden;
   }
+  ::selection {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Halogen vocabulary: neon glows, ring depth, and the two background fields.
+ * These are the pieces the palette alone cannot express.
+ * ------------------------------------------------------------------------- */
+
+.glow-sm {
+  box-shadow: 0 0 12px rgba(173, 255, 47, 0.4);
+}
+
+.glow-md {
+  box-shadow: 0 0 24px rgba(173, 255, 47, 0.35), 0 0 6px rgba(173, 255, 47, 0.6);
+}
+
+.glow-lg {
+  box-shadow: 0 0 45px rgba(173, 255, 47, 0.3);
+}
+
+.glow-text {
+  text-shadow: 0 0 16px rgba(173, 255, 47, 0.45);
+}
+
+/* Surfaces whose outline lights up on approach, instead of moving or shadowing. */
+.ring-halogen {
+  border: 1px solid var(--border);
+  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ring-halogen:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 18px rgba(173, 255, 47, 0.18);
+}
+
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, rgba(42, 49, 60, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(42, 49, 60, 0.35) 1px, transparent 1px);
+}
+
+.bg-radial-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(173, 255, 47, 0.08) 0%, transparent 65%);
+}
+
+/* Sleek scrollbar, accent on grab. */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }
 
 /*
  * Respect an explicit request for less motion.
  *
- * Several reveals here are built on `animate-in fade-in`, which starts at
- * opacity 0. Without this block a reduced-motion user can be left looking at
- * content that never fades in, so the animations are neutralised to their
- * finished state rather than merely shortened.
+ * Several reveals are built on `animate-in fade-in`, which starts at opacity 0.
+ * Without this a reduced-motion visitor can be left looking at content that
+ * never fades in, so the animations are neutralised to their finished state
+ * rather than merely shortened.
  */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -144,7 +185,6 @@
     scroll-behavior: auto !important;
   }
 
-  /* Guarantee the end state regardless of whether the keyframes ran. */
   [class*="animate-in"] {
     opacity: 1 !important;
     transform: none !important;

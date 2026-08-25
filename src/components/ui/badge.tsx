@@ -3,21 +3,42 @@ import { cn } from "@/lib/utils"
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: "default" | "secondary" | "destructive" | "outline" | "gold"
+  /** Renders a pulsing accent dot, the system's "live" tell. */
+  live?: boolean
 }
 
-function Badge({ className, variant = "default", ...props }: BadgeProps) {
-  const baseStyles = "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-  
+/**
+ * Halogen Kit micro-labels: monospaced, uppercase, letter-spaced, sitting in a
+ * raised pill. They read as telemetry rather than marketing, which is what
+ * gives the system its instrument-panel feel.
+ *
+ * `gold` is kept as an alias for the accent variant so existing call sites
+ * continue to work.
+ */
+function Badge({ className, variant = "default", live = false, children, ...props }: BadgeProps) {
+  const baseStyles =
+    "inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors"
+
+  const accent = "border-border bg-canvas text-primary"
+
   const variants = {
-    default: "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
-    secondary: "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-    destructive: "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
-    outline: "text-foreground",
-    gold: "border-primary/50 bg-primary/10 text-primary-strong shadow-[0_0_10px_rgba(201,152,58,0.15)]",
+    default: accent,
+    gold: accent,
+    secondary: "border-border bg-card text-muted-foreground",
+    destructive: "border-destructive/40 bg-destructive/10 text-destructive",
+    outline: "border-border bg-transparent text-muted-foreground",
   }
 
   return (
-    <div className={cn(baseStyles, variants[variant], className)} {...props} />
+    <div className={cn(baseStyles, variants[variant], className)} {...props}>
+      {live && (
+        <span
+          aria-hidden="true"
+          className="w-1.5 h-1.5 rounded-full bg-primary glow-sm animate-pulse"
+        />
+      )}
+      {children}
+    </div>
   )
 }
 

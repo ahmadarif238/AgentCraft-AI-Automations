@@ -9,31 +9,43 @@ export interface ButtonProps
   size?: "default" | "sm" | "lg" | "icon"
 }
 
+/**
+ * Halogen Kit buttons: full pills, one accent, and depth expressed as a lit
+ * outline rather than a drop shadow. The primary action inverts on hover —
+ * accent outline over dark, filling with accent and flipping the label dark —
+ * which is the system's signature "morph to confirm" gesture.
+ *
+ * `gold` is kept as an alias for `default` so the many existing call sites do
+ * not all need editing; both render the primary accent treatment.
+ */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "default", size = "default", asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
-    
-    // Base styles
-    const baseStyles = "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-    
-    // Variant styles
+
+    const baseStyles =
+      "inline-flex items-center justify-center whitespace-nowrap rounded-full font-semibold tracking-wide ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+
+    const primary =
+      "border border-primary bg-canvas text-primary shadow-[0_0_20px_rgba(173,255,47,0.2)] hover:bg-primary hover:text-primary-foreground hover:shadow-[0_0_30px_rgba(173,255,47,0.45)]"
+
     const variants = {
-      default: "bg-primary text-primary-foreground hover:bg-primary/90",
-      gold: "bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 shadow-[0_0_15px_rgba(201,152,58,0.3)] hover:shadow-[0_0_25px_rgba(201,152,58,0.5)]",
-      outline: "border border-border bg-background hover:bg-accent hover:text-accent-foreground",
-      secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-      ghost: "hover:bg-accent hover:text-accent-foreground",
+      default: primary,
+      gold: primary,
+      outline:
+        "border border-border bg-card/80 text-foreground hover:bg-card hover:border-muted-foreground",
+      secondary:
+        "border border-border bg-canvas text-foreground hover:border-primary hover:text-primary hover:shadow-[0_0_15px_rgba(173,255,47,0.25)]",
+      ghost: "text-muted-foreground hover:text-primary",
       link: "text-primary underline-offset-4 hover:underline",
     }
-    
-    // Size styles
+
     const sizes = {
-      default: "h-10 px-4 py-2",
-      sm: "h-9 rounded-md px-3",
-      lg: "h-11 rounded-md px-8 text-base",
+      default: "h-10 px-5 text-sm",
+      sm: "h-9 px-4 text-xs",
+      lg: "h-12 px-6 text-sm",
       icon: "h-10 w-10",
     }
-    
+
     return (
       <Comp
         className={cn(baseStyles, variants[variant], sizes[size], className)}

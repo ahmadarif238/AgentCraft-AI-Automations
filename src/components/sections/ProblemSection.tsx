@@ -38,7 +38,7 @@ export function ProblemSection() {
     <section className="py-24 bg-secondary text-secondary-foreground relative border-y border-border">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-4 block">Symptoms of Poor Operations</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary mb-4 block">Symptoms of Poor Operations</span>
           <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-secondary-foreground">
             Manual Work Is Quietly <br className="hidden md:block" /> Slowing Your Business Down.
           </h2>
@@ -54,7 +54,7 @@ export function ProblemSection() {
               className="bg-card/5 border border-border/50 rounded-xl p-6 hover:border-primary/50 transition-colors animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+              <div className="w-12 h-12 rounded-xl bg-canvas border border-border flex items-center justify-center mb-6 text-primary">
                 <problem.icon className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-xl font-heading font-semibold mb-3">{problem.title}</h3>

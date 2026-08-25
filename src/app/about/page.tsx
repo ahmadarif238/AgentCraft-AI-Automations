@@ -44,7 +44,7 @@ export default function AboutPage() {
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <span className="text-primary-strong font-semibold tracking-wider uppercase text-sm mb-4 block">About Us</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary mb-4 block">About Us</span>
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-foreground">
             A Founder-Led AI Automation Studio.
           </h1>
@@ -109,7 +109,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {expertise.map((item, i) => (
               <div key={i} className="flex items-center gap-4 bg-card/40 border border-border p-4 rounded-xl">
-                <div className="w-10 h-10 rounded bg-secondary flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-canvas border border-border flex items-center justify-center shrink-0 text-primary">
                   <item.icon className="w-5 h-5 text-primary-strong" />
                 </div>
                 <span className="font-semibold text-sm text-foreground">{item.label}</span>
@@ -191,7 +191,7 @@ export default function AboutPage() {
           <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
             Book a free automation audit and we&apos;ll map out which of your workflows are worth automating first.
           </p>
-          <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2 shadow-[0_0_20px_rgba(201,152,58,0.2)]" asChild>
+          <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2 shadow-[0_0_20px_rgba(173,255,47,0.2)]" asChild>
             <BookingLink>
               Book a Free Automation Audit
             </BookingLink>

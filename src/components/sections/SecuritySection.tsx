@@ -54,8 +54,8 @@ export function SecuritySection() {
               style={{ animationDelay: `${i * 100}ms` }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <feature.icon className="w-5 h-5 text-foreground group-hover:text-primary-strong transition-colors" />
+                <div className="w-10 h-10 rounded-xl bg-canvas border border-border flex items-center justify-center text-primary group-hover:border-primary group-hover:scale-110 transition-all duration-200">
+                  <feature.icon className="w-5 h-5" />
                 </div>
                 <h3 className="font-heading font-semibold text-lg">{feature.title}</h3>
               </div>

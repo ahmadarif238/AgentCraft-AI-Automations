@@ -17,9 +17,6 @@ const badges = [
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden py-16 md:py-24 lg:py-32 xl:min-h-[85vh] flex items-center bg-background">
-      {/* Background glow */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-60 rounded-full blur-3xl pointer-events-none translate-x-1/3 -translate-y-1/3" />
-      
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center max-w-[1280px] mx-auto">
           
@@ -46,7 +43,7 @@ export function HeroSection() {
 
             <div className="flex flex-col w-full sm:w-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
               <div className="flex flex-col sm:flex-row items-center gap-4 mb-3 w-full">
-                <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2 shadow-[0_0_20px_rgba(201,152,58,0.2)] hover:shadow-[0_0_30px_rgba(201,152,58,0.4)] transition-all" asChild>
+                <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2 shadow-[0_0_20px_rgba(173,255,47,0.2)] hover:shadow-[0_0_30px_rgba(173,255,47,0.4)] transition-all" asChild>
                   <BookingLink>
                     <Sparkles className="w-4 h-4" />
                     Book a Free Automation Audit
@@ -72,7 +69,7 @@ export function HeroSection() {
                   </span>
                 ))}
               </div>
-              <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mt-2">
+              <p className="font-mono text-[11px] text-muted-foreground uppercase tracking-[0.14em] mt-2">
                 Built with LangGraph, FastAPI, n8n, Zapier, Make, Power Automate, and RAG systems.
               </p>
             </div>

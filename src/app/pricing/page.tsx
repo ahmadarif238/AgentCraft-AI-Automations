@@ -43,14 +43,14 @@ export default function PricingPage() {
                 key={pkg.id}
                 className={`relative flex flex-col p-8 rounded-3xl border ${
                   pkg.highlight
-                    ? "bg-card border-primary shadow-[0_0_30px_rgba(201,152,58,0.15)] scale-100 lg:scale-105 z-10"
+                    ? "bg-card border-primary shadow-[0_0_30px_rgba(173,255,47,0.15)] scale-100 lg:scale-105 z-10"
                     : "bg-card/40 border-border hover:border-primary/50"
                 } transition-all animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both`}
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 {pkg.highlight && (
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <span className="bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full">
+                    <span className="bg-primary text-primary-foreground font-mono text-[10px] uppercase tracking-[0.16em] py-1 px-3 rounded-full">
                       Most Popular
                     </span>
                   </div>
@@ -68,7 +68,7 @@ export default function PricingPage() {
                 </div>
 
                 <div className="flex-1 mb-8">
-                  <p className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">
+                  <p className="font-mono text-[11px] font-semibold text-primary mb-4 uppercase tracking-[0.16em]">
                     Includes:
                   </p>
                   <ul className="space-y-4">

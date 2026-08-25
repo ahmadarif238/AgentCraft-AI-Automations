@@ -31,8 +31,8 @@ export function ServicesPreviewSection() {
               className="group bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:border-primary/50 transition-all flex flex-col h-full animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors">
-                <service.icon className="w-6 h-6 text-foreground group-hover:text-primary-strong transition-colors" />
+              <div className="w-12 h-12 rounded-xl bg-canvas border border-border flex items-center justify-center mb-6 text-primary group-hover:border-primary group-hover:scale-110 transition-all duration-200">
+                <service.icon className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-heading font-bold mb-3">{service.title}</h3>
               <p className="text-muted-foreground text-sm flex-1">

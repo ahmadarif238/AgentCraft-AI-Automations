@@ -76,7 +76,7 @@ export default function CaseStudiesPage() {
                 </div>
 
                 <div className="mb-6">
-                  <h3 className="text-sm font-bold text-foreground mb-3 uppercase tracking-wider">Business Value</h3>
+                  <h3 className="font-mono text-[11px] font-semibold text-primary mb-3 uppercase tracking-[0.16em]">Business Value</h3>
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-primary-strong shrink-0" />
                     <p className="text-foreground font-medium">{system.businessValue}</p>
@@ -88,7 +88,7 @@ export default function CaseStudiesPage() {
                 </div>
 
                 <div className="mb-8">
-                  <h3 className="text-sm font-bold text-foreground mb-3 uppercase tracking-wider">Technologies Used</h3>
+                  <h3 className="font-mono text-[11px] font-semibold text-primary mb-3 uppercase tracking-[0.16em]">Technologies Used</h3>
                   <div className="flex flex-wrap gap-2">
                     {system.technologies.map(tech => (
                       <span key={tech} className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground border border-border">

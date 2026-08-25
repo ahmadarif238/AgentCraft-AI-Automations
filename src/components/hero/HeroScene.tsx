@@ -15,11 +15,11 @@ import * as THREE from "three";
  * Loaded only from HeroVisual, which decides whether 3D should run at all.
  */
 
-const GOLD = "#C9983A";
-const GOLD_WARM = "#E0B45E";
+const ACCENT = "#ADFF2F";
+const ACCENT_SOFT = "#C9FF6B";
 // Light enough that the key light reads across the face; any darker and the
 // tiles look like holes punched in the page rather than objects on it.
-const PANEL = "#26262B";
+const PANEL = "#1F242D";
 
 type NodeSpec = {
   label: string;
@@ -59,7 +59,7 @@ function useLabelTexture(label: string) {
     ctx.font = `700 ${size}px "Segoe UI", Inter, system-ui, sans-serif`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillStyle = GOLD_WARM;
+    ctx.fillStyle = ACCENT_SOFT;
 
     // Manual letter-spacing: ctx.letterSpacing is not universally supported.
     const spacing = size * 0.16;
@@ -108,10 +108,10 @@ function Panel({ label, position, rotation, scale, index }: NodeSpec & { index: 
       <mesh position={[0, 0, -0.012]}>
         <boxGeometry args={[W + 0.075, H + 0.075, D - 0.02]} />
         <meshStandardMaterial
-          color={GOLD}
+          color={ACCENT}
           metalness={1}
           roughness={0.22}
-          emissive={GOLD}
+          emissive={ACCENT}
           emissiveIntensity={0.18}
         />
       </mesh>
@@ -158,11 +158,11 @@ function Link({ to, index }: { to: [number, number, number]; index: number }) {
     <group>
       <mesh position={position} quaternion={quaternion}>
         <cylinderGeometry args={[0.014, 0.014, length, 6]} />
-        <meshBasicMaterial color={GOLD} transparent opacity={0.34} />
+        <meshBasicMaterial color={ACCENT} transparent opacity={0.34} />
       </mesh>
       <mesh ref={pulse}>
         <sphereGeometry args={[0.07, 12, 12]} />
-        <meshBasicMaterial color={GOLD_WARM} transparent opacity={0} />
+        <meshBasicMaterial color={ACCENT_SOFT} transparent opacity={0} />
       </mesh>
     </group>
   );
@@ -187,10 +187,10 @@ function Core() {
       <mesh position={[0, 0, -0.015]}>
         <boxGeometry args={[1.79, 1.79, 0.46]} />
         <meshStandardMaterial
-          color={GOLD}
+          color={ACCENT}
           metalness={1}
           roughness={0.18}
-          emissive={GOLD}
+          emissive={ACCENT}
           emissiveIntensity={0.26}
         />
       </mesh>
@@ -244,9 +244,9 @@ export default function HeroScene() {
       style={{ opacity: ready ? 1 : 0, transition: "opacity 900ms ease-out" }}
     >
       <ambientLight intensity={1.1} />
-      <directionalLight position={[3, 4, 7]} intensity={2.4} color="#FFF6E6" />
-      <directionalLight position={[-6, 2, 3]} intensity={1.1} color={GOLD_WARM} />
-      <pointLight position={[-4, -3, 5]} intensity={45} distance={16} color={GOLD} />
+      <directionalLight position={[3, 4, 7]} intensity={2.4} color="#EAF7DA" />
+      <directionalLight position={[-6, 2, 3]} intensity={1.1} color={ACCENT_SOFT} />
+      <pointLight position={[-4, -3, 5]} intensity={45} distance={16} color={ACCENT} />
       <Rig />
     </Canvas>
   );

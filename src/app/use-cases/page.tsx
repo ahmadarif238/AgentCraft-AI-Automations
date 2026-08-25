@@ -38,7 +38,7 @@ export default function UseCasesPage() {
             {useCases.map((useCase, index) => (
               <div 
                 key={index} 
-                className="bg-card border border-border rounded-3xl p-8 shadow-lg hover:shadow-[0_0_20px_rgba(201,152,58,0.1)] hover:border-primary/50 transition-all flex flex-col h-full animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
+                className="bg-card border border-border rounded-3xl p-8 shadow-lg hover:shadow-[0_0_20px_rgba(173,255,47,0.1)] hover:border-primary/50 transition-all flex flex-col h-full animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="mb-6">
@@ -53,18 +53,18 @@ export default function UseCasesPage() {
                 {/* Before / After */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                   <div className="bg-destructive/10 border border-destructive/20 p-4 rounded-xl">
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-destructive mb-2">Before Automation</h3>
+                    <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-destructive mb-2">Before Automation</h3>
                     <p className="text-sm text-muted-foreground">{useCase.before}</p>
                   </div>
                   <div className="bg-primary/10 border border-primary/20 p-4 rounded-xl">
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-primary-strong mb-2">After AgentCraft</h3>
+                    <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary mb-2">After AgentCraft</h3>
                     <p className="text-sm text-foreground font-medium">{useCase.after}</p>
                   </div>
                 </div>
                 
                 <div className="space-y-6 border-t border-border/50 pt-8 mt-auto">
                   <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-foreground mb-4">Example Workflows</h3>
+                    <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary mb-4">Example Workflows</h3>
                     <ul className="space-y-3">
                       {useCase.workflows.map((workflow, i) => (
                         <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
@@ -76,7 +76,7 @@ export default function UseCasesPage() {
                   </div>
 
                   <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-foreground mb-3">Commonly Integrated Tools</h3>
+                    <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary mb-3">Commonly Integrated Tools</h3>
                     <div className="flex flex-wrap gap-2">
                       {useCase.tools.map((tool, i) => (
                         <span key={i} className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground border border-border">

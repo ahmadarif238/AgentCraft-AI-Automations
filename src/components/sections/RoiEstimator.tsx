@@ -106,7 +106,7 @@ export function RoiEstimator() {
         <div className="pt-6 border-t border-border">
           <div className="flex flex-wrap justify-between items-end gap-4">
             <div>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider font-bold mb-1">
+              <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.16em] mb-1">
                 Annual cost of this work
               </p>
               <p className="text-3xl font-heading font-bold text-foreground tabular-nums">
@@ -114,7 +114,7 @@ export function RoiEstimator() {
               </p>
             </div>
             <div className="text-right">
-              <p className="text-xs text-muted-foreground uppercase tracking-wider font-bold mb-1">
+              <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.16em] mb-1">
                 Typically recoverable
               </p>
               <p className="text-2xl font-heading font-bold text-primary-strong tabular-nums">

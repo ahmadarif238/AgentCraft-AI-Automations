@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Plus_Jakarta_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
@@ -7,14 +7,22 @@ import { siteConfig } from "@/config/site";
 import { faqs } from "@/data/faqs";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Halogen Kit's three faces: Jakarta for body, Space Grotesk for display,
+// JetBrains Mono for the technical micro-labels the system leans on.
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
   display: "swap",
 });
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -82,10 +90,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F8F3EA" },
-    { media: "(prefers-color-scheme: dark)", color: "#0B0B0D" },
-  ],
+  // The site is a single dark theme now, so one colour covers both schemes.
+  themeColor: "#101419",
 };
 
 export default function RootLayout({
@@ -160,9 +166,22 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased bg-background text-foreground`}
+      className={`${jakarta.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased bg-background text-foreground`}
     >
-      <body className="min-h-full flex flex-col pt-20">
+      <body className="min-h-full flex flex-col pt-20 relative">
+        {/*
+          Halogen's two background fields: a faint accent bloom from the top of
+          the viewport, and a fixed technical grid. Both sit behind everything
+          and are inert to pointer events.
+        */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none fixed inset-x-0 top-0 h-[600px] bg-radial-glow -z-10"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none fixed inset-0 bg-grid-pattern opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_20%,transparent_80%)] -z-10"
+        />
         <Navbar />
         <main className="flex-1 flex flex-col">{children}</main>
         <Footer />
