@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useState, type CSSProperties } from "react";
 
 const currency = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -27,13 +27,11 @@ function Slider({
 }) {
   const id = useId();
   const display = format(value);
+  // Percentage of the range covered, which paints the lit portion of the track.
+  const fill = ((value - min) / (max - min)) * 100;
   return (
     <div>
-      {/*
-        Label and value sit next to each other rather than at opposite ends of
-        the card, so reading the current state is one glance instead of a
-        left-right-down zig-zag across eight hundred pixels.
-      */}
+      {/* Label and value are adjacent, so reading the state is a single glance. */}
       <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-1.5">
         <label htmlFor={id} className="text-sm text-muted-foreground">
           {label}
@@ -41,12 +39,6 @@ function Slider({
         <span aria-hidden="true" className="text-sm text-border">&mdash;</span>
         <span className="text-sm font-bold text-foreground tabular-nums">{display}</span>
       </div>
-      {/*
-        The input box is 24px tall — the WCAG target-size minimum, and enough
-        to contain the 20px thumb, which a 8px-tall box used to clip away and
-        leave the control looking like a decorative rule. The visible bar is
-        the track pseudo-element, not the input's own background.
-      */}
       <input
         id={id}
         type="range"
@@ -56,11 +48,8 @@ function Slider({
         value={value}
         aria-valuetext={display}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full h-6 appearance-none bg-transparent cursor-grab active:cursor-grabbing rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-card
-                   [&::-webkit-slider-runnable-track]:h-1.5 [&::-webkit-slider-runnable-track]:rounded-full [&::-webkit-slider-runnable-track]:bg-secondary [&::-webkit-slider-runnable-track]:border [&::-webkit-slider-runnable-track]:border-border
-                   [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:-mt-[7px] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-primary [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-background [&::-webkit-slider-thumb]:shadow-[0_0_12px_rgba(173,255,47,0.5)]
-                   [&::-moz-range-track]:h-1.5 [&::-moz-range-track]:rounded-full [&::-moz-range-track]:bg-secondary [&::-moz-range-track]:border [&::-moz-range-track]:border-border
-                   [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-primary [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-background [&::-moz-range-thumb]:shadow-[0_0_12px_rgba(173,255,47,0.5)]"
+        style={{ "--range-fill": `${fill}%` } as CSSProperties}
+        className="range-halogen rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-card"
       />
     </div>
   );
@@ -118,23 +107,18 @@ export function RoiEstimator() {
         />
 
         <div className="pt-6 border-t border-border">
-          <div className="flex flex-wrap justify-between items-end gap-4">
-            <div>
-              <p className="label-mono text-muted-foreground mb-1">
-                Annual cost of this work
-              </p>
-              <p className="text-3xl font-heading font-bold text-foreground tabular-nums">
-                {currency.format(annualCost)}
-              </p>
-            </div>
-            <div className="text-right">
-              <p className="label-mono text-muted-foreground mb-1">
-                Typically recoverable
-              </p>
-              <p className="text-2xl font-heading font-bold text-primary-strong tabular-nums">
-                {currency.format(recoverable)}
-              </p>
-            </div>
+          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+            <p className="label-mono text-muted-foreground">Annual cost of this work</p>
+            <span aria-hidden="true" className="text-sm text-border">&mdash;</span>
+            <p className="text-lg font-heading font-bold text-muted-foreground tabular-nums">
+              {currency.format(annualCost)}
+            </p>
+          </div>
+          <div className="mt-4">
+            <p className="label-mono text-primary-strong mb-1">Typically recoverable</p>
+            <p className="text-4xl font-heading font-bold text-primary-strong tabular-nums">
+              {currency.format(recoverable)}
+            </p>
           </div>
           <p className="text-xs text-muted-foreground/60 mt-4 text-center">
             Estimate only, assuming roughly 70% of this time is automatable. Actual results

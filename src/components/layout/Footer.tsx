@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MessageCircle, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, MessageCircle, Phone, MapPin, Clock, Send } from "lucide-react";
 import { BrandLogo } from "@/components/ui/BrandLogo";
 import { linkedinUrl, siteConfig, whatsappUrl } from "@/config/site";
 
@@ -23,7 +23,6 @@ const companyLinks = [
   { href: "/use-cases", label: "Use Cases" },
   { href: "/process", label: "Our Process" },
   { href: "/pricing", label: "Pricing & Packages" },
-  { href: "/contact", label: "Contact" },
 ];
 
 /** Column headings are monospaced micro-labels, matching the rest of the system. */
@@ -39,7 +38,7 @@ export function Footer() {
   return (
     <footer className="bg-background border-t border-border/60 mt-auto">
       <div className="container mx-auto px-4 md:px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-x-6 lg:gap-y-10">
 
           {/* Brand */}
           <div className="lg:col-span-2 flex flex-col gap-6">
@@ -92,10 +91,10 @@ export function Footer() {
           {/* Services */}
           <div className="flex flex-col">
             <ColumnHeading>Services</ColumnHeading>
-            <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
+            <ul className="flex flex-col gap-1 -my-2 text-sm text-muted-foreground">
               {serviceLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover:text-primary transition-colors">
+                  <Link href={link.href} className="block py-2 hover:text-primary transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -106,10 +105,10 @@ export function Footer() {
           {/* Company */}
           <div className="flex flex-col">
             <ColumnHeading>Company</ColumnHeading>
-            <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
+            <ul className="flex flex-col gap-1 -my-2 text-sm text-muted-foreground">
               {companyLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover:text-primary transition-colors">
+                  <Link href={link.href} className="block py-2 hover:text-primary transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -118,7 +117,7 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="flex flex-col">
+          <div className="lg:col-span-2 flex flex-col">
             <ColumnHeading>Contact</ColumnHeading>
             <ul className="flex flex-col gap-1 -my-2 text-sm text-muted-foreground">
               {whatsappUrl && (
@@ -158,7 +157,7 @@ export function Footer() {
               )}
               <li>
                 <Link href="/contact" className="flex items-center gap-2 py-2 hover:text-primary transition-colors">
-                  <Mail className="w-4 h-4 shrink-0" />
+                  <Send className="w-4 h-4 shrink-0" />
                   Send an enquiry
                 </Link>
               </li>
