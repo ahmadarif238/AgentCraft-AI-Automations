@@ -29,7 +29,7 @@ const companyLinks = [
 /** Column headings are monospaced micro-labels, matching the rest of the system. */
 function ColumnHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary mb-5">
+    <h3 className="label-mono uppercase text-primary mb-5">
       {children}
     </h3>
   );
@@ -120,14 +120,14 @@ export function Footer() {
           {/* Contact */}
           <div className="flex flex-col">
             <ColumnHeading>Contact</ColumnHeading>
-            <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
+            <ul className="flex flex-col gap-1 -my-2 text-sm text-muted-foreground">
               {whatsappUrl && (
                 <li>
                   <a
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 hover:text-primary transition-colors"
+                    className="flex items-center gap-2 py-2 hover:text-primary transition-colors"
                   >
                     <MessageCircle className="w-4 h-4 shrink-0" />
                     WhatsApp us
@@ -138,7 +138,7 @@ export function Footer() {
                 <li>
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className="flex items-center gap-2 hover:text-primary transition-colors break-all"
+                    className="flex items-center gap-2 py-2 hover:text-primary transition-colors break-all"
                   >
                     <Mail className="w-4 h-4 shrink-0" />
                     {siteConfig.email}
@@ -149,7 +149,7 @@ export function Footer() {
                 <li>
                   <a
                     href={`tel:${siteConfig.phone.replace(/[^+\d]/g, "")}`}
-                    className="flex items-center gap-2 hover:text-primary transition-colors"
+                    className="flex items-center gap-2 py-2 hover:text-primary transition-colors"
                   >
                     <Phone className="w-4 h-4 shrink-0" />
                     {siteConfig.phone}
@@ -157,16 +157,16 @@ export function Footer() {
                 </li>
               )}
               <li>
-                <Link href="/contact" className="flex items-center gap-2 hover:text-primary transition-colors">
+                <Link href="/contact" className="flex items-center gap-2 py-2 hover:text-primary transition-colors">
                   <Mail className="w-4 h-4 shrink-0" />
                   Send an enquiry
                 </Link>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2 py-2">
                 <MapPin className="w-4 h-4 shrink-0" />
                 {siteConfig.location.city}, {siteConfig.location.country}
               </li>
-              <li className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider">
+              <li className="flex items-center gap-2 py-2 label-mono">
                 <Clock className="w-4 h-4 shrink-0 text-primary" />
                 Replies {siteConfig.responseTime}
               </li>
@@ -174,10 +174,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-border/60 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-[11px] text-muted-foreground">
+        <div className="mt-16 pt-8 border-t border-border/60 flex flex-col md:flex-row items-center justify-between gap-4 label-mono text-muted-foreground">
           <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            <span className="text-primary uppercase tracking-[0.14em]">
+            <span className="text-primary">
               Automate. Intelligently. Scale Limitlessly.
             </span>
             <a href={siteConfig.url} className="hover:text-primary transition-colors">{displayDomain}</a>

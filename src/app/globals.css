@@ -90,6 +90,30 @@
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
+/* ---------------------------------------------------------------------------
+ * The type scale.
+ *
+ * One ramp, no one-off pixel values: 12 / 14 / 16 / 18 / 20 / 24 / 30 / 48 / 60
+ * (text-xs through text-6xl). 12px is the floor, so nothing on the page drops
+ * below the comfortable-reading threshold.
+ *
+ * `label-mono` names the bottom step, because the micro-label — monospaced,
+ * letter-spaced, sitting above a heading or beside a number — is a recurring
+ * part of the system rather than an ad-hoc size. It used to be written inline
+ * as `font-mono text-[11px] tracking-[0.16em]` (or 10px, or 0.14em, or
+ * 0.18em), which is where the extra sizes and the drifting tracking came from.
+ *
+ * `uppercase` is deliberately NOT baked in: all-caps is legible for a short
+ * label and slow to read for a sentence, so each call site opts in.
+ * ------------------------------------------------------------------------- */
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.75rem; /* 12px */
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+}
+
 @layer base {
   * {
     border-color: var(--border);

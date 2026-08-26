@@ -23,7 +23,7 @@ export function HeroSection() {
           {/* Left Side: Content */}
           <div className="flex flex-col items-start text-left">
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
-              <Badge variant="gold" className="mb-6 px-3 py-1 text-sm font-semibold">
+              <Badge variant="gold" className="mb-6 px-3 py-1 text-sm font-semibold normal-case tracking-normal">
                 AI Agents & Automations for Modern Businesses
               </Badge>
             </div>
@@ -69,7 +69,7 @@ export function HeroSection() {
                   </span>
                 ))}
               </div>
-              <p className="font-mono text-[11px] text-muted-foreground uppercase tracking-[0.14em] mt-2">
+              <p className="label-mono text-muted-foreground mt-2">
                 Built with LangGraph, FastAPI, n8n, Zapier, Make, Power Automate, and RAG systems.
               </p>
             </div>

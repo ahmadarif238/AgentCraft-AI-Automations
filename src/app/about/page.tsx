@@ -44,7 +44,7 @@ export default function AboutPage() {
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary mb-4 block">About Us</span>
+          <span className="label-mono uppercase text-primary mb-4 block">About Us</span>
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-foreground">
             A Founder-Led AI Automation Studio.
           </h1>

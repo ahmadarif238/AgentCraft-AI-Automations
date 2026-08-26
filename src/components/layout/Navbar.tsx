@@ -52,9 +52,9 @@ export function Navbar() {
           </Link>
 
           {/* Telemetry chip: the system's "this thing is running" tell. */}
-          <div className="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-full bg-canvas border border-border font-mono text-[11px] text-muted-foreground">
+          <div className="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-full bg-canvas border border-border label-mono text-muted-foreground">
             <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            <span>AUTOMATION: LIVE</span>
+            <span>Automation: live</span>
           </div>
         </div>
 
@@ -134,7 +134,7 @@ export function Navbar() {
                   pathname === link.href ? "text-primary" : "text-foreground hover:text-primary"
                 }`}
               >
-                <span className="font-mono text-[11px] text-muted-foreground">
+                <span className="label-mono text-muted-foreground">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 {link.name}

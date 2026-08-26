@@ -1,5 +1,21 @@
+import {
+  Megaphone,
+  Briefcase,
+  Calculator,
+  Building2,
+  Code2,
+  ShoppingCart,
+  type LucideIcon
+} from "lucide-react";
+
 export interface IndustryUseCase {
+  /** Anchor target, so the home page can link straight to this industry's card. */
+  id: string;
   industry: string;
+  /** Carried here rather than in the components, so both pages show the same mark. */
+  icon: LucideIcon;
+  /** One line, for the compact home-page card where the full description is too long. */
+  summary: string;
   description: string;
   workflows: string[];
   before: string;
@@ -9,7 +25,10 @@ export interface IndustryUseCase {
 
 export const useCases: IndustryUseCase[] = [
   {
+    id: "agencies",
     industry: "Agencies",
+    icon: Megaphone,
+    summary: "Client delivery and reporting, without the admin overhead.",
     description: "Scale your client delivery and automate administrative overhead so your team can focus on creative and strategic work.",
     workflows: [
       "Lead intake and qualification automation",
@@ -23,7 +42,10 @@ export const useCases: IndustryUseCase[] = [
     tools: ["HubSpot", "Slack", "Monday.com", "Make"]
   },
   {
+    id: "consulting-firms",
     industry: "Consulting Firms",
+    icon: Briefcase,
+    summary: "Knowledge your team can query instead of re-reading.",
     description: "Enhance knowledge management and client communication with intelligent systems.",
     workflows: [
       "Massive document analysis and extraction",
@@ -37,7 +59,10 @@ export const useCases: IndustryUseCase[] = [
     tools: ["Pinecone", "Notion", "OpenAI", "Zoom"]
   },
   {
+    id: "accounting-finance",
     industry: "Accounting & Finance",
+    icon: Calculator,
+    summary: "Document chasing and data entry, handled for you.",
     description: "Eliminate manual data entry and ensure compliance with automated financial workflows.",
     workflows: [
       "Automated client document collection",
@@ -51,7 +76,10 @@ export const useCases: IndustryUseCase[] = [
     tools: ["QuickBooks", "Xero", "DocuSign", "n8n"]
   },
   {
+    id: "real-estate",
     industry: "Real Estate",
+    icon: Building2,
+    summary: "Every enquiry answered and booked, around the clock.",
     description: "Respond to inquiries instantly and manage property data without the manual heavy lifting.",
     workflows: [
       "24/7 lead qualification and routing",
@@ -65,7 +93,10 @@ export const useCases: IndustryUseCase[] = [
     tools: ["Follow Up Boss", "Calendly", "Twilio", "Zapier"]
   },
   {
+    id: "saas-tech",
     industry: "SaaS & Tech",
+    icon: Code2,
+    summary: "Support triage and pipeline work off your engineers' desks.",
     description: "Streamline operations, support, and sales for faster growth and better user experience.",
     workflows: [
       "Intelligent support ticket triage",
@@ -79,7 +110,10 @@ export const useCases: IndustryUseCase[] = [
     tools: ["Zendesk", "Jira", "GitHub", "LangGraph"]
   },
   {
+    id: "ecommerce-retail",
     industry: "E-commerce & Retail",
+    icon: ShoppingCart,
+    summary: "Storefront, stock, and support joined into one system.",
     description: "Connect your storefront, inventory, and customer service into one unified automated system.",
     workflows: [
       "Smart inventory alerts and forecasting",

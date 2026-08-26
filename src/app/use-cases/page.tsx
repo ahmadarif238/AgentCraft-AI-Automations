@@ -37,14 +37,21 @@ export default function UseCasesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {useCases.map((useCase, index) => (
               <div 
-                key={index} 
-                className="bg-card border border-border rounded-3xl p-8 shadow-lg hover:shadow-[0_0_20px_rgba(173,255,47,0.1)] hover:border-primary/50 transition-all flex flex-col h-full animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
+                key={useCase.id} 
+                id={useCase.id}
+                /* scroll-mt clears the fixed header when arriving via #anchor. */
+                className="scroll-mt-28 bg-card border border-border rounded-3xl p-8 shadow-lg hover:shadow-[0_0_20px_rgba(173,255,47,0.1)] hover:border-primary/50 transition-all flex flex-col h-full animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="mb-6">
-                  <h2 className="text-3xl font-heading font-bold mb-4 text-foreground">
-                    {useCase.industry}
-                  </h2>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 shrink-0 rounded-xl bg-canvas border border-border flex items-center justify-center text-primary">
+                      <useCase.icon className="w-6 h-6" aria-hidden="true" />
+                    </div>
+                    <h2 className="text-3xl font-heading font-bold text-foreground">
+                      {useCase.industry}
+                    </h2>
+                  </div>
                   <p className="text-muted-foreground text-lg leading-relaxed">
                     {useCase.description}
                   </p>
@@ -53,18 +60,18 @@ export default function UseCasesPage() {
                 {/* Before / After */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                   <div className="bg-destructive/10 border border-destructive/20 p-4 rounded-xl">
-                    <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-destructive mb-2">Before Automation</h3>
+                    <h3 className="label-mono uppercase text-destructive mb-2">Before Automation</h3>
                     <p className="text-sm text-muted-foreground">{useCase.before}</p>
                   </div>
                   <div className="bg-primary/10 border border-primary/20 p-4 rounded-xl">
-                    <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary mb-2">After AgentCraft</h3>
+                    <h3 className="label-mono uppercase text-primary mb-2">After AgentCraft</h3>
                     <p className="text-sm text-foreground font-medium">{useCase.after}</p>
                   </div>
                 </div>
                 
                 <div className="space-y-6 border-t border-border/50 pt-8 mt-auto">
                   <div>
-                    <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary mb-4">Example Workflows</h3>
+                    <h3 className="label-mono uppercase text-primary mb-4">Example Workflows</h3>
                     <ul className="space-y-3">
                       {useCase.workflows.map((workflow, i) => (
                         <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
@@ -76,7 +83,7 @@ export default function UseCasesPage() {
                   </div>
 
                   <div>
-                    <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary mb-3">Commonly Integrated Tools</h3>
+                    <h3 className="label-mono text-primary mb-3">Commonly Integrated Tools</h3>
                     <div className="flex flex-wrap gap-2">
                       {useCase.tools.map((tool, i) => (
                         <span key={i} className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground border border-border">

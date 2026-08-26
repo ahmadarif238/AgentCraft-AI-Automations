@@ -20,7 +20,7 @@ export default function ServicesPage() {
         
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary mb-4 block">Our Services</span>
+          <span className="label-mono uppercase text-primary mb-4 block">Our Services</span>
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-foreground">
             AI Automation Services
           </h1>
@@ -50,7 +50,7 @@ export default function ServicesPage() {
                   </p>
                 </div>
                 <div className="bg-card/40 border border-border p-5 rounded-xl">
-                  <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground mb-2 block">Ideal For:</span>
+                  <span className="label-mono uppercase text-muted-foreground mb-2 block">Ideal For:</span>
                   <p className="text-sm font-medium text-foreground">{service.idealFor}</p>
                 </div>
               </div>

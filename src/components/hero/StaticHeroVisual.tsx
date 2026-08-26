@@ -44,7 +44,7 @@ export function StaticHeroVisual() {
             <div className="w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg">
               <Icon className="w-6 h-6 text-foreground" aria-hidden="true" />
             </div>
-            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground bg-background/80 px-2 rounded">
+            <span className="label-mono uppercase text-muted-foreground bg-background/80 px-2 rounded">
               {label}
             </span>
           </div>

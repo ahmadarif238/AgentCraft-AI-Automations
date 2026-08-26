@@ -50,7 +50,7 @@ export default function PricingPage() {
               >
                 {pkg.highlight && (
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <span className="bg-primary text-primary-foreground font-mono text-[10px] uppercase tracking-[0.16em] py-1 px-3 rounded-full">
+                    <span className="bg-primary text-primary-foreground label-mono uppercase py-1 px-3 rounded-full">
                       Most Popular
                     </span>
                   </div>
@@ -68,7 +68,7 @@ export default function PricingPage() {
                 </div>
 
                 <div className="flex-1 mb-8">
-                  <p className="font-mono text-[11px] font-semibold text-primary mb-4 uppercase tracking-[0.16em]">
+                  <p className="label-mono font-semibold text-primary mb-4 uppercase">
                     Includes:
                   </p>
                   <ul className="space-y-4">
