@@ -204,7 +204,7 @@ A founder-led AI automation studio bridging the gap between complex AI research 
 
 ## Founder
 
-${siteConfig.founderName}, ${siteConfig.founderTitle}. Works in agentic systems: multi-agent workflows built with LangGraph and LangChain, retrieval-augmented generation grounded in vector databases, and the FastAPI services that hold them together in production. Holds a degree in Software Engineering from the University of Malakand, with enterprise automation delivery experience covering Microsoft Power Automate, the Power Platform and Azure infrastructure.
+${siteConfig.founderName}, ${siteConfig.founderTitle}. A software engineer who builds artificial intelligence systems for business operations, covering intelligent agents, retrieval augmented assistants, machine learning services, and the automation that connects them to existing tools. Has delivered AI and automation work for international companies across several sectors before founding AgentCraft.
 
 ## Technical expertise
 

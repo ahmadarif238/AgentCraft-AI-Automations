@@ -78,28 +78,21 @@ export default function AboutPage() {
             <h2 className="text-3xl font-heading font-bold mb-6 text-foreground">Meet the Founder</h2>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                {siteConfig.founderName} is an AI engineer working in agentic systems:
-                multi-agent workflows built with LangGraph and LangChain, retrieval-augmented
-                generation grounded in vector databases, and the FastAPI services that hold
-                them together once they reach production.
+                {siteConfig.founderName} is a software engineer who builds artificial
+                intelligence systems for business operations. His work covers intelligent
+                agents, retrieval augmented assistants, machine learning services, and the
+                automation that connects them to the tools a company already runs.
               </p>
               <p>
-                He holds a degree in Software Engineering from the University of Malakand,
-                and his background includes enterprise automation delivery for an
-                international tax firm — Microsoft Power Automate and Power Platform
-                workflows, Azure infrastructure, and AI-assisted internal processes.
-                AgentCraft was founded on that combination: current AI technique applied
-                with the operational discipline that enterprise systems demand.
+                He has delivered AI and automation work for international companies across
+                several sectors before founding AgentCraft, a studio built to offer that
+                capability directly, with artificial intelligence engineering at its center.
               </p>
               <p>
-                Most automation projects fail on the parts nobody demonstrates — the error
-                handling, the approval steps, the monitoring, the handover documentation.
-                Those are the parts we build properly, because they decide whether a
-                workflow is still running six months after launch.
-              </p>
-              <p>
-                The work is measured one way: how much repetitive effort it removes for good,
-                so a business can raise its output without raising its headcount.
+                Most automation fails on the parts nobody demonstrates: error handling,
+                approval steps, monitoring, and the documentation a team needs to run the
+                system without us. Those are the parts we build properly, because they
+                decide whether a workflow still runs months after launch.
               </p>
             </div>
             <div className="flex gap-4 mt-8">

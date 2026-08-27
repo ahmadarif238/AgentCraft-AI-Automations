@@ -69,5 +69,37 @@ export const caseStudies: CaseStudy[] = [
     technologies: ["ElevenLabs", "Zapier", "Google Workspace APIs", "OpenAI"],
     businessValue: "Turns drive-time into productive administrative time.",
     adaptation: "Can be customized for specific executive workflows or field sales teams.",
-  }
+  },
+  {
+    id: "vivagraph-ai",
+    category: "Voice AI & Assessment",
+    title: "VivaGraph AI",
+    overview:
+      "A cognitive core of seven specialized agents that runs realistic oral examinations and scores them.",
+    problem:
+      "Assessing spoken competence at scale is slow and inconsistent. A human examiner can only sit so many sessions, and two examiners rarely mark the same answer the same way.",
+    solution:
+      "Seven agents divide the work of an examiner: question selection, follow-up probing, voice analysis, filler word detection, difficulty adjustment, scoring, and feedback. Difficulty adapts live to how the candidate is performing.",
+    technologies: ["LangGraph", "Voice Analysis", "Multi-Agent Workflows", "Python"],
+    businessValue:
+      "Delivers consistent, repeatable assessment against the same rubric every time, with detailed feedback attached to each session.",
+    adaptation:
+      "Transfers to interview screening, sales pitch practice, language assessment, and internal certification.",
+  },
+  {
+    id: "stock-news-agent",
+    category: "Monitoring & Alerting",
+    title: "Stock News Alert Agent",
+    overview:
+      "Watches financial news continuously and pushes sentiment-scored alerts the moment something moves.",
+    problem:
+      "Market-moving news breaks faster than anyone can read it, and the signal is buried in a very high volume of noise.",
+    solution:
+      "An agent monitors news sources, scores each item for sentiment and relevance against a watchlist, and delivers only what clears the threshold straight to Telegram.",
+    technologies: ["Python", "Groq", "Sentiment Analysis", "Telegram API"],
+    businessValue:
+      "Replaces manual news monitoring with alerts that arrive already filtered and interpreted.",
+    adaptation:
+      "The same pattern covers competitor tracking, brand monitoring, regulatory alerts, and supplier risk.",
+  },
 ];
