@@ -107,7 +107,7 @@ export default function RootLayout({
         "@id": `${siteConfig.url}/#organization`,
         name: siteConfig.name,
         url: siteConfig.url,
-        logo: `${siteConfig.url}/images/logo.png`,
+        logo: `${siteConfig.url}/images/brand/logo.png`,
         description: siteConfig.description,
         founder: { "@type": "Person", name: siteConfig.founderName, jobTitle: siteConfig.founderTitle },
         sameAs: [

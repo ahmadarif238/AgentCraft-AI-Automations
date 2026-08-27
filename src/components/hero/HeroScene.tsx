@@ -170,7 +170,7 @@ function Link({ to, index }: { to: [number, number, number]; index: number }) {
 
 /** The core: a dark monolith carrying the brand mark. */
 function Core() {
-  const texture = useLoader(THREE.TextureLoader, "/images/mark-light.png");
+  const texture = useLoader(THREE.TextureLoader, "/images/brand/mark-light.png");
   const ref = useRef<THREE.Group>(null);
 
   useFrame((state) => {

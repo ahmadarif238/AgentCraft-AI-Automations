@@ -26,7 +26,7 @@ export function StaticHeroVisual() {
 
       <div className="relative z-20 w-28 h-28 rounded-2xl bg-canvas border border-primary shadow-[0_0_50px_rgba(173,255,47,0.28)] flex items-center justify-center">
         <Image
-          src="/images/mark-light.png"
+          src="/images/brand/mark-light.png"
           alt=""
           width={72}
           height={72}

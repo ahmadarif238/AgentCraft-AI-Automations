@@ -2,6 +2,11 @@ import Image from "next/image";
 import { siteConfig } from "@/config/site";
 
 /**
+ * Assets live under /images/brand/ rather than /images/. The image optimizer
+ * caches by source URL, so recolouring a file in place would keep serving the
+ * previous version until its TTL expired; moving the path guarantees fresh
+ * delivery.
+ *
  * The source artwork is 1137x346 with a transparent background, so it needs no
  * blend modes, cropping or scaling hacks to sit correctly on any surface.
  * `dark` swaps in the variant whose wordmark is cream instead of near-black,
@@ -20,7 +25,7 @@ export function BrandLogo({
 }) {
   return (
     <Image
-      src={variant === "dark" ? "/images/logo-light.png" : "/images/logo.png"}
+      src={variant === "dark" ? "/images/brand/logo-light.png" : "/images/brand/logo.png"}
       alt={siteConfig.name}
       width={INTRINSIC.width}
       height={INTRINSIC.height}
