@@ -78,13 +78,28 @@ export default function AboutPage() {
             <h2 className="text-3xl font-heading font-bold mb-6 text-foreground">Meet the Founder</h2>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                {siteConfig.founderName} is an AI Engineer specializing in Agentic AI, Generative AI, Retrieval-Augmented Generation systems, multi-agent workflows, and business automation.
+                {siteConfig.founderName} is an AI engineer working in agentic systems:
+                multi-agent workflows built with LangGraph and LangChain, retrieval-augmented
+                generation grounded in vector databases, and the FastAPI services that hold
+                them together once they reach production.
               </p>
               <p>
-                Frustrated by the hype surrounding AI, {siteConfig.founderName.split(" ")[0]} founded AgentCraft AI Automations to build practical, secure, and highly reliable systems using LangGraph, LangChain, FastAPI, vector databases, n8n, Zapier, Make, Microsoft Power Automate, and modern backend infrastructure.
+                He holds a degree in Software Engineering from the University of Malakand,
+                and his background includes enterprise automation delivery for an
+                international tax firm — Microsoft Power Automate and Power Platform
+                workflows, Azure infrastructure, and AI-assisted internal processes.
+                AgentCraft was founded on that combination: current AI technique applied
+                with the operational discipline that enterprise systems demand.
               </p>
               <p>
-                The goal is simple: Help companies eliminate repetitive work so they can scale without scaling headcount.
+                Most automation projects fail on the parts nobody demonstrates — the error
+                handling, the approval steps, the monitoring, the handover documentation.
+                Those are the parts we build properly, because they decide whether a
+                workflow is still running six months after launch.
+              </p>
+              <p>
+                The work is measured one way: how much repetitive effort it removes for good,
+                so a business can raise its output without raising its headcount.
               </p>
             </div>
             <div className="flex gap-4 mt-8">

@@ -204,7 +204,7 @@ A founder-led AI automation studio bridging the gap between complex AI research 
 
 ## Founder
 
-${siteConfig.founderName}, ${siteConfig.founderTitle}. Specialises in agentic AI, generative AI, retrieval-augmented generation, multi-agent workflows and business automation.
+${siteConfig.founderName}, ${siteConfig.founderTitle}. Works in agentic systems: multi-agent workflows built with LangGraph and LangChain, retrieval-augmented generation grounded in vector databases, and the FastAPI services that hold them together in production. Holds a degree in Software Engineering from the University of Malakand, with enterprise automation delivery experience covering Microsoft Power Automate, the Power Platform and Azure infrastructure.
 
 ## Technical expertise
 

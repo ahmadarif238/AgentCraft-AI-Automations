@@ -57,13 +57,13 @@ export const faqs: Faq[] = [
     scope: "process",
     question: "Can you work with our existing tools?",
     answer:
-      "Yes. We specialise in connecting existing CRMs, databases, and SaaS tools via APIs without replacing your core systems.",
+      "Yes. We specialize in connecting existing CRMs, databases, and SaaS tools via APIs without replacing your core systems.",
   },
   {
     scope: "process",
     question: "Do you offer ongoing support?",
     answer:
-      "Yes. Our monthly partner package covers proactive monitoring, maintenance, continuous optimisation, and new automation work as your operations change.",
+      "Yes. Our monthly partner package covers proactive monitoring, maintenance, continuous optimization, and new automation work as your operations change.",
   },
 ];
 
