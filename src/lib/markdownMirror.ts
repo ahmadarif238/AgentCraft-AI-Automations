@@ -2,6 +2,7 @@ import { siteConfig, whatsappUrl, bookingUrl } from "@/config/site";
 import { services } from "@/data/services";
 import { useCases } from "@/data/useCases";
 import { caseStudies } from "@/data/caseStudies";
+import { team } from "@/data/team";
 import { faqs, objectionFaqs, processFaqs } from "@/data/faqs";
 import {
   buildAddOns,
@@ -227,6 +228,34 @@ ${contactBlock()}
 `;
 }
 
+function teamPage() {
+  const member = (m: (typeof team)[number]) => {
+    const parts = [
+      `## ${m.name} — ${m.role}`,
+      "",
+      m.focus,
+      "",
+      `**Specialisms:** ${m.specialisms.join(", ")}`,
+    ];
+    if (m.credential) parts.push("", `**Track record:** ${m.credential}`);
+    if (m.links.length) {
+      parts.push("", ...m.links.map((l) => `- ${l.label}: ${l.href}`));
+    }
+    return parts.join("\n");
+  };
+
+  return `# The Team — ${siteConfig.name}
+
+Five in-house engineers, no subcontractors. Builds are resourced across specialists so independent workstreams run in parallel and no single person's availability becomes a bottleneck.
+
+${team.map(member).join("\n\n")}
+
+## Contact
+
+${contactBlock()}
+`;
+}
+
 function processPage() {
   return `# Our Process — ${siteConfig.name}
 
@@ -266,6 +295,7 @@ export const MIRRORS: Record<string, () => string> = {
   "case-studies": caseStudiesPage,
   pricing: pricingPage,
   about: aboutPage,
+  team: teamPage,
   process: processPage,
   contact: contactPage,
 };
@@ -279,6 +309,7 @@ export const MIRROR_PATHS: { route: string; mirror: string; title: string }[] = 
   { route: "/pricing", mirror: "/pricing.md", title: "Pricing and packages" },
   { route: "/process", mirror: "/process.md", title: "How we work" },
   { route: "/about", mirror: "/about.md", title: "About and founder" },
+  { route: "/team", mirror: "/team.md", title: "The engineering team" },
   { route: "/contact", mirror: "/contact.md", title: "Contact and FAQ" },
 ];
 

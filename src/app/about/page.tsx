@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
-import { CheckCircle2, Code2, Database, BrainCircuit, Rocket, ShieldCheck, Cpu } from "lucide-react";
+import Link from "next/link";
+import { CheckCircle2, Code2, Database, BrainCircuit, Rocket, ShieldCheck, Cpu, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BookingLink } from "@/components/ui/BookingLink";
 import { siteConfig } from "@/config/site";
@@ -105,6 +106,28 @@ export default function AboutPage() {
                 <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer">GitHub Projects</a>
               </Button>
             </div>
+          </div>
+        </div>
+
+        {/* Team strip. The full roster lives on /team; this is the pointer to it. */}
+        <div className="max-w-5xl mx-auto mb-32">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 bg-card border border-border rounded-2xl p-8">
+            <div>
+              <p className="label-mono uppercase text-primary mb-3">The Team</p>
+              <h2 className="text-2xl font-heading font-bold text-foreground mb-2">
+                Five engineers, no subcontractors.
+              </h2>
+              <p className="text-muted-foreground max-w-xl">
+                Builds are resourced across specialists in agentic AI, full stack delivery,
+                payments infrastructure, messaging automation and workflow integration.
+              </p>
+            </div>
+            <Button variant="secondary" size="lg" className="shrink-0" asChild>
+              <Link href="/team">
+                Meet the team
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
           </div>
         </div>
 

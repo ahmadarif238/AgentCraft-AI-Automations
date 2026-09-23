@@ -102,4 +102,68 @@ export const caseStudies: CaseStudy[] = [
     adaptation:
       "The same pattern covers competitor tracking, brand monitoring, regulatory alerts, and supplier risk.",
   },
+  {
+    id: "billiie",
+    category: "Multi-tenant SaaS & Billing",
+    title: "Billiie",
+    overview:
+      "A live digital signage and commerce platform serving small businesses in the US, with tiered subscription billing and per-unit overage.",
+    problem:
+      "Small retail sites, cafes and parking operators want screens that sell, but the software behind them is priced for chains and needs an operator to run it.",
+    solution:
+      "A multi-tenant platform where each business manages its own screens, content, campaigns and earnings from an isolated dashboard. Billing is a tiered base subscription with per-unit overage on top, so capacity can be added without changing plan.",
+    technologies: ["Stripe", "Multi-tenant Architecture", "Subscription Billing", "Web & TV Apps"],
+    businessValue:
+      "In production and taking paying customers, across web, smart TV and Amazon Fire TV, with mobile in progress.",
+    adaptation:
+      "The same tenancy and billing model fits any product sold per seat, per location or per device.",
+  },
+  {
+    id: "whatsapp-ordering-agent",
+    category: "Conversational Commerce",
+    title: "WhatsApp Ordering Agent",
+    overview:
+      "A multi-tenant agent that takes orders over WhatsApp in English and Urdu, by text or voice note, and hands each one to a human to confirm.",
+    problem:
+      "Businesses lose orders in WhatsApp threads. Staff retype items, misprice totals, and there is no record of what was agreed.",
+    solution:
+      "Inbound messages route to the correct tenant, the agent answers against that business's own menu and builds an order, then stops at a pending state. No code path can mark an order confirmed; only a person clicking Confirm can. Every total is computed from database prices rather than typed.",
+    technologies: ["Supabase Postgres", "Next.js App Router", "Webhooks & HMAC", "Voice Transcription"],
+    businessValue:
+      "Tested end to end against live WhatsApp in both languages, with duplicate deliveries made safe by signature verification and idempotency.",
+    adaptation:
+      "Transfers to bookings, quotes and reorders wherever the conversation already happens on WhatsApp.",
+  },
+  {
+    id: "reap-card-designer",
+    category: "Fintech Tooling",
+    title: "Card Design Tool",
+    overview:
+      "A design tool built for a global financial infrastructure company, letting non-technical staff produce branded cards without a designer.",
+    problem:
+      "Card artwork went through a design queue, which made a small change slow and put a specialist between the business and a routine task.",
+    solution:
+      "Logo upload with live colour and element customisation, export to a size-constrained PNG that meets production limits, and Google API integration that saves designs and employee data straight to Drive and Sheets.",
+    technologies: ["Next.js", "React", "Google APIs", "Image Processing"],
+    businessValue:
+      "Puts a production-constrained design task in the hands of the people who need it, with no training.",
+    adaptation:
+      "The same pattern suits any branded asset a team regenerates often, from badges to certificates to menus.",
+  },
+  {
+    id: "client-hunting-agent",
+    category: "Outbound Automation",
+    title: "AI Client-Hunting Agent",
+    overview:
+      "An outbound pipeline that finds prospects, drafts personalised outreach, and sends only after a human approves it.",
+    problem:
+      "Outbound either goes unsent because nobody has time, or goes out unreviewed and damages the brand it is meant to build.",
+    solution:
+      "The agent researches target businesses and drafts a personalised message, then waits. Nothing sends without approval. Once sent, it monitors replies and notifies the operator, so follow-up happens while interest is live.",
+    technologies: ["FastAPI", "Next.js", "SQL Migrations", "Automated Testing"],
+    businessValue:
+      "Approval gating and reply monitoring mean volume goes up without anyone losing control of what goes out under their name.",
+    adaptation:
+      "The same shape covers recruitment outreach, partner development, renewals and win-back campaigns.",
+  },
 ];
