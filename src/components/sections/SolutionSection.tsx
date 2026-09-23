@@ -1,60 +1,114 @@
-import { Search, Cog, Network, TrendingUp } from "lucide-react";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { ScrollText } from "@/components/ui/ScrollText";
 
 const steps = [
   {
-    icon: Search,
-    title: "1. Identify",
-    description: "We map out your current workflows and identify exactly where time is being lost to manual data entry or repetitive logic."
+    label: "Identify",
+    description: "We map out your current workflows and identify exactly where time is being lost to manual data entry or repetitive logic.",
   },
   {
-    icon: Cog,
-    title: "2. Automate",
-    description: "We build custom logic and AI agents that handle decisions, data formatting, and routing without human intervention."
+    label: "Automate",
+    description: "We build custom logic and AI agents that handle decisions, data formatting, and routing without human intervention.",
   },
   {
-    icon: Network,
-    title: "3. Integrate",
-    description: "We connect your CRMs, databases, emails, and SaaS tools so information flows seamlessly across your business."
+    label: "Integrate",
+    description: "We connect your CRMs, databases, emails, and SaaS tools so information flows seamlessly across your business.",
   },
   {
-    icon: TrendingUp,
-    title: "4. Optimize",
-    description: "We monitor performance, handle edge cases, and continuously improve the system as your operations scale."
-  }
+    label: "Optimize",
+    description: "We monitor performance, handle edge cases, and continuously improve the system as your operations scale.",
+  },
 ];
 
+/**
+ * The approach as a pinned stack: the four stages scroll past on the left and
+ * light up in turn, while the chrome layer stack holds still on the right,
+ * one layer per stage.
+ */
 export function SolutionSection() {
-  return (
-    <section className="py-24 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-foreground">
-            AgentCraft Turns Repetitive Processes Into Intelligent Workflows.
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Our approach goes beyond basic triggers and actions. We build robust, error-resistant systems that handle complex business logic.
-          </p>
-        </div>
+  const [active, setActive] = useState(0);
+  const rows = useRef<(HTMLLIElement | null)[]>([]);
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-          {/* Connector Line */}
-          <div className="hidden lg:block absolute top-[45px] left-[10%] right-[10%] h-[2px] bg-border z-0" />
-          
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) setActive(Number((e.target as HTMLElement).dataset.index));
+        }
+      },
+      // A thin band across the middle of the viewport decides which row is lit.
+      { rootMargin: "-45% 0px -45% 0px" },
+    );
+    rows.current.forEach((r) => r && io.observe(r));
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <section className="tone-blue relative">
+      <div className="container mx-auto px-4 md:px-6 pt-24 md:pt-32">
+        <span className="kicker">How it works</span>
+        <h2 className="display text-4xl md:text-6xl mt-6 max-w-4xl">
+          AgentCraft Turns Repetitive Processes{" "}
+          <span className="text-white/45">Into Intelligent Workflows.</span>
+        </h2>
+        <ScrollText
+          className="display text-2xl md:text-4xl mt-14 max-w-5xl leading-[1.2]"
+          text="Our approach goes beyond basic triggers and actions. We build robust, error-resistant systems that handle complex business logic."
+        />
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 pt-16 pb-24 md:pb-32">
+        <ol className="lg:col-span-6">
           {steps.map((step, i) => (
-            <div
-              key={i}
-              className="relative z-10 flex flex-col items-center text-center group animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
-              style={{ animationDelay: `${i * 100}ms` }}
+            <li
+              key={step.label}
+              ref={(el) => {
+                rows.current[i] = el;
+              }}
+              data-index={i}
+              className={`grid grid-cols-12 gap-4 py-10 lg:py-16 border-t border-white/10 transition-opacity duration-500 ${
+                active === i ? "opacity-100" : "lg:opacity-35"
+              }`}
             >
-              <div className="w-24 h-24 rounded-full bg-card border-4 border-background flex items-center justify-center mb-6 shadow-xl group-hover:border-primary/50 transition-colors">
-                <step.icon className="w-10 h-10 text-primary-strong" />
+              <span className="col-span-2 label-mono text-white/55 pt-2">{String(i + 1).padStart(2, "0")}</span>
+              <div className="col-span-10">
+                <h3 className="display text-3xl md:text-4xl">{step.label}</h3>
+                <p className="text-white/70 mt-4 leading-relaxed max-w-md">{step.description}</p>
               </div>
-              <h3 className="text-xl font-heading font-bold mb-3">{step.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed max-w-[250px]">
-                {step.description}
-              </p>
-            </div>
+            </li>
           ))}
+        </ol>
+
+        <div className="hidden lg:block lg:col-span-5 lg:col-start-8">
+          <div className="sticky top-28 h-[calc(100svh-9rem)] max-h-[760px] flex items-center justify-center">
+            <div aria-hidden="true" className="absolute inset-0 hud-corners" />
+            <Image
+              src="/images/scene/stack.webp"
+              alt=""
+              aria-hidden="true"
+              width={624}
+              height={1220}
+              sizes="30vw"
+              className="h-[88%] w-auto object-contain"
+            />
+            {/* One tag per layer, lit to match the step in view. */}
+            <ul aria-hidden="true" className="absolute right-0 inset-y-[14%] flex flex-col justify-between">
+              {steps.map((step, i) => (
+                <li
+                  key={step.label}
+                  className={`flex items-center gap-2 label-mono uppercase transition-colors duration-500 ${
+                    active === i ? "text-white" : "text-white/35"
+                  }`}
+                >
+                  <span className={`w-6 h-px ${active === i ? "bg-primary" : "bg-white/25"}`} />
+                  {step.label}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

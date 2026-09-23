@@ -1,8 +1,9 @@
-import { ArrowUpRight, Play } from "lucide-react";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { BookingLink } from "@/components/ui/BookingLink";
-import { Sparkle } from "@/components/ui/Sparkle";
+import { ctaClass, CtaContent } from "@/components/ui/cta";
 import { HeroVisual } from "@/components/hero/HeroVisual";
+import { caseStudies } from "@/data/caseStudies";
 
 const capabilities = [
   "Workflow Automation",
@@ -13,100 +14,89 @@ const capabilities = [
   "Ongoing Support",
 ];
 
+/** The newest system on the case studies page, surfaced as the hero's bulletin. */
+const latest = caseStudies[caseStudies.length - 1];
+
 /**
- * Rayo hero: an oversized uppercase display headline that alternates solid
- * words with outline-stroked ones set in a capsule, a marquee running behind
- * it, and the accent sparkle as the pivot between the two lines.
+ * The hero: navy into cobalt, a large light headline with a muted second
+ * line, and the chrome core floating in HUD brackets on the right. A bulletin
+ * row along the bottom carries the positioning copy and the newest build.
  */
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden pt-16 pb-16 sm:pt-24 sm:pb-24 lg:pt-28 lg:pb-32">
-      {/* Marquee behind the headline. Decorative, so hidden from assistive tech. */}
-      <div
-        aria-hidden="true"
-        className="absolute top-28 sm:top-36 left-0 right-0 overflow-hidden pointer-events-none opacity-[0.07] select-none -z-[5]"
-      >
-        <div className="animate-marquee whitespace-nowrap text-6xl sm:text-8xl lg:text-9xl font-black font-heading tracking-tight text-foreground">
-          <span>AI AGENTS ✦ WORKFLOW AUTOMATION ✦ RAG ASSISTANTS ✦ ZERO BUSYWORK ✦&nbsp;</span>
-          <span>AI AGENTS ✦ WORKFLOW AUTOMATION ✦ RAG ASSISTANTS ✦ ZERO BUSYWORK ✦&nbsp;</span>
+    <section className="tone-navy relative overflow-hidden min-h-[100svh] flex flex-col">
+      <div aria-hidden="true" className="absolute inset-0 contours pointer-events-none" />
+      <div aria-hidden="true" className="absolute inset-0 grid-lines pointer-events-none" />
+
+      <div className="container mx-auto px-4 md:px-6 relative flex-1 grid grid-cols-1 lg:grid-cols-12 gap-10 pt-32 sm:pt-36 lg:pt-40 pb-10">
+        <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center animate-in fade-in slide-in-from-bottom-4 duration-1000">
+          <span className="kicker">AI Agents &amp; Automations for Modern Businesses</span>
+
+          <h1 className="display text-[44px] sm:text-6xl lg:text-7xl xl:text-[88px] mt-7">
+            We automate workflows.
+            <span className="block text-white/45">You scale effortlessly.</span>
+          </h1>
+
+          <div className="flex flex-col sm:flex-row gap-[3px] mt-10">
+            <BookingLink className={ctaClass()}>
+              <CtaContent>Book a free automation audit</CtaContent>
+            </BookingLink>
+            <Link href="/services" className={ctaClass()}>
+              <CtaContent tone="ghost">Explore services</CtaContent>
+            </Link>
+          </div>
+
+          <p className="text-xs text-white/55 mt-4 max-w-md">
+            Free audit includes workflow review, automation opportunities, and a practical
+            implementation roadmap.
+          </p>
+        </div>
+
+        {/* The chrome core, framed like a specimen plate. */}
+        <div className="lg:col-span-6 relative min-h-[300px] sm:min-h-[420px] lg:min-h-0 animate-in fade-in duration-1000 delay-300">
+          <div aria-hidden="true" className="absolute inset-[6%] hud-corners pointer-events-none" />
+          <span aria-hidden="true" className="absolute top-[8%] left-[9%] label-mono text-white/50">AGENT CORE / 01</span>
+          <span aria-hidden="true" className="absolute bottom-[8%] right-[9%] label-mono text-white/50 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-primary" /> DATA IN MOTION
+          </span>
+          <HeroVisual className="absolute inset-0" />
         </div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 relative">
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 animate-in fade-in slide-in-from-bottom-2 duration-700">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-card border border-border label-mono font-bold text-primary-strong uppercase shadow-sm">
-            <span aria-hidden="true" className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span>AI Agents &amp; Automations for Modern Businesses</span>
-          </div>
-
-          <div className="hidden sm:inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-card/90 border border-border label-mono text-muted-foreground shadow-md backdrop-blur-md">
-            <span aria-hidden="true" className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-foreground font-bold">AUTOMATION:</span>
-            <span>LIVE</span>
-          </div>
-        </div>
-
-        <h1 className="text-5xl sm:text-7xl lg:text-[92px] xl:text-[108px] font-extrabold tracking-tight leading-[0.92] uppercase font-heading mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
-          <span className="flex flex-wrap items-center gap-x-4 sm:gap-x-6">
-            <span className="text-foreground">We automate</span>
-            <span className="title-outline px-4 sm:px-7 py-0.5 sm:py-1 border border-foreground/25 rounded-full inline-block">
-              workflows
+      {/* Bulletin row. */}
+      <div className="container mx-auto px-4 md:px-6 relative pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-end pt-8 border-t border-white/10">
+          <p className="md:col-span-3 label-mono uppercase text-white/50 leading-relaxed">
+            Built with LangGraph, FastAPI, n8n, Zapier, Make, Power Automate, and RAG systems.
+          </p>
+          <p className="md:col-span-5 text-[15px] sm:text-base text-white/80 leading-relaxed">
+            AgentCraft AI Automations builds custom AI agents, workflow automations, RAG
+            assistants, and business integrations that eliminate repetitive work and help
+            companies grow faster.
+          </p>
+          <Link
+            href={`/case-studies#${latest.id}`}
+            className="md:col-span-4 group relative block bg-white/[.06] hover:bg-white/[.1] transition-colors p-4 pl-5 border-l-2 border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <span className="flex items-center justify-between label-mono text-white/55 uppercase">
+              <span>Latest system</span>
+              <span>{latest.category}</span>
             </span>
-          </span>
-          <span className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 mt-2 sm:mt-4">
-            <Sparkle className="w-10 h-10 sm:w-16 sm:h-16 lg:w-20 lg:h-20 text-primary animate-pulse" />
-            <span className="text-foreground">you scale.</span>
-          </span>
-        </h1>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-7 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-            <p className="text-xl sm:text-2xl text-muted-foreground leading-relaxed max-w-2xl">
-              AgentCraft AI Automations builds custom AI agents, workflow automations, RAG
-              assistants, and business integrations that eliminate repetitive work and help
-              companies grow faster.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4 mt-8">
-              <BookingLink className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold text-sm shadow-xl shadow-primary/20 hover:bg-primary-hover active:scale-95 transition-all">
-                <span>Book a free automation audit</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </BookingLink>
-
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full border border-border bg-card hover:border-primary text-foreground font-medium text-sm transition-all"
-              >
-                <Play className="w-3.5 h-3.5 fill-current text-primary-strong" />
-                <span>Explore services</span>
-              </Link>
-            </div>
-
-            <p className="text-xs text-muted-extra mt-5 max-w-md">
-              Free audit includes workflow review, automation opportunities, and a practical
-              implementation roadmap.
-            </p>
-
-            <div className="flex flex-wrap gap-2 mt-10">
-              {capabilities.map((c) => (
-                <span
-                  key={c}
-                  className="px-3.5 py-1.5 rounded-full bg-card border border-border text-xs font-medium text-muted-foreground"
-                >
-                  {c}
-                </span>
-              ))}
-            </div>
-
-            <p className="label-mono uppercase text-muted-extra mt-6">
-              Built with LangGraph, FastAPI, n8n, Zapier, Make, Power Automate, and RAG systems.
-            </p>
-          </div>
-
-          <div className="lg:col-span-5 animate-in fade-in duration-1000 delay-300">
-            <HeroVisual />
-          </div>
+            <span className="flex items-center justify-between gap-4 mt-2">
+              <span className="text-sm font-medium text-white">{latest.title}: {latest.overview.split(",")[0]}</span>
+              <ArrowRight className="w-4 h-4 shrink-0 text-white/70 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
+            </span>
+          </Link>
         </div>
+
+        <ul className="flex flex-wrap gap-x-6 gap-y-2 mt-8 label-mono uppercase text-white/45">
+          {capabilities.map((c) => (
+            <li key={c} className="flex items-center gap-2">
+              <span aria-hidden="true" className="w-1 h-1 bg-white/40" />
+              {c}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

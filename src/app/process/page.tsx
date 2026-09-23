@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
-import { Badge } from "@/components/ui/badge";
 import { CTASection } from "@/components/sections/CTASection";
+import { PageHero } from "@/components/layout/PageHero";
 
 export const metadata: Metadata = pageMetadata({
   title: "Our Process",
@@ -46,19 +46,9 @@ const processSteps = [
 export default function ProcessPage() {
   return (
     <>
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-background border-b border-border">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-3xl mx-auto text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <Badge variant="gold" className="mb-6">Our Process</Badge>
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 text-foreground">
-              A Proven Path to Automation
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              We don&apos;t just write code. We map your business logic and engineer reliable systems that scale.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero kicker="Our Process" title="A Proven Path" muted="to Automation">
+        We don&apos;t just write code. We map your business logic and engineer reliable systems that scale.
+      </PageHero>
 
       <section className="py-24 bg-secondary relative">
         <div className="container mx-auto px-4 md:px-6">

@@ -42,7 +42,7 @@ function looksUnderpowered() {
   return (typeof cores === "number" && cores > 0 && cores <= 4) || window.innerWidth < 1024;
 }
 
-export function HeroVisual() {
+export function HeroVisual({ className = "relative w-full h-full" }: { className?: string }) {
   const [use3d, setUse3d] = useState(false);
 
   useEffect(() => {
@@ -63,7 +63,7 @@ export function HeroVisual() {
   }, []);
 
   return (
-    <div className="relative h-[400px] lg:h-[600px] hidden lg:block">
+    <div className={className}>
       {use3d ? <HeroScene /> : <StaticHeroVisual />}
     </div>
   );

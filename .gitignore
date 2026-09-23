@@ -44,3 +44,4 @@ next-env.d.ts
 # third-party Claude Code skills (11MB of design data, reinstall with:
 # npx ui-ux-pro-max-cli init --ai claude)
 .claude/skills/
+.scene-tmp/

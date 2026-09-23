@@ -14,6 +14,7 @@ import {
   pricingPackages,
 } from "@/data/pricing";
 import { objectionFaqs } from "@/data/faqs";
+import { PageHero } from "@/components/layout/PageHero";
 
 export const metadata: Metadata = pageMetadata({
   title: "Pricing & Packages",
@@ -25,17 +26,12 @@ export const metadata: Metadata = pageMetadata({
 export default function PricingPage() {
   return (
     <>
+      <PageHero kicker="Pricing" title="AI Automation" muted="Packages">
+        Every project is quoted as a fixed price before work starts, so there are no
+        open-ended hourly bills. What moves that price is set out below.
+      </PageHero>
       <div className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-3xl mx-auto text-center mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-foreground">
-              AI Automation Packages
-            </h1>
-            <p className="text-xl text-muted-foreground">
-              Every project is quoted as a fixed price before work starts, so there are no
-              open-ended hourly bills. What moves that price is set out below.
-            </p>
-          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {pricingPackages.map((pkg, i) => (
@@ -43,7 +39,7 @@ export default function PricingPage() {
                 key={pkg.id}
                 className={`relative flex flex-col p-8 rounded-3xl border ${
                   pkg.highlight
-                    ? "bg-card border-primary shadow-[0_0_30px_rgba(221,241,96,0.15)] scale-100 lg:scale-105 z-10"
+                    ? "bg-card border-primary shadow-[0_0_30px_rgba(43,107,255,0.15)] scale-100 lg:scale-105 z-10"
                     : "bg-card/40 border-border hover:border-primary/50"
                 } transition-all animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both`}
                 style={{ animationDelay: `${i * 100}ms` }}

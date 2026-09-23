@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { Mail, MessageCircle, Phone, MapPin, Clock, Send } from "lucide-react";
+import { Mail, MessageCircle, Phone, MapPin, Clock, Send, ArrowUp } from "lucide-react";
 import { BrandLogo } from "@/components/ui/BrandLogo";
+import { BookingLink } from "@/components/ui/BookingLink";
+import { ctaClass, CtaContent } from "@/components/ui/cta";
 import { linkedinUrl, siteConfig, whatsappUrl } from "@/config/site";
 
 /** Shown as the site's own address. Derived so it can never drift from the canonical URL. */
@@ -29,7 +31,7 @@ const companyLinks = [
 /** Column headings are monospaced micro-labels, matching the rest of the system. */
 function ColumnHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="label-mono uppercase text-primary mb-5">
+    <h3 className="label-mono uppercase text-white/55 mb-5">
       {children}
     </h3>
   );
@@ -37,8 +39,21 @@ function ColumnHeading({ children }: { children: React.ReactNode }) {
 
 export function Footer() {
   return (
-    <footer className="bg-background border-t border-border/60 mt-auto">
-      <div className="container mx-auto px-4 md:px-6 py-16">
+    <footer className="tone-blue relative overflow-hidden mt-auto">
+      <div className="container mx-auto px-4 md:px-6 pt-24 pb-10 relative z-10">
+        {/* Closing prompt, SharpLink style: one line and one action above the index. */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pb-16 mb-16 border-b border-white/10">
+          <div>
+            <span className="kicker">Next step</span>
+            <p className="display text-3xl md:text-5xl mt-5 max-w-2xl">
+              Tell us about one workflow.{" "}
+              <span className="text-white/50">We&apos;ll show you what it looks like automated.</span>
+            </p>
+          </div>
+          <BookingLink className={ctaClass("h-12 shrink-0")}>
+            <CtaContent>Book free audit</CtaContent>
+          </BookingLink>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-x-6 lg:gap-y-10">
 
           {/* Brand */}
@@ -47,7 +62,7 @@ export function Footer() {
               <BrandLogo variant="dark" className="h-10 w-auto" />
               <span className="sr-only">AgentCraft AI Automations — home</span>
             </Link>
-            <p className="text-sm text-muted-foreground max-w-sm leading-relaxed">
+            <p className="text-sm text-white/70 max-w-sm leading-relaxed">
               {siteConfig.description}
             </p>
             <div className="flex items-center gap-3 mt-1">
@@ -56,7 +71,7 @@ export function Footer() {
                   href={linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg bg-canvas border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+                  className="w-9 h-9 rounded-sm bg-white/[.08] flex items-center justify-center text-white/80 hover:bg-white hover:text-[#05070D] transition-colors"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
@@ -68,7 +83,7 @@ export function Footer() {
                 href={siteConfig.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-canvas border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+                className="w-9 h-9 rounded-sm bg-white/[.08] flex items-center justify-center text-white/80 hover:bg-white hover:text-[#05070D] transition-colors"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
@@ -80,7 +95,7 @@ export function Footer() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg bg-canvas border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+                  className="w-9 h-9 rounded-sm bg-white/[.08] flex items-center justify-center text-white/80 hover:bg-white hover:text-[#05070D] transition-colors"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span className="sr-only">WhatsApp</span>
@@ -92,10 +107,10 @@ export function Footer() {
           {/* Services */}
           <div className="flex flex-col">
             <ColumnHeading>Services</ColumnHeading>
-            <ul className="flex flex-col gap-1 -my-2 text-sm text-muted-foreground">
+            <ul className="flex flex-col gap-1 -my-2 text-sm text-white/75">
               {serviceLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="block py-2 hover:text-primary transition-colors">
+                  <Link href={link.href} className="block py-2 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -106,10 +121,10 @@ export function Footer() {
           {/* Company */}
           <div className="flex flex-col">
             <ColumnHeading>Company</ColumnHeading>
-            <ul className="flex flex-col gap-1 -my-2 text-sm text-muted-foreground">
+            <ul className="flex flex-col gap-1 -my-2 text-sm text-white/75">
               {companyLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="block py-2 hover:text-primary transition-colors">
+                  <Link href={link.href} className="block py-2 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -120,14 +135,14 @@ export function Footer() {
           {/* Contact */}
           <div className="lg:col-span-2 flex flex-col">
             <ColumnHeading>Contact</ColumnHeading>
-            <ul className="flex flex-col gap-1 -my-2 text-sm text-muted-foreground">
+            <ul className="flex flex-col gap-1 -my-2 text-sm text-white/75">
               {whatsappUrl && (
                 <li>
                   <a
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 py-2 hover:text-primary transition-colors"
+                    className="flex items-center gap-2 py-2 hover:text-white transition-colors"
                   >
                     <MessageCircle className="w-4 h-4 shrink-0" />
                     WhatsApp us
@@ -138,7 +153,7 @@ export function Footer() {
                 <li>
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className="flex items-center gap-2 py-2 hover:text-primary transition-colors break-all"
+                    className="flex items-center gap-2 py-2 hover:text-white transition-colors break-all"
                   >
                     <Mail className="w-4 h-4 shrink-0" />
                     {siteConfig.email}
@@ -149,7 +164,7 @@ export function Footer() {
                 <li>
                   <a
                     href={`tel:${siteConfig.phone.replace(/[^+\d]/g, "")}`}
-                    className="flex items-center gap-2 py-2 hover:text-primary transition-colors"
+                    className="flex items-center gap-2 py-2 hover:text-white transition-colors"
                   >
                     <Phone className="w-4 h-4 shrink-0" />
                     {siteConfig.phone}
@@ -157,7 +172,7 @@ export function Footer() {
                 </li>
               )}
               <li>
-                <Link href="/contact" className="flex items-center gap-2 py-2 hover:text-primary transition-colors">
+                <Link href="/contact" className="flex items-center gap-2 py-2 hover:text-white transition-colors">
                   <Send className="w-4 h-4 shrink-0" />
                   Send an enquiry
                 </Link>
@@ -167,23 +182,33 @@ export function Footer() {
                 {siteConfig.location.city}, {siteConfig.location.country}
               </li>
               <li className="flex items-center gap-2 py-2 label-mono">
-                <Clock className="w-4 h-4 shrink-0 text-primary" />
+                <Clock className="w-4 h-4 shrink-0 text-primary-strong" />
                 Replies {siteConfig.responseTime}
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-border/60 flex flex-col md:flex-row items-center justify-between gap-4 label-mono text-muted-foreground">
+        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 label-mono text-white/60">
           <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            <span className="text-primary">
+            <span className="text-white/85">
               Automate. Intelligently. Scale Limitlessly.
             </span>
-            <a href={siteConfig.url} className="hover:text-primary transition-colors">{displayDomain}</a>
-            <Link href="/privacy" className="hover:text-primary transition-colors">Privacy</Link>
-            <Link href="/terms" className="hover:text-primary transition-colors">Terms</Link>
+            <a href={siteConfig.url} className="hover:text-white transition-colors">{displayDomain}</a>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+            <a href="#top" className="inline-flex items-center gap-1.5 hover:text-white transition-colors">
+              Back to top <ArrowUp className="w-3 h-3" aria-hidden="true" />
+            </a>
           </div>
+        </div>
+      </div>
+
+      {/* The cropped wordmark that closes every page. Decorative. */}
+      <div aria-hidden="true" className="relative select-none pointer-events-none -mt-4 h-[15vw] overflow-hidden">
+        <div className="wordmark font-heading font-medium tracking-[-0.06em] leading-[0.8] text-[21vw] whitespace-nowrap text-center">
+          AgentCraft
         </div>
       </div>
     </footer>

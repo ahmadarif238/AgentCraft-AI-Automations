@@ -6,6 +6,7 @@ import { CheckCircle2, Code2, Database, BrainCircuit, Rocket, ShieldCheck, Cpu, 
 import { Button } from "@/components/ui/button";
 import { BookingLink } from "@/components/ui/BookingLink";
 import { siteConfig } from "@/config/site";
+import { PageHero } from "@/components/layout/PageHero";
 
 export const metadata: Metadata = pageMetadata({
   title: "About Us",
@@ -40,19 +41,12 @@ const values = [
 
 export default function AboutPage() {
   return (
+    <>
+      <PageHero kicker="About Us" title="A Founder-Led" muted="AI Automation Studio.">
+        We bridge the gap between complex AI research and practical business operations.
+      </PageHero>
     <div className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <span className="label-mono uppercase text-primary mb-4 block">About Us</span>
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-foreground">
-            A Founder-Led AI Automation Studio.
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            We bridge the gap between complex AI research and practical business operations.
-          </p>
-        </div>
 
         {/* Founder Profile */}
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center mb-32">
@@ -187,7 +181,7 @@ export default function AboutPage() {
                 className="relative w-full max-w-[350px] aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border border-border/50 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
               >
                 <Image
-                  src="/images/flyer.webp"
+                  src="/images/flyer-v2.webp"
                   alt="Preview of the AgentCraft AI Automations one-page company overview"
                   width={900}
                   height={1350}
@@ -222,7 +216,7 @@ export default function AboutPage() {
           <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
             Book a free automation audit and we&apos;ll map out which of your workflows are worth automating first.
           </p>
-          <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2 shadow-[0_0_20px_rgba(221,241,96,0.2)]" asChild>
+          <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2 shadow-[0_0_20px_rgba(43,107,255,0.2)]" asChild>
             <BookingLink>
               Book a Free Automation Audit
             </BookingLink>
@@ -231,5 +225,6 @@ export default function AboutPage() {
 
       </div>
     </div>
+    </>
   );
 }

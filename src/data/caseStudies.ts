@@ -8,13 +8,25 @@ export interface CaseStudy {
   technologies: string[];
   businessValue: string;
   adaptation: string;
+  /** Interface visual under /images/work/, 1600x1000. */
+  image: string;
+  /**
+   * `capture` is a real screenshot of the live product. `sample` is the
+   * product's interface shown in use with illustrative data, since a live
+   * deployment on its own shows only empty states.
+   */
+  imageKind: "capture" | "sample";
+  /** Public deployment, when there is one. */
+  liveUrl?: string;
 }
+
+type Entry = Omit<CaseStudy, "image" | "imageKind" | "liveUrl">;
 
 /**
  * Single source for the case studies. Consumed by the case studies page, the
  * homepage preview, and the markdown mirror, so the three can never disagree.
  */
-export const caseStudies: CaseStudy[] = [
+const entries: Entry[] = [
   {
     id: "sales-ai",
     category: "B2B Sales Automation",
@@ -167,3 +179,26 @@ export const caseStudies: CaseStudy[] = [
       "The same shape covers recruitment outreach, partner development, renewals and win-back campaigns.",
   },
 ];
+
+/** Where each system can be seen running, and whether its visual is a capture. */
+const deployments: Record<string, Pick<CaseStudy, "imageKind" | "liveUrl">> = {
+  "sales-ai": { imageKind: "sample", liveUrl: "https://ai-sales-automation-agent.vercel.app" },
+  "contract-iq": { imageKind: "sample", liveUrl: "https://contract-iq-six.vercel.app" },
+  "supply-chain-agent": { imageKind: "sample", liveUrl: "https://smart-supply-chain-agent.vercel.app" },
+  "stock-news-agent": { imageKind: "sample", liveUrl: "https://stock-news-agent.vercel.app" },
+  "vivagraph-ai": { imageKind: "sample", liveUrl: "https://vivagraph-ai.vercel.app" },
+  billiie: { imageKind: "capture", liveUrl: "https://billiie.co" },
+  "reap-card-designer": { imageKind: "capture", liveUrl: "https://reap-rho.vercel.app" },
+};
+
+export const caseStudies: CaseStudy[] = entries.map((entry) => ({
+  ...entry,
+  image: `/images/work/${entry.id}.webp`,
+  imageKind: deployments[entry.id]?.imageKind ?? "sample",
+  liveUrl: deployments[entry.id]?.liveUrl,
+}));
+
+/** "billiie.co" from "https://billiie.co", for captions and link labels. */
+export function displayHost(url: string) {
+  return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+}

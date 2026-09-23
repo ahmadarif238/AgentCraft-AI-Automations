@@ -10,13 +10,11 @@ export interface ButtonProps
 }
 
 /**
- * Rayo buttons: full pills. The primary action is a solid accent fill with
- * dark text and a soft accent-tinted shadow; everything else is a bordered
- * card surface that lights its edge on hover.
+ * Engineered buttons: nearly square corners, uppercase mono labels, flat
+ * fills. The solid variant reads the --btn tokens, so it is white on the dark
+ * tones and ink on the light ones without any call site knowing which.
  *
- * Dark text on the fill is deliberate in both themes. White on the light
- * theme's lavender measures 2.87:1 and fails; dark reaches 6.31:1.
- *
+ * For the page's main action, prefer <CtaLink>, which adds the blue arrow cap.
  * `gold` remains an alias for `default` so existing call sites keep working.
  */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -24,27 +22,26 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : "button"
 
     const baseStyles =
-      "inline-flex items-center justify-center whitespace-nowrap rounded-full font-bold ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-95"
+      "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm font-mono text-[11.5px] font-semibold uppercase tracking-[0.12em] ring-offset-background transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
 
-    const primary =
-      "bg-primary text-primary-foreground shadow-xl shadow-primary/20 hover:bg-primary-hover"
+    const solid = "bg-btn text-btn-foreground hover:opacity-90"
 
     const variants = {
-      default: primary,
-      gold: primary,
+      default: solid,
+      gold: solid,
       outline:
-        "border border-border bg-card text-foreground font-medium hover:border-primary",
+        "border border-foreground/25 bg-transparent text-foreground hover:border-foreground/60 hover:bg-foreground/5",
       secondary:
-        "border border-border bg-canvas text-foreground font-medium hover:border-primary",
-      ghost: "text-muted-foreground font-medium hover:text-primary-strong",
-      link: "text-primary-strong font-medium underline-offset-4 hover:underline",
+        "bg-foreground/[.08] text-foreground hover:bg-foreground/[.14]",
+      ghost: "text-muted-foreground hover:text-foreground",
+      link: "text-primary-strong underline-offset-4 hover:underline",
     }
 
     const sizes = {
-      default: "h-11 px-6 text-sm",
-      sm: "h-9 px-5 text-xs",
-      lg: "h-14 px-8 text-sm",
-      icon: "h-11 w-11",
+      default: "h-10 px-5",
+      sm: "h-8 px-3.5",
+      lg: "h-12 px-6",
+      icon: "h-10 w-10",
     }
 
     return (

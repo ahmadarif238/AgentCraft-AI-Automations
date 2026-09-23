@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/ui/Reveal";
 import { FileText, Clock, Database, MessageSquare, Search, FileBarChart } from "lucide-react";
 
 const problems = [
@@ -33,35 +34,43 @@ const problems = [
   },
 ];
 
+/**
+ * Symptoms, set as an annotated index on ice: each icon sits in a small HUD
+ * frame, and the rows are ruled like a specification sheet.
+ */
 export function ProblemSection() {
   return (
-    <section className="py-24 bg-secondary text-secondary-foreground relative border-y border-border">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="label-mono text-primary mb-4 block">Symptoms of Poor Operations</span>
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-secondary-foreground">
-            Manual Work Is Quietly <br className="hidden md:block" /> Slowing Your Business Down.
-          </h2>
-          <p className="text-muted-foreground/80 text-lg">
+    <section className="tone-ice">
+      <div className="container mx-auto px-4 md:px-6 py-24 md:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 md:mb-20">
+          <div className="lg:col-span-7">
+            <span className="kicker">Symptoms of Poor Operations</span>
+            <h2 className="display text-4xl md:text-6xl mt-6">
+              Manual Work Is Quietly{" "}
+              <span className="text-muted-extra">Slowing Your Business Down.</span>
+            </h2>
+          </div>
+          <p className="lg:col-span-4 lg:col-start-9 self-end text-lg text-muted-foreground leading-relaxed">
             Every hour spent on a repetitive task is an hour stolen from growth, strategy, and client delivery.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-border">
           {problems.map((problem, i) => (
-            <div
-              key={i}
-              className="bg-card/5 border border-border/50 rounded-xl p-6 hover:border-primary/50 transition-colors animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
-              style={{ animationDelay: `${i * 100}ms` }}
+            <Reveal
+              key={problem.title}
+              delay={(i % 3) * 90}
+              className="flex gap-5 py-8 md:pr-8 border-b border-border"
             >
-              <div className="w-12 h-12 rounded-xl bg-canvas border border-border flex items-center justify-center mb-6 text-primary">
-                <problem.icon className="w-6 h-6 text-primary" />
+              <div className="hud-corners w-14 h-14 shrink-0 flex items-center justify-center text-foreground/80">
+                <problem.icon className="w-5 h-5" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-heading font-semibold mb-3">{problem.title}</h3>
-              <p className="text-muted-foreground/80 text-sm leading-relaxed">
-                {problem.description}
-              </p>
-            </div>
+              <div>
+                <span className="label-mono text-muted-extra">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="text-lg font-heading font-medium mt-1 mb-2">{problem.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{problem.description}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

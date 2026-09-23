@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/ui/Reveal";
 import { ShieldCheck, KeyRound, DatabaseZap, FileCode2, Activity, Presentation } from "lucide-react";
 
 const securityFeatures = [
@@ -35,34 +36,33 @@ const securityFeatures = [
 
 export function SecuritySection() {
   return (
-    <section className="py-24 bg-background relative border-t border-border">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-foreground">
-            Built With Security and Reliability in Mind.
-          </h2>
-          <p className="text-muted-foreground text-lg">
+    <section className="tone-ink">
+      <div className="container mx-auto px-4 md:px-6 py-24 md:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+          <div className="lg:col-span-7">
+            <span className="kicker">Security &amp; reliability</span>
+            <h2 className="display text-4xl md:text-6xl mt-6">
+              Built With Security{" "}
+              <span className="text-white/45">and Reliability in Mind.</span>
+            </h2>
+          </div>
+          <p className="lg:col-span-4 lg:col-start-9 self-end text-white/65 text-lg">
             We don&apos;t build brittle web scrapers. We engineer robust, secure, and documented systems that enterprises can trust.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[3px]">
           {securityFeatures.map((feature, i) => (
-            <div
-              key={i}
-              className="bg-card/40 border border-border rounded-xl p-6 hover:bg-card hover:border-primary/50 transition-all group animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
-              style={{ animationDelay: `${i * 100}ms` }}
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-canvas border border-border flex items-center justify-center text-primary group-hover:border-primary group-hover:scale-110 transition-all duration-200">
-                  <feature.icon className="w-5 h-5" />
+            <Reveal key={feature.title} delay={(i % 3) * 90} className="h-full">
+              <div className="hud-corners h-full bg-white/[.03] p-7">
+                <div className="flex items-center justify-between">
+                  <feature.icon className="w-5 h-5 text-primary-strong" aria-hidden="true" />
+                  <span className="label-mono text-white/35">{String(i + 1).padStart(2, "0")}</span>
                 </div>
-                <h3 className="font-heading font-semibold text-lg">{feature.title}</h3>
+                <h3 className="font-heading font-medium text-lg mt-8 mb-3">{feature.title}</h3>
+                <p className="text-sm text-white/60 leading-relaxed">{feature.description}</p>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {feature.description}
-              </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

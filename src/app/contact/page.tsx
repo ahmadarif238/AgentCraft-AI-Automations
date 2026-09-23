@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { Mail, Calendar, MessageCircle, Phone, ArrowRight, Clock } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { EnquiryForm } from "@/components/contact/EnquiryForm";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { processFaqs } from "@/data/faqs";
 import { hasLiveScheduler, linkedinUrl, siteConfig, whatsappUrl } from "@/config/site";
+import { PageHero } from "@/components/layout/PageHero";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact Us",
@@ -19,22 +19,12 @@ export const metadata: Metadata = pageMetadata({
 export default function ContactPage() {
   return (
     <>
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-background border-b border-border">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-3xl mx-auto text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <Badge variant="gold" className="mb-6">Contact Us</Badge>
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 text-foreground">
-              Let&apos;s Build Your <br className="hidden md:block" /> Automation Strategy
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Tell us which workflow is costing you the most time. We&apos;ll reply{" "}
-              {siteConfig.responseTime} with where automation would pay off first.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero kicker="Contact Us" title="Let&apos;s Build Your" muted="Automation Strategy">
+        Tell us which workflow is costing you the most time. We&apos;ll reply{" "}
+        {siteConfig.responseTime} with where automation would pay off first.
+      </PageHero>
 
-      <section className="py-24 bg-secondary/30">
+      <section className="tone-ice py-24">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 

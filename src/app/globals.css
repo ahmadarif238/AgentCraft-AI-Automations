@@ -3,107 +3,73 @@
 @plugin "tailwindcss-animate";
 
 /*
- * Rayo.
+ * Chrome & Cobalt.
  *
- * Two themes on one set of semantic tokens. Dark is the default; adding the
- * `light` class to <html> swaps every value below, and because the components
- * style themselves through the tokens rather than literal colours, nothing
- * else needs to know a theme exists.
+ * One set of semantic tokens, and a handful of section tones that redefine
+ * them locally. Wrapping a section in `.tone-ice` flips every token inside it
+ * to the light palette, so components never need to know which surface they
+ * sit on; they read the tokens and the cascade does the rest.
  *
- * Measured contrast, dark: headings 18.10:1, body 7.97:1, muted 4.77:1,
- * accent 14.50:1, and dark-on-accent for solid buttons 14.50:1.
+ *   default   deep navy ink, the base of the site
+ *   navy      navy into cobalt, for hero moments
+ *   blue      ink into cobalt from the top down, for statements
+ *   ink       true black, for the densest panels
+ *   ice       pale blue paper, the light counterpoint
  *
- * Light needed two corrections to the source palette. Lavender as *text* is
- * only 2.69:1 on the light ground and white-on-lavender buttons are 2.87:1,
- * both failures. Buttons therefore take dark text on lavender (6.31:1), and
- * --primary-strong carries a deepened lavender at the same 253deg hue for
- * text (4.69:1 on the base, 5.00:1 on cards).
+ * Measured contrast on the default ground (#050A1A): body 17.9:1, muted 8.6:1,
+ * extra muted 5.4:1, accent text 7.6:1. On ice (#E8EEF6): body 17.2:1, muted
+ * 7.2:1, extra muted 4.8:1, accent text 5.6:1. White on the electric blue
+ * fill is 4.5:1 and is only used for the arrow cap and bold labels.
  */
 
 :root {
-  --background: #161616;
-  --canvas: #1C1C1C;
-  --shade: #0A0A0A;
+  --background: #050A1A;
+  --canvas: #0A1430;
+  --shade: #03060F;
 
-  --foreground: #FFFFFF;
+  --foreground: #F3F6FB;
 
-  --card: #1C1C1C;
-  --card-foreground: #FFFFFF;
+  --card: #0A1330;
+  --card-foreground: #F3F6FB;
 
-  --popover: #1C1C1C;
-  --popover-foreground: #FFFFFF;
+  --popover: #0A1330;
+  --popover-foreground: #F3F6FB;
 
-  /* Primary accent. In dark this is the lime; the lavender is the counterpoint. */
-  --primary: #DDF160;
-  --primary-hover: #CBE04A;
-  --primary-foreground: #161616;
-  /* Accent used for text. Identical to --primary here, since lime clears 14.5:1. */
-  --primary-strong: #DDF160;
+  /* Electric blue: the single accent. Used for fills, squares and the arrow cap. */
+  --primary: #2B6BFF;
+  --primary-hover: #1F5AE8;
+  --primary-foreground: #FFFFFF;
+  /* The accent as text. The fill itself is too dark to read on navy. */
+  --primary-strong: #7FA6FF;
 
-  /* Second accent, used sparingly for contrast against the primary. */
-  --accent-alt: #9F8BE7;
+  --accent-alt: #A9C1EC;
 
-  --secondary: #1C1C1C;
-  --secondary-foreground: #FFFFFF;
+  --secondary: #0A1330;
+  --secondary-foreground: #F3F6FB;
 
-  --muted: #1C1C1C;
-  --muted-foreground: #ACACAC;
-  --muted-extra: #838383;
+  --muted: #0A1330;
+  --muted-foreground: #A6B3CC;
+  --muted-extra: #7B89A6;
 
-  --accent: #DDF160;
-  --accent-foreground: #161616;
-  --accent-strong: #DDF160;
+  --accent: #2B6BFF;
+  --accent-foreground: #FFFFFF;
+  --accent-strong: #7FA6FF;
 
-  --destructive: #FF6B6B;
-  --destructive-foreground: #161616;
+  --destructive: #FF7A7A;
+  --destructive-foreground: #05070D;
 
-  --border: #252525;
-  --input: #252525;
-  --ring: #DDF160;
+  --border: #1A2748;
+  --input: #1A2748;
+  --ring: #2B6BFF;
 
-  --radius: 1rem;
-}
+  /* The solid button: white on dark tones, ink on light ones. */
+  --btn: #FFFFFF;
+  --btn-foreground: #05070D;
 
-.light {
-  --background: #FAF7F6;
-  --canvas: #FFFFFF;
-  --shade: #E0DDDB;
+  /* Thin HUD lines and corner brackets. */
+  --hud: rgba(214, 226, 247, 0.28);
 
-  --foreground: #161616;
-
-  --card: #FFFFFF;
-  --card-foreground: #161616;
-
-  --popover: #FFFFFF;
-  --popover-foreground: #161616;
-
-  /* Light mode flips the accent to lavender, with the lime as counterpoint. */
-  --primary: #9F8BE7;
-  --primary-hover: #8B74E0;
-  /* Dark text on lavender: 6.31:1. White would be 2.87:1 and fail. */
-  --primary-foreground: #161616;
-  /* Deepened lavender for accent *text*, since #9F8BE7 reads 2.69:1 here. */
-  --primary-strong: #7558DD;
-
-  --accent-alt: #DDF160;
-
-  --secondary: #FFFFFF;
-  --secondary-foreground: #161616;
-
-  --muted: #FFFFFF;
-  --muted-foreground: #585858;
-  --muted-extra: #7C7C7C;
-
-  --accent: #9F8BE7;
-  --accent-foreground: #161616;
-  --accent-strong: #7558DD;
-
-  --destructive: #C23434;
-  --destructive-foreground: #FFFFFF;
-
-  --border: #E0DDDB;
-  --input: #E0DDDB;
-  --ring: #9F8BE7;
+  --radius: 0.375rem;
 }
 
 @theme inline {
@@ -133,30 +99,39 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-btn: var(--btn);
+  --color-btn-foreground: var(--btn-foreground);
+  --color-hud: var(--hud);
 
+  /* Engineered, not soft: every radius in the system is small. */
   --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 4px);
-  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: 2px;
+  --radius-xl: 0.5rem;
+  --radius-2xl: 0.625rem;
+  --radius-3xl: 0.75rem;
 
-  --font-sans: var(--font-funnel-sans), sans-serif;
-  --font-heading: var(--font-funnel-display), sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-inter-tight), var(--font-inter), sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 @layer base {
   * {
     border-color: var(--border);
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: var(--background);
     color: var(--foreground);
     font-family: var(--font-sans);
     overflow-x: hidden;
-    transition: background-color 0.3s ease, color 0.3s ease;
   }
   h1, h2, h3, h4, .font-heading {
     font-family: var(--font-heading);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
   }
   ::selection {
     background-color: var(--primary);
@@ -165,13 +140,80 @@
 }
 
 /* ---------------------------------------------------------------------------
- * Rayo vocabulary.
+ * Vocabulary.
  * ------------------------------------------------------------------------- */
 
-/* Outline headline text, set in a capsule alongside solid words. */
-.title-outline {
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--foreground);
+@layer components {
+.tone-navy,
+.tone-blue,
+.tone-ink,
+.tone-ice {
+  color: var(--foreground);
+}
+
+.tone-navy {
+  background:
+    radial-gradient(1200px 700px at 10% -10%, #0B1B45 0%, transparent 60%),
+    radial-gradient(1000px 800px at 100% 100%, #2A5BC4 0%, transparent 60%),
+    linear-gradient(160deg, #040917 0%, #081636 45%, #123480 80%, #1E4DB0 100%);
+}
+
+.tone-blue {
+  background: linear-gradient(180deg, #050A1A 0%, #071434 35%, #0F2D72 75%, #1B4AAE 100%);
+}
+
+.tone-ink {
+  --background: #000000;
+  --card: #0A0B0F;
+  --canvas: #0A0B0F;
+  --border: #1C1F28;
+  --input: #1C1F28;
+  background: #000000;
+}
+
+.tone-ice {
+  --background: #E8EEF6;
+  --canvas: #F7F9FC;
+  --shade: #D5E0EF;
+
+  --foreground: #05070D;
+
+  --card: #F7F9FC;
+  --card-foreground: #05070D;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #05070D;
+
+  --primary: #2B6BFF;
+  --primary-hover: #1F5AE8;
+  --primary-foreground: #FFFFFF;
+  --primary-strong: #1C4FD0;
+
+  --accent-alt: #1B3F8F;
+
+  --secondary: #F7F9FC;
+  --secondary-foreground: #05070D;
+
+  --muted: #F7F9FC;
+  --muted-foreground: #3F4B63;
+  --muted-extra: #5A6680;
+
+  --accent: #2B6BFF;
+  --accent-foreground: #FFFFFF;
+  --accent-strong: #1C4FD0;
+
+  --destructive: #B42318;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #C9D5E6;
+  --input: #C9D5E6;
+
+  --btn: #05070D;
+  --btn-foreground: #FFFFFF;
+
+  --hud: rgba(5, 7, 13, 0.22);
+
+  background: linear-gradient(180deg, #DCE6F3 0%, #E8EEF6 30%, #F2F5F9 100%);
 }
 
 /* Small monospaced labels, used throughout as kickers and column headings. */
@@ -181,17 +223,96 @@
   letter-spacing: 0.14em;
 }
 
-.ambient-primary {
-  background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--primary) 12%, transparent) 0%, transparent 70%);
+/* A kicker: a small accent square, then an uppercase mono label. */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.kicker::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--primary);
+  flex: none;
 }
 
-.ambient-alt {
-  background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent-alt) 14%, transparent) 0%, transparent 70%);
+/* Display type: large, light and tight, with a muted second line. */
+.display {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
 }
 
-.card-glow {
-  box-shadow: 0 14px 28px color-mix(in srgb, var(--primary) 15%, transparent),
-    0 10px 10px color-mix(in srgb, var(--primary) 8%, transparent);
+/* Corner brackets drawn with gradients, so any box can wear the HUD frame. */
+.hud-corners {
+  --c: var(--hud);
+  --l: 14px;
+  background-image:
+    linear-gradient(var(--c), var(--c)), linear-gradient(var(--c), var(--c)),
+    linear-gradient(var(--c), var(--c)), linear-gradient(var(--c), var(--c)),
+    linear-gradient(var(--c), var(--c)), linear-gradient(var(--c), var(--c)),
+    linear-gradient(var(--c), var(--c)), linear-gradient(var(--c), var(--c));
+  background-position: top left, top left, top right, top right, bottom left, bottom left, bottom right, bottom right;
+  background-size: var(--l) 1px, 1px var(--l), var(--l) 1px, 1px var(--l), var(--l) 1px, 1px var(--l), var(--l) 1px, 1px var(--l);
+  background-repeat: no-repeat;
+}
+
+/* A faint engineering grid, masked to fade at the edges. */
+.grid-lines {
+  background-image:
+    linear-gradient(to right, var(--hud) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--hud) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.35;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+}
+
+/* Contour lines, echoing a topographic plate, for the hero backdrop. */
+.contours {
+  background-image: repeating-radial-gradient(ellipse at 70% 40%, transparent 0 38px, rgba(169, 193, 236, 0.07) 38px 39px);
+  mask-image: radial-gradient(ellipse 80% 70% at 65% 40%, #000 20%, transparent 80%);
+}
+
+/* The footer's cropped wordmark. */
+.wordmark {
+  background: linear-gradient(180deg, rgba(243, 246, 251, 0.85) 0%, rgba(243, 246, 251, 0.25) 55%, rgba(243, 246, 251, 0) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+}
+
+/* Range inputs: a thin accent track and a square thumb. */
+.range-halogen {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: linear-gradient(to right, var(--primary) var(--range-fill, 50%), var(--border) var(--range-fill, 50%));
+}
+.range-halogen::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--btn);
+  border: 3px solid var(--primary);
+}
+.range-halogen::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 0;
+  background: var(--btn);
+  border: 3px solid var(--primary);
 }
 
 @keyframes marquee {
@@ -199,32 +320,23 @@
   100% { transform: translateX(-50%); }
 }
 
-@keyframes spinSlow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.35; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.08); }
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 35s linear infinite;
+  animation: marquee 40s linear infinite;
 }
 
 .animate-marquee:hover {
   animation-play-state: paused;
 }
 
-.animate-spin-slow {
-  animation: spinSlow 20s linear infinite;
-}
-
-.animate-glow {
-  animation: pulseGlow 6s ease-in-out infinite;
+.animate-float {
+  animation: floatY 7s ease-in-out infinite;
 }
 
 ::-webkit-scrollbar {
@@ -232,14 +344,10 @@
   height: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: #050A1A;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-hover);
+  background: #2B6BFF;
 }
 
 /*
@@ -248,6 +356,9 @@
  * content that never fades in.
  */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *,
   *::before,
   *::after {
@@ -255,7 +366,6 @@
     animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 
   [class*="animate-in"] {
@@ -264,8 +374,7 @@
   }
 
   .animate-marquee,
-  .animate-spin-slow,
-  .animate-glow {
+  .animate-float {
     animation: none !important;
   }
 }

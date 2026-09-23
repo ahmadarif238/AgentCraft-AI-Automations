@@ -3,10 +3,10 @@ import { pageMetadata } from "@/lib/metadata";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useCases } from "@/data/useCases";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/sections/CTASection";
 import { enquiryUrl } from "@/config/site";
+import { PageHero } from "@/components/layout/PageHero";
 
 export const metadata: Metadata = pageMetadata({
   title: "AI Automation Use Cases by Industry",
@@ -18,21 +18,11 @@ export const metadata: Metadata = pageMetadata({
 export default function UseCasesPage() {
   return (
     <>
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-background border-b border-border">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-3xl mx-auto text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <Badge variant="gold" className="mb-6">Industries & Use Cases</Badge>
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 text-foreground">
-              Built for Businesses That Want to Move Faster
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Discover how custom AI agents and workflow automations solve industry-specific bottlenecks.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero kicker="Industries & Use Cases" title="Built for Businesses" muted="That Want to Move Faster">
+        Discover how custom AI agents and workflow automations solve industry-specific bottlenecks.
+      </PageHero>
 
-      <section className="py-24 bg-secondary/30">
+      <section className="tone-ice py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {useCases.map((useCase, index) => (
@@ -40,7 +30,7 @@ export default function UseCasesPage() {
                 key={useCase.id} 
                 id={useCase.id}
                 /* scroll-mt clears the fixed header when arriving via #anchor. */
-                className="scroll-mt-28 bg-card border border-border rounded-3xl p-8 shadow-lg hover:shadow-[0_0_20px_rgba(221,241,96,0.1)] hover:border-primary/50 transition-all flex flex-col h-full animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
+                className="scroll-mt-28 bg-card border border-border rounded-3xl p-8 shadow-lg hover:shadow-[0_0_20px_rgba(43,107,255,0.1)] hover:border-primary/50 transition-all flex flex-col h-full animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="mb-6">

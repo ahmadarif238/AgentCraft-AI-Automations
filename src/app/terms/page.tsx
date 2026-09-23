@@ -10,7 +10,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function TermsPage() {
   return (
-    <section className="pt-32 pb-24 bg-background min-h-screen">
+    <section className="pt-40 pb-24 bg-background min-h-screen">
       <div className="container mx-auto px-4 md:px-6 max-w-3xl">
         <h1 className="text-4xl font-heading font-bold mb-8">Terms of Service</h1>
         <div className="prose prose-invert max-w-none text-muted-foreground space-y-6">

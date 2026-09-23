@@ -5,6 +5,7 @@ import Link from "next/link";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/button";
 import { enquiryUrl } from "@/config/site";
+import { PageHero } from "@/components/layout/PageHero";
 
 export const metadata: Metadata = pageMetadata({
   title: "AI Automation Services",
@@ -15,19 +16,12 @@ export const metadata: Metadata = pageMetadata({
 
 export default function ServicesPage() {
   return (
-    <div className="py-24 md:py-32 bg-background">
+    <>
+      <PageHero kicker="Our Services" title="AI Automation" muted="Services">
+        We design, build, and deploy custom AI agents and intelligent workflows that eliminate repetitive tasks and help your business scale efficiently.
+      </PageHero>
+    <div className="tone-ice py-24 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
-        
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <span className="label-mono uppercase text-primary mb-4 block">Our Services</span>
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-foreground">
-            AI Automation Services
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            We design, build, and deploy custom AI agents and intelligent workflows that eliminate repetitive tasks and help your business scale efficiently.
-          </p>
-        </div>
 
         {/* Services List */}
         <div className="space-y-24 max-w-5xl mx-auto">
@@ -88,7 +82,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="pt-4">
-                  <Button variant="gold" size="lg" className="w-full sm:w-auto shadow-[0_0_15px_rgba(221,241,96,0.15)] hover:shadow-[0_0_20px_rgba(221,241,96,0.3)] transition-all" asChild>
+                  <Button variant="gold" size="lg" className="w-full sm:w-auto shadow-[0_0_15px_rgba(43,107,255,0.15)] hover:shadow-[0_0_20px_rgba(43,107,255,0.3)] transition-all" asChild>
                     <Link href={enquiryUrl({ service: service.id })}>
                       Automate This Workflow
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -102,5 +96,6 @@ export default function ServicesPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

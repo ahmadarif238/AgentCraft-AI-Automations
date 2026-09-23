@@ -1,45 +1,47 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, MessageSquare } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { MessageSquare } from "lucide-react";
 import { BookingLink } from "@/components/ui/BookingLink";
+import { ctaClass, CtaContent } from "@/components/ui/cta";
 
+/**
+ * The closing panel: black, framed in HUD brackets, with the layer stack drawn
+ * as a blueprint beside the ask.
+ */
 export function CTASection() {
   return (
-    <section className="py-24 relative overflow-hidden bg-secondary border-t border-border">
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-      
-      <div className="container relative z-10 mx-auto px-4 md:px-6">
-        <div className="max-w-4xl mx-auto bg-card border border-border rounded-3xl p-8 md:p-16 text-center shadow-2xl relative overflow-hidden">
-          
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
-          
-          <div>
-            <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-card-foreground">
-              Ready to Automate Your Business?
+    <section className="tone-ink">
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+        <div className="relative hud-corners bg-[#07080C] grid grid-cols-1 lg:grid-cols-12 items-center overflow-hidden">
+          <div className="lg:col-span-7 p-8 md:p-14 lg:p-16 relative z-10">
+            <span className="kicker">Free automation audit</span>
+            <h2 className="display text-4xl md:text-6xl mt-6">
+              Ready to Automate <span className="text-white/45">Your Business?</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto">
-              Book a free automation audit and we’ll identify the workflows you should automate first to save time, reduce costs, and scale effortlessly.
+            <p className="text-white/65 text-lg mt-6 max-w-xl">
+              Book a free automation audit and we&apos;ll identify the workflows you should automate first to save time, reduce costs, and scale effortlessly.
             </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2" asChild>
-                <BookingLink>
-                  <Sparkles className="w-4 h-4" />
-                  Book Free Automation Audit
-                </BookingLink>
-              </Button>
-              <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2" asChild>
-                <Link href="/contact#enquiry-form">
-                  <MessageSquare className="w-4 h-4" />
-                  Send a Message
-                </Link>
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-[3px] mt-10">
+              <BookingLink className={ctaClass()}>
+                <CtaContent>Book free automation audit</CtaContent>
+              </BookingLink>
+              <Link href="/contact#enquiry-form" className={ctaClass()}>
+                <CtaContent tone="ghost" icon={<MessageSquare className="w-4 h-4" />}>Send a message</CtaContent>
+              </Link>
             </div>
-            
-            <p className="mt-6 text-xs text-muted-foreground">
+            <p className="mt-6 label-mono uppercase text-white/45">
               No obligation. Just practical automation ideas built around your workflow.
             </p>
+          </div>
+          <div className="lg:col-span-5 relative h-[320px] lg:h-full lg:min-h-[560px]">
+            <Image
+              src="/images/scene/wire.webp"
+              alt=""
+              aria-hidden="true"
+              fill
+              sizes="(max-width: 1024px) 90vw, 40vw"
+              className="object-contain p-8"
+            />
           </div>
         </div>
       </div>

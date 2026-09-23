@@ -141,7 +141,7 @@ export function EnquiryForm() {
       <Button
         type="submit"
         variant="gold"
-        className="w-full shadow-[0_0_15px_rgba(221,241,96,0.15)] hover:shadow-[0_0_20px_rgba(221,241,96,0.3)] transition-all"
+        className="w-full shadow-[0_0_15px_rgba(43,107,255,0.15)] hover:shadow-[0_0_20px_rgba(43,107,255,0.3)] transition-all"
         disabled={submitting}
       >
         {submitting ? "Sending..." : "Send enquiry"}

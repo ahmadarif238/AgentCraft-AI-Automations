@@ -49,7 +49,7 @@ function Slider({
         aria-valuetext={display}
         onChange={(e) => onChange(Number(e.target.value))}
         style={{ "--range-fill": `${fill}%` } as CSSProperties}
-        className="range-halogen rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-card"
+        className="range-halogen focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-card"
       />
     </div>
   );
@@ -69,10 +69,9 @@ export function RoiEstimator() {
   const recoverable = annualCost * 0.7;
 
   return (
-    <div className="bg-card border border-border rounded-2xl p-8 shadow-2xl relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent" />
-
-      <h3 className="text-xl font-heading font-bold text-foreground mb-2">Automation ROI Estimator</h3>
+    <div className="bg-card hud-corners p-8 relative overflow-hidden shadow-[0_40px_80px_-40px_rgba(5,10,26,0.35)]">
+      <span className="kicker">Calculator</span>
+      <h3 className="text-2xl font-heading font-medium text-foreground mt-4 mb-2">Automation ROI Estimator</h3>
       <p className="text-xs text-muted-foreground mb-6">
         Drag the sliders to match your team.
       </p>
@@ -110,17 +109,17 @@ export function RoiEstimator() {
           <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
             <p className="label-mono text-muted-foreground">Annual cost of this work</p>
             <span aria-hidden="true" className="text-sm text-border">&mdash;</span>
-            <p className="text-lg font-heading font-bold text-muted-foreground tabular-nums">
+            <p className="text-lg font-heading font-medium text-muted-foreground tabular-nums">
               {currency.format(annualCost)}
             </p>
           </div>
           <div className="mt-4">
             <p className="label-mono text-primary-strong mb-1">Typically recoverable</p>
-            <p className="text-4xl font-heading font-bold text-primary-strong tabular-nums">
+            <p className="display text-5xl text-primary-strong tabular-nums">
               {currency.format(recoverable)}
             </p>
           </div>
-          <p className="text-xs text-muted-foreground/60 mt-4 text-center">
+          <p className="text-xs text-muted-extra mt-4">
             Estimate only, assuming roughly 70% of this time is automatable. Actual results
             depend on workflow complexity.
           </p>
