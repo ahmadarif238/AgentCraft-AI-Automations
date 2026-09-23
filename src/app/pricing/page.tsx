@@ -43,7 +43,7 @@ export default function PricingPage() {
                 key={pkg.id}
                 className={`relative flex flex-col p-8 rounded-3xl border ${
                   pkg.highlight
-                    ? "bg-card border-primary shadow-[0_0_30px_rgba(173,255,47,0.15)] scale-100 lg:scale-105 z-10"
+                    ? "bg-card border-primary shadow-[0_0_30px_rgba(221,241,96,0.15)] scale-100 lg:scale-105 z-10"
                     : "bg-card/40 border-border hover:border-primary/50"
                 } transition-all animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both`}
                 style={{ animationDelay: `${i * 100}ms` }}

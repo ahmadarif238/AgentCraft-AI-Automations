@@ -41,7 +41,7 @@ export default function TeamPage() {
             {team.map((member, index) => (
               <article
                 key={member.id}
-                className="group flex flex-col bg-card border border-border rounded-2xl p-7 transition-all duration-300 hover:border-primary/70 hover:shadow-[0_0_25px_rgba(173,255,47,0.12)] animate-in fade-in slide-in-from-bottom-2 duration-500 fill-mode-both"
+                className="group flex flex-col bg-card border border-border rounded-2xl p-7 transition-all duration-300 hover:border-primary/70 hover:shadow-[0_0_25px_rgba(221,241,96,0.12)] animate-in fade-in slide-in-from-bottom-2 duration-500 fill-mode-both"
                 style={{ animationDelay: `${index * 70}ms` }}
               >
                 <div className="flex items-start justify-between gap-4 mb-5">

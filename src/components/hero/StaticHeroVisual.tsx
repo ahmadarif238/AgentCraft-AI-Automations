@@ -24,7 +24,7 @@ export function StaticHeroVisual() {
     <div className="absolute inset-0 flex items-center justify-center">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(42,49,60,0.35)_1px,transparent_1px),linear-gradient(to_bottom,rgba(42,49,60,0.35)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 
-      <div className="relative z-20 w-28 h-28 rounded-2xl bg-canvas border border-primary shadow-[0_0_50px_rgba(173,255,47,0.28)] flex items-center justify-center">
+      <div className="relative z-20 w-28 h-28 rounded-2xl bg-canvas border border-primary shadow-[0_0_50px_rgba(221,241,96,0.28)] flex items-center justify-center">
         <Image
           src="/images/brand/mark-light.png"
           alt=""

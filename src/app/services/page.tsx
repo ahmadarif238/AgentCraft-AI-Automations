@@ -88,7 +88,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="pt-4">
-                  <Button variant="gold" size="lg" className="w-full sm:w-auto shadow-[0_0_15px_rgba(173,255,47,0.15)] hover:shadow-[0_0_20px_rgba(173,255,47,0.3)] transition-all" asChild>
+                  <Button variant="gold" size="lg" className="w-full sm:w-auto shadow-[0_0_15px_rgba(221,241,96,0.15)] hover:shadow-[0_0_20px_rgba(221,241,96,0.3)] transition-all" asChild>
                     <Link href={enquiryUrl({ service: service.id })}>
                       Automate This Workflow
                       <ArrowRight className="w-4 h-4 ml-2" />

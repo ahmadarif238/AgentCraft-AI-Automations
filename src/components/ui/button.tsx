@@ -10,40 +10,41 @@ export interface ButtonProps
 }
 
 /**
- * Halogen Kit buttons: full pills, one accent, and depth expressed as a lit
- * outline rather than a drop shadow. The primary action inverts on hover —
- * accent outline over dark, filling with accent and flipping the label dark —
- * which is the system's signature "morph to confirm" gesture.
+ * Rayo buttons: full pills. The primary action is a solid accent fill with
+ * dark text and a soft accent-tinted shadow; everything else is a bordered
+ * card surface that lights its edge on hover.
  *
- * `gold` is kept as an alias for `default` so the many existing call sites do
- * not all need editing; both render the primary accent treatment.
+ * Dark text on the fill is deliberate in both themes. White on the light
+ * theme's lavender measures 2.87:1 and fails; dark reaches 6.31:1.
+ *
+ * `gold` remains an alias for `default` so existing call sites keep working.
  */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "default", size = "default", asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
 
     const baseStyles =
-      "inline-flex items-center justify-center whitespace-nowrap rounded-full font-semibold tracking-wide ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+      "inline-flex items-center justify-center whitespace-nowrap rounded-full font-bold ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-95"
 
     const primary =
-      "border border-primary bg-canvas text-primary shadow-[0_0_20px_rgba(173,255,47,0.2)] hover:bg-primary hover:text-primary-foreground hover:shadow-[0_0_30px_rgba(173,255,47,0.45)]"
+      "bg-primary text-primary-foreground shadow-xl shadow-primary/20 hover:bg-primary-hover"
 
     const variants = {
       default: primary,
       gold: primary,
       outline:
-        "border border-border bg-card/80 text-foreground hover:bg-card hover:border-muted-foreground",
+        "border border-border bg-card text-foreground font-medium hover:border-primary",
       secondary:
-        "border border-border bg-canvas text-foreground hover:border-primary hover:text-primary hover:shadow-[0_0_15px_rgba(173,255,47,0.25)]",
-      ghost: "text-muted-foreground hover:text-primary",
-      link: "text-primary underline-offset-4 hover:underline",
+        "border border-border bg-canvas text-foreground font-medium hover:border-primary",
+      ghost: "text-muted-foreground font-medium hover:text-primary-strong",
+      link: "text-primary-strong font-medium underline-offset-4 hover:underline",
     }
 
     const sizes = {
-      default: "h-10 px-5 text-sm",
-      sm: "h-9 px-4 text-xs",
-      lg: "h-12 px-6 text-sm",
-      icon: "h-10 w-10",
+      default: "h-11 px-6 text-sm",
+      sm: "h-9 px-5 text-xs",
+      lg: "h-14 px-8 text-sm",
+      icon: "h-11 w-11",
     }
 
     return (

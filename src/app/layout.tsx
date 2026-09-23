@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Funnel_Display, Funnel_Sans, JetBrains_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
@@ -7,16 +7,16 @@ import { siteConfig } from "@/config/site";
 import { faqs } from "@/data/faqs";
 import "./globals.css";
 
-// Halogen Kit's three faces: Jakarta for body, Space Grotesk for display,
-// JetBrains Mono for the technical micro-labels the system leans on.
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+// Rayo's typography: Funnel Display for headings, Funnel Sans for body, with
+// JetBrains Mono retained for the small technical labels.
+const funnelDisplay = Funnel_Display({
+  variable: "--font-funnel-display",
   subsets: ["latin"],
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const funnelSans = Funnel_Sans({
+  variable: "--font-funnel-sans",
   subsets: ["latin"],
   display: "swap",
 });
@@ -90,8 +90,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  // The site is a single dark theme now, so one colour covers both schemes.
-  themeColor: "#101419",
+  // Both themes ship, so the browser chrome follows whichever is applied.
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FAF7F6" },
+    { media: "(prefers-color-scheme: dark)", color: "#161616" },
+  ],
 };
 
 export default function RootLayout({
@@ -166,21 +169,33 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${jakarta.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased bg-background text-foreground`}
+      className={`${funnelSans.variable} ${funnelDisplay.variable} ${jetbrainsMono.variable} h-full antialiased bg-background text-foreground`}
     >
-      <body className="min-h-full flex flex-col pt-20 relative">
+      <head>
         {/*
-          Halogen's two background fields: a faint accent bloom from the top of
-          the viewport, and a fixed technical grid. Both sit behind everything
-          and are inert to pointer events.
+          Applies the stored theme before first paint. Without this the page
+          renders dark and then snaps to light for anyone who chose it, which
+          is worse than having no toggle at all.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}if(t==='light'){document.documentElement.classList.add('light');}}catch(e){}})();`,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col pt-24 relative">
+        {/*
+          Rayo's ambient fields: two soft blooms, the primary accent and its
+          lavender counterpoint, sitting behind everything and inert to
+          pointer events.
         */}
         <div
           aria-hidden="true"
-          className="pointer-events-none fixed inset-x-0 top-0 h-[600px] bg-radial-glow -z-10"
+          className="pointer-events-none fixed left-1/2 top-0 -translate-x-1/2 w-[900px] h-[520px] ambient-primary blur-[120px] -z-10"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none fixed inset-0 bg-grid-pattern opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_20%,transparent_80%)] -z-10"
+          className="pointer-events-none fixed left-[15%] top-[20%] w-[520px] h-[360px] ambient-alt blur-[130px] -z-10"
         />
         <Navbar />
         <main className="flex-1 flex flex-col">{children}</main>

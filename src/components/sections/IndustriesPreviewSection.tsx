@@ -30,7 +30,7 @@ export function IndustriesPreviewSection() {
               /* Same card contract as Core Services and Case Studies: overlay
                  link over the whole card, "Learn more" as the signifier, and a
                  rule holding it off the copy. */
-              className="group relative h-full bg-card/5 border border-border/50 rounded-xl p-6 hover:bg-card/10 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(173,255,47,0.1)] transition-all flex flex-col"
+              className="group relative h-full bg-card/5 border border-border/50 rounded-xl p-6 hover:bg-card/10 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(221,241,96,0.1)] transition-all flex flex-col"
             >
               <div className="w-12 h-12 rounded-xl bg-canvas border border-border flex items-center justify-center mb-6 text-primary group-hover:border-primary group-hover:scale-110 transition-all duration-200">
                 <useCase.icon className="w-6 h-6" aria-hidden="true" />

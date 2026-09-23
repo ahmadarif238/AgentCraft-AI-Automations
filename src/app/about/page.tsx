@@ -222,7 +222,7 @@ export default function AboutPage() {
           <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
             Book a free automation audit and we&apos;ll map out which of your workflows are worth automating first.
           </p>
-          <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2 shadow-[0_0_20px_rgba(173,255,47,0.2)]" asChild>
+          <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2 shadow-[0_0_20px_rgba(221,241,96,0.2)]" asChild>
             <BookingLink>
               Book a Free Automation Audit
             </BookingLink>

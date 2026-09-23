@@ -40,7 +40,7 @@ export default function UseCasesPage() {
                 key={useCase.id} 
                 id={useCase.id}
                 /* scroll-mt clears the fixed header when arriving via #anchor. */
-                className="scroll-mt-28 bg-card border border-border rounded-3xl p-8 shadow-lg hover:shadow-[0_0_20px_rgba(173,255,47,0.1)] hover:border-primary/50 transition-all flex flex-col h-full animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
+                className="scroll-mt-28 bg-card border border-border rounded-3xl p-8 shadow-lg hover:shadow-[0_0_20px_rgba(221,241,96,0.1)] hover:border-primary/50 transition-all flex flex-col h-full animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="mb-6">

@@ -3,75 +3,128 @@
 @plugin "tailwindcss-animate";
 
 /*
- * Halogen Kit.
+ * Rayo.
  *
- * Dark canvas, one high-voltage accent. The semantic token names are unchanged
- * from the previous theme, so every component that already styles itself
- * through them (bg-card, text-muted-foreground, border-border) moves over
- * without edits; only the values below changed.
+ * Two themes on one set of semantic tokens. Dark is the default; adding the
+ * `light` class to <html> swaps every value below, and because the components
+ * style themselves through the tokens rather than literal colours, nothing
+ * else needs to know a theme exists.
  *
- * Contrast on this palette, measured: body text 16.82:1 on the base canvas and
- * 14.17:1 on surfaces, muted text 6.46:1 and 5.44:1, accent 15.07:1 and
- * 12.70:1, and dark-on-accent for filled buttons 15.07:1.
+ * Measured contrast, dark: headings 18.10:1, body 7.97:1, muted 4.77:1,
+ * accent 14.50:1, and dark-on-accent for solid buttons 14.50:1.
+ *
+ * Light needed two corrections to the source palette. Lavender as *text* is
+ * only 2.69:1 on the light ground and white-on-lavender buttons are 2.87:1,
+ * both failures. Buttons therefore take dark text on lavender (6.31:1), and
+ * --primary-strong carries a deepened lavender at the same 253deg hue for
+ * text (4.69:1 on the base, 5.00:1 on cards).
  */
 
 :root {
-  /* Base canvas, one step up for raised areas, two for cards. */
-  --background: #101419;
-  --foreground: #F2F5F1;
+  --background: #161616;
+  --canvas: #1C1C1C;
+  --shade: #0A0A0A;
 
-  --canvas: #161A21;
+  --foreground: #FFFFFF;
 
-  --card: #1F242D;
-  --card-foreground: #F2F5F1;
+  --card: #1C1C1C;
+  --card-foreground: #FFFFFF;
 
-  --popover: #161A21;
-  --popover-foreground: #F2F5F1;
+  --popover: #1C1C1C;
+  --popover-foreground: #FFFFFF;
 
-  /* The single accent. Everything that matters is lit with this and nothing else. */
-  --primary: #ADFF2F;
-  --primary-foreground: #101419;
-  /*
-   * On the old cream theme the accent needed a darker variant to stay legible.
-   * Lime clears 15:1 on this canvas, so text and fill share one value.
-   */
-  --primary-strong: #ADFF2F;
+  /* Primary accent. In dark this is the lime; the lavender is the counterpoint. */
+  --primary: #DDF160;
+  --primary-hover: #CBE04A;
+  --primary-foreground: #161616;
+  /* Accent used for text. Identical to --primary here, since lime clears 14.5:1. */
+  --primary-strong: #DDF160;
 
-  --secondary: #161A21;
-  --secondary-foreground: #F2F5F1;
+  /* Second accent, used sparingly for contrast against the primary. */
+  --accent-alt: #9F8BE7;
 
-  --muted: #1F242D;
-  --muted-foreground: #8E9AA8;
+  --secondary: #1C1C1C;
+  --secondary-foreground: #FFFFFF;
 
-  --accent: #ADFF2F;
-  --accent-foreground: #101419;
-  --accent-strong: #ADFF2F;
+  --muted: #1C1C1C;
+  --muted-foreground: #ACACAC;
+  --muted-extra: #838383;
 
-  --destructive: #FF5C5C;
-  --destructive-foreground: #101419;
+  --accent: #DDF160;
+  --accent-foreground: #161616;
+  --accent-strong: #DDF160;
 
-  --border: #2A313C;
-  --input: #2A313C;
-  --ring: #ADFF2F;
+  --destructive: #FF6B6B;
+  --destructive-foreground: #161616;
 
-  --radius: 0.75rem;
+  --border: #252525;
+  --input: #252525;
+  --ring: #DDF160;
+
+  --radius: 1rem;
+}
+
+.light {
+  --background: #FAF7F6;
+  --canvas: #FFFFFF;
+  --shade: #E0DDDB;
+
+  --foreground: #161616;
+
+  --card: #FFFFFF;
+  --card-foreground: #161616;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #161616;
+
+  /* Light mode flips the accent to lavender, with the lime as counterpoint. */
+  --primary: #9F8BE7;
+  --primary-hover: #8B74E0;
+  /* Dark text on lavender: 6.31:1. White would be 2.87:1 and fail. */
+  --primary-foreground: #161616;
+  /* Deepened lavender for accent *text*, since #9F8BE7 reads 2.69:1 here. */
+  --primary-strong: #7558DD;
+
+  --accent-alt: #DDF160;
+
+  --secondary: #FFFFFF;
+  --secondary-foreground: #161616;
+
+  --muted: #FFFFFF;
+  --muted-foreground: #585858;
+  --muted-extra: #7C7C7C;
+
+  --accent: #9F8BE7;
+  --accent-foreground: #161616;
+  --accent-strong: #7558DD;
+
+  --destructive: #C23434;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #E0DDDB;
+  --input: #E0DDDB;
+  --ring: #9F8BE7;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-canvas: var(--canvas);
+  --color-shade: var(--shade);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-strong: var(--primary-strong);
+  --color-accent-alt: var(--accent-alt);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+  --color-muted-extra: var(--muted-extra);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent-strong: var(--accent-strong);
@@ -82,36 +135,12 @@
   --color-ring: var(--ring);
 
   --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-sm: calc(var(--radius) - 8px);
 
-  --font-sans: var(--font-jakarta), sans-serif;
-  --font-heading: var(--font-space-grotesk), sans-serif;
+  --font-sans: var(--font-funnel-sans), sans-serif;
+  --font-heading: var(--font-funnel-display), sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
-}
-
-/* ---------------------------------------------------------------------------
- * The type scale.
- *
- * One ramp, no one-off pixel values: 12 / 14 / 16 / 18 / 20 / 24 / 30 / 48 / 60
- * (text-xs through text-6xl). 12px is the floor, so nothing on the page drops
- * below the comfortable-reading threshold.
- *
- * `label-mono` names the bottom step, because the micro-label — monospaced,
- * letter-spaced, sitting above a heading or beside a number — is a recurring
- * part of the system rather than an ad-hoc size. It used to be written inline
- * as `font-mono text-[11px] tracking-[0.16em]` (or 10px, or 0.14em, or
- * 0.18em), which is where the extra sizes and the drifting tracking came from.
- *
- * `uppercase` is deliberately NOT baked in: all-caps is legible for a short
- * label and slow to read for a sentence, so each call site opts in.
- * ------------------------------------------------------------------------- */
-
-@utility label-mono {
-  font-family: var(--font-mono);
-  font-size: 0.75rem; /* 12px */
-  line-height: 1.5;
-  letter-spacing: 0.14em;
 }
 
 @layer base {
@@ -123,6 +152,11 @@
     color: var(--foreground);
     font-family: var(--font-sans);
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
   }
   ::selection {
     background-color: var(--primary);
@@ -131,141 +165,87 @@
 }
 
 /* ---------------------------------------------------------------------------
- * Halogen vocabulary: neon glows, ring depth, and the two background fields.
- * These are the pieces the palette alone cannot express.
+ * Rayo vocabulary.
  * ------------------------------------------------------------------------- */
 
-.glow-sm {
-  box-shadow: 0 0 12px rgba(173, 255, 47, 0.4);
+/* Outline headline text, set in a capsule alongside solid words. */
+.title-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--foreground);
 }
 
-.glow-md {
-  box-shadow: 0 0 24px rgba(173, 255, 47, 0.35), 0 0 6px rgba(173, 255, 47, 0.6);
+/* Small monospaced labels, used throughout as kickers and column headings. */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
 }
 
-.glow-lg {
-  box-shadow: 0 0 45px rgba(173, 255, 47, 0.3);
+.ambient-primary {
+  background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--primary) 12%, transparent) 0%, transparent 70%);
 }
 
-.glow-text {
-  text-shadow: 0 0 16px rgba(173, 255, 47, 0.45);
+.ambient-alt {
+  background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent-alt) 14%, transparent) 0%, transparent 70%);
 }
 
-/* Surfaces whose outline lights up on approach, instead of moving or shadowing. */
-.ring-halogen {
-  border: 1px solid var(--border);
-  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+.card-glow {
+  box-shadow: 0 14px 28px color-mix(in srgb, var(--primary) 15%, transparent),
+    0 10px 10px color-mix(in srgb, var(--primary) 8%, transparent);
 }
 
-.ring-halogen:hover {
-  border-color: var(--primary);
-  box-shadow: 0 0 18px rgba(173, 255, 47, 0.18);
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
 
-.bg-grid-pattern {
-  background-size: 32px 32px;
-  background-image:
-    linear-gradient(to right, rgba(42, 49, 60, 0.35) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(42, 49, 60, 0.35) 1px, transparent 1px);
+@keyframes spinSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.bg-radial-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(173, 255, 47, 0.08) 0%, transparent 65%);
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.08); }
 }
 
-/*
- * Range inputs.
- *
- * Chrome/Safari and Firefox each need their own track and thumb
- * pseudo-elements, and neither inherits the input's own background, so the
- * visible bar has to be painted on the track. The filled portion comes from
- * `--range-fill`, which the component sets from the current value: the lit
- * section of track is what tells you the control has a range and where you
- * are in it, which a uniformly dark bar never did.
- *
- * The unfilled remainder is mixed up out of --muted-foreground rather than
- * using --secondary or --border, both of which are darker than the card the
- * slider sits on and so left the track effectively invisible.
- */
-.range-halogen {
-  appearance: none;
-  width: 100%;
-  height: 1.5rem; /* 24px: the WCAG target-size minimum, and room for the thumb. */
-  background: transparent;
-  cursor: grab;
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
 }
 
-.range-halogen:active {
-  cursor: grabbing;
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
-.range-halogen::-webkit-slider-runnable-track {
-  height: 0.5rem;
-  border-radius: 9999px;
-  background: linear-gradient(
-    to right,
-    var(--primary) 0 var(--range-fill, 50%),
-    color-mix(in srgb, var(--muted-foreground) 70%, transparent) var(--range-fill, 50%) 100%
-  );
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
 }
 
-.range-halogen::-webkit-slider-thumb {
-  appearance: none;
-  height: 1.25rem;
-  width: 1.25rem;
-  margin-top: -0.375rem; /* Centres the 20px thumb on the 8px track. */
-  border-radius: 9999px;
-  background: var(--primary);
-  border: 2px solid var(--background);
-  box-shadow: 0 0 12px rgba(173, 255, 47, 0.5);
+.animate-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
 }
 
-/* Firefox fills the track itself, so it needs no gradient. */
-.range-halogen::-moz-range-track {
-  height: 0.5rem;
-  border-radius: 9999px;
-  background: color-mix(in srgb, var(--muted-foreground) 70%, transparent);
-}
-
-.range-halogen::-moz-range-progress {
-  height: 0.5rem;
-  border-radius: 9999px;
-  background: var(--primary);
-}
-
-.range-halogen::-moz-range-thumb {
-  height: 1.25rem;
-  width: 1.25rem;
-  border-radius: 9999px;
-  background: var(--primary);
-  border: 2px solid var(--background);
-  box-shadow: 0 0 12px rgba(173, 255, 47, 0.5);
-}
-
-/* Sleek scrollbar, accent on grab. */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
 ::-webkit-scrollbar-track {
   background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
+  background: var(--primary);
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: var(--primary-hover);
 }
 
 /*
- * Respect an explicit request for less motion.
- *
- * Several reveals are built on `animate-in fade-in`, which starts at opacity 0.
- * Without this a reduced-motion visitor can be left looking at content that
- * never fades in, so the animations are neutralised to their finished state
- * rather than merely shortened.
+ * Respect an explicit request for less motion. Several reveals start at
+ * opacity 0, so without this a reduced-motion visitor can be left looking at
+ * content that never fades in.
  */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -281,5 +261,11 @@
   [class*="animate-in"] {
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .animate-marquee,
+  .animate-spin-slow,
+  .animate-glow {
+    animation: none !important;
   }
 }

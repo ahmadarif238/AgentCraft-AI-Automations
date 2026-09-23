@@ -15,11 +15,11 @@ import * as THREE from "three";
  * Loaded only from HeroVisual, which decides whether 3D should run at all.
  */
 
-const ACCENT = "#ADFF2F";
-const ACCENT_SOFT = "#C9FF6B";
+const ACCENT = "#DDF160";
+const ACCENT_SOFT = "#EAF79B";
 // Light enough that the key light reads across the face; any darker and the
 // tiles look like holes punched in the page rather than objects on it.
-const PANEL = "#1F242D";
+const PANEL = "#1C1C1C";
 
 type NodeSpec = {
   label: string;
@@ -238,13 +238,15 @@ export default function HeroScene() {
     <Canvas
       // Clamped DPR: 3x retina costs a lot here for no visible gain.
       dpr={[1, 1.6]}
-      camera={{ position: [0, 0, 9], fov: 40 }}
+      // Pulled back: the scene now sits in a narrower column, so a closer camera
+      // clipped the outer tiles at the sides.
+      camera={{ position: [0, 0, 11.5], fov: 40 }}
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       onCreated={() => setReady(true)}
       style={{ opacity: ready ? 1 : 0, transition: "opacity 900ms ease-out" }}
     >
       <ambientLight intensity={1.1} />
-      <directionalLight position={[3, 4, 7]} intensity={2.4} color="#EAF7DA" />
+      <directionalLight position={[3, 4, 7]} intensity={2.4} color="#F7FAE6" />
       <directionalLight position={[-6, 2, 3]} intensity={1.1} color={ACCENT_SOFT} />
       <pointLight position={[-4, -3, 5]} intensity={45} distance={16} color={ACCENT} />
       <Rig />
