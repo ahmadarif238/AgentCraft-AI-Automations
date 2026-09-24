@@ -34,9 +34,8 @@ function Slider({
       {/* Label and value are adjacent, so reading the state is a single glance. */}
       <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-1.5">
         <label htmlFor={id} className="text-sm text-muted-foreground">
-          {label}
+          {label}:
         </label>
-        <span aria-hidden="true" className="text-sm text-border">&mdash;</span>
         <span className="text-sm font-bold text-foreground tabular-nums">{display}</span>
       </div>
       <input
@@ -56,7 +55,7 @@ function Slider({
 }
 
 /**
- * A real calculator rather than a static graphic — the numbers move, so the
+ * A real calculator rather than a static graphic. The numbers move, so the
  * visitor arrives at their own figure instead of reading ours.
  */
 export function RoiEstimator() {
@@ -107,8 +106,7 @@ export function RoiEstimator() {
 
         <div className="pt-6 border-t border-border">
           <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-            <p className="label-mono text-muted-foreground">Annual cost of this work</p>
-            <span aria-hidden="true" className="text-sm text-border">&mdash;</span>
+            <p className="label-mono text-muted-foreground">Annual cost of this work:</p>
             <p className="text-lg font-heading font-medium text-muted-foreground tabular-nums">
               {currency.format(annualCost)}
             </p>

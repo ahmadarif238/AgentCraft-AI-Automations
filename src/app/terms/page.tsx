@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Terms of Service",
@@ -24,7 +25,7 @@ export default function TermsPage() {
           </p>
           <h2 className="text-2xl font-bold text-foreground mt-8">2. Services</h2>
           <p>
-            AgentCraft AI Automations provides custom AI agents, workflow automations, and consulting services. The specific deliverables, timelines, and costs for our services will be outlined in separate Statements of Work (SOW) or consulting agreements.
+            AgentCraft AI Automations provides website, web application, mobile app and SaaS development, UI and UX design, custom AI agents, workflow automation, and related consulting services. The specific deliverables, timelines, and costs for our services will be outlined in separate Statements of Work (SOW) or consulting agreements.
           </p>
           <h2 className="text-2xl font-bold text-foreground mt-8">3. Intellectual Property</h2>
           <p>
@@ -37,7 +38,7 @@ export default function TermsPage() {
           </p>
           <h2 className="text-2xl font-bold text-foreground mt-8">5. Contact Us</h2>
           <p>
-            If you have any questions about these Terms, please contact us at hello@agentcraftai.com.
+            If you have any questions about these Terms, please contact us at {siteConfig.email}.
           </p>
         </div>
       </div>

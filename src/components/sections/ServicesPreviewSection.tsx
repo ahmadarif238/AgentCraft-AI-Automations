@@ -5,7 +5,7 @@ import { ctaClass, CtaContent } from "@/components/ui/cta";
 import { Reveal } from "@/components/ui/Reveal";
 
 /**
- * A preview of the catalogue, not the catalogue: eight of the eleven services,
+ * A preview of the catalogue, not the catalogue: eight of the fourteen services,
  * which tiles evenly at every breakpoint (4+4, then 2x4, then 1x8) instead of
  * leaving a widow card in the last row, and gives the "View all" action
  * something to actually reveal.
@@ -24,7 +24,7 @@ export function ServicesPreviewSection() {
             <span className="kicker">Services</span>
             <h2 className="display text-4xl md:text-6xl mt-6">Our Core Services</h2>
             <p className="text-muted-foreground text-lg mt-6">
-              We design and deploy custom AI agents and workflow automations that eliminate repetitive tasks and scale your business.
+              We design and build websites, web and mobile apps, SaaS products and AI agents, and we connect them with automation so your business runs with less manual work.
             </p>
           </div>
           <Link href="/services" className={ctaClass("shrink-0")}>

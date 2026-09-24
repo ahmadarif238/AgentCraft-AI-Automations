@@ -25,7 +25,7 @@ export default function PrivacyPage() {
           <ul className="list-disc pl-6 space-y-2">
             <li><strong>Identity Data</strong> includes first name, last name, username or similar identifier.</li>
             <li><strong>Contact Data</strong> includes email address and telephone numbers.</li>
-            <li><strong>Technical Data</strong> includes internet protocol (IP) address, your login data, browser type and version, time zone setting and location, browser plug-in types and versions, operating system and platform, and other technology on the devices you use to access this website.</li>
+            <li><strong>Technical Data</strong> includes internet protocol (IP) address, your login data, browser type and version, time zone setting and location, browser plugin types and versions, operating system and platform, and other technology on the devices you use to access this website.</li>
           </ul>
           <h2 className="text-2xl font-bold text-foreground mt-8">2. How We Use Your Data</h2>
           <p>

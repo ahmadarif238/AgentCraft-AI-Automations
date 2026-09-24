@@ -8,7 +8,7 @@ import { PageHero } from "@/components/layout/PageHero";
 export const metadata: Metadata = pageMetadata({
   title: "Our Team",
   description:
-    "The engineers behind AgentCraft AI Automations: five in-house specialists across agentic AI, full stack delivery, payments infrastructure, messaging automation and workflow integration.",
+    "The engineers behind AgentCraft AI Automations: five specialists working in house across agentic AI, full stack web and app delivery, payments infrastructure, messaging automation and workflow integration.",
   path: "/team",
 });
 
@@ -88,7 +88,7 @@ export default function TeamPage() {
           <p className="max-w-5xl mt-10 text-muted-foreground">
             Everyone listed works on the others&apos; code regularly, which is why parallel
             workstreams converge instead of colliding. If anyone joins or leaves a project
-            mid-build, you are told before it happens rather than after.
+            partway through a build, you are told before it happens rather than after.
           </p>
         </div>
       </section>

@@ -2,12 +2,12 @@ import { RoiEstimator } from "@/components/sections/RoiEstimator";
 import { Reveal } from "@/components/ui/Reveal";
 
 const benefits = [
-  "Save 10+ hours every week",
-  "Reduce manual data entry errors",
-  "Respond to leads 5x faster",
-  "Connect scattered tools effortlessly",
+  "Win more enquiries from your website",
+  "Replace spreadsheets with software built for the job",
+  "Cut hours of repetitive work every week",
+  "Respond to leads in minutes, not days",
+  "Connect scattered tools into one system",
   "Scale operations without extra headcount",
-  "Improve customer and employee experience",
 ];
 
 export function BenefitsSection() {
@@ -18,10 +18,10 @@ export function BenefitsSection() {
           <div className="lg:col-span-6">
             <span className="kicker">Return on investment</span>
             <h2 className="display text-4xl md:text-6xl mt-6">
-              Automation That <span className="text-muted-extra">Pays for Itself.</span>
+              Software That <span className="text-muted-extra">Pays for Itself.</span>
             </h2>
             <p className="text-muted-foreground text-lg mt-6 leading-relaxed max-w-xl">
-              Every system we build is designed to generate a measurable return on investment, whether through hours saved, faster sales cycles, or reduced operational errors.
+              Every website, app and AI system we build is designed to earn its keep, whether through more enquiries, hours saved, faster sales cycles or fewer operational errors.
             </p>
             <ul className="mt-10 border-t border-border">
               {benefits.map((benefit, i) => (

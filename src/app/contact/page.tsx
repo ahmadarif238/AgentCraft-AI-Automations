@@ -12,16 +12,16 @@ import { PageHero } from "@/components/layout/PageHero";
 export const metadata: Metadata = pageMetadata({
   title: "Contact Us",
   description:
-    "Book a free automation audit or send an enquiry. Tell us which workflow is costing you time and we'll map out what to automate first.",
+    "Book a free consultation or send an enquiry. Tell us about the website, app, AI agent or automation you have in mind and we'll map out the best way to build it.",
   path: "/contact",
 });
 
 export default function ContactPage() {
   return (
     <>
-      <PageHero kicker="Contact Us" title="Let&apos;s Build Your" muted="Automation Strategy">
-        Tell us which workflow is costing you the most time. We&apos;ll reply{" "}
-        {siteConfig.responseTime} with where automation would pay off first.
+      <PageHero kicker="Contact Us" title="Let&apos;s Build Your" muted="Next Project">
+        Tell us what you want to build, or which workflow is costing you the most time.
+        We&apos;ll reply {siteConfig.responseTime} with a practical next step.
       </PageHero>
 
       <section className="tone-ice py-24">
@@ -117,12 +117,12 @@ export default function ContactPage() {
                   <Calendar className="w-6 h-6 text-primary-strong" />
                 </div>
                 <h3 className="text-2xl font-heading font-bold mb-4 relative z-10 text-foreground">
-                  {hasLiveScheduler ? "Prefer to book directly?" : "What the free audit covers"}
+                  {hasLiveScheduler ? "Prefer to book directly?" : "What the free consultation covers"}
                 </h3>
                 <p className="text-muted-foreground mb-6 relative z-10">
                   {hasLiveScheduler
-                    ? "Pick a 30-minute slot and we'll map out your workflows and the automation opportunities in them."
-                    : "A 30-minute call where we review your current workflows, identify what's worth automating first, and give you a practical roadmap — whether or not you work with us."}
+                    ? "Pick a 30 minute slot and we'll talk through your website, app, AI or automation project and the best way to build it."
+                    : "A 30 minute call where we review your goals and current setup, recommend the right approach for your website, app or AI project, and give you a practical roadmap, whether or not you work with us."}
                 </p>
                 {hasLiveScheduler ? (
                   <Button variant="gold" size="lg" className="w-full sm:w-auto relative z-10" asChild>
@@ -133,7 +133,7 @@ export default function ContactPage() {
                 ) : (
                   <Button variant="gold" size="lg" className="w-full sm:w-auto relative z-10" asChild>
                     <Link href="#enquiry-form">
-                      Request your free audit <ArrowRight className="w-4 h-4 ml-2" />
+                      Request your free consultation <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>
                 )}

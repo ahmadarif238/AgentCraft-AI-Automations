@@ -9,13 +9,14 @@ import { linkedinUrl, siteConfig, whatsappUrl } from "@/config/site";
 const displayDomain = siteConfig.url.replace(/^https?:\/\//, "");
 
 const serviceLinks = [
-  { href: "/services#workflow-automation", label: "Workflow Automation" },
-  { href: "/services#ai-agents", label: "AI Agents Development" },
-  { href: "/services#rag-systems", label: "RAG & Knowledge Systems" },
-  { href: "/services#crm-automation", label: "CRM & Lead Automation" },
-  { href: "/services#ai-chatbots", label: "AI Chatbots & Assistants" },
   { href: "/services#web-development", label: "Website Development" },
-  { href: "/services#app-development", label: "Application Development" },
+  { href: "/services#app-development", label: "Web Application Development" },
+  { href: "/services#mobile-app-development", label: "Mobile App Development" },
+  { href: "/services#saas-development", label: "SaaS Product Development" },
+  { href: "/services#ai-agents", label: "AI Agents Development" },
+  { href: "/services#workflow-automation", label: "Workflow Automation" },
+  { href: "/services#rag-systems", label: "RAG & Knowledge Systems" },
+  { href: "/services#ai-chatbots", label: "AI Chatbots & Assistants" },
   { href: "/services#data-integration", label: "Data Integration & APIs" },
 ];
 
@@ -46,12 +47,12 @@ export function Footer() {
           <div>
             <span className="kicker">Next step</span>
             <p className="display text-3xl md:text-5xl mt-5 max-w-2xl">
-              Tell us about one workflow.{" "}
-              <span className="text-white/50">We&apos;ll show you what it looks like automated.</span>
+              Tell us what you want to build.{" "}
+              <span className="text-white/50">We&apos;ll show you how we would build it.</span>
             </p>
           </div>
           <BookingLink className={ctaClass("h-12 shrink-0")}>
-            <CtaContent>Book free audit</CtaContent>
+            <CtaContent>Book a free call</CtaContent>
           </BookingLink>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-x-6 lg:gap-y-10">
@@ -60,7 +61,7 @@ export function Footer() {
           <div className="lg:col-span-2 flex flex-col gap-6">
             <Link href="/" className="w-fit hover:opacity-90 transition-opacity">
               <BrandLogo variant="dark" className="h-10 w-auto" />
-              <span className="sr-only">AgentCraft AI Automations — home</span>
+              <span className="sr-only">AgentCraft AI Automations home page</span>
             </Link>
             <p className="text-sm text-white/70 max-w-sm leading-relaxed">
               {siteConfig.description}
@@ -193,7 +194,7 @@ export function Footer() {
           <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <span className="text-white/85">
-              Automate. Intelligently. Scale Limitlessly.
+              Build. Automate. Scale.
             </span>
             <a href={siteConfig.url} className="hover:text-white transition-colors">{displayDomain}</a>
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>

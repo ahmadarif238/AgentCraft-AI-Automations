@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, Code2, Database, BrainCircuit, Rocket, ShieldCheck, Cpu, ArrowRight } from "lucide-react";
+import { CheckCircle2, Code2, Database, BrainCircuit, Rocket, ShieldCheck, Cpu, ArrowRight, Globe, TabletSmartphone, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BookingLink } from "@/components/ui/BookingLink";
 import { siteConfig } from "@/config/site";
@@ -11,15 +11,18 @@ import { PageHero } from "@/components/layout/PageHero";
 export const metadata: Metadata = pageMetadata({
   title: "About Us",
   description:
-    "AgentCraft AI Automations is a founder-led AI automation studio building practical, reliable agent and workflow systems for real business operations.",
+    "AgentCraft AI Automations is a founder led software and AI studio building websites, web and mobile apps, SaaS products, and reliable AI agent and workflow systems for real businesses.",
   path: "/about",
 });
 
 const expertise = [
-  { icon: BrainCircuit, label: "Multi-agent AI Systems (LangGraph)" },
+  { icon: Globe, label: "Websites & Web Apps (Next.js, React, TypeScript)" },
+  { icon: TabletSmartphone, label: "Mobile Apps (React Native, Expo, Flutter)" },
+  { icon: Layers, label: "SaaS Platforms (Auth, Stripe, Supabase)" },
+  { icon: BrainCircuit, label: "Multi Agent AI Systems (LangGraph)" },
   { icon: Database, label: "RAG & Vector Search (Pinecone, Weaviate)" },
   { icon: Rocket, label: "Workflow Automation (n8n, Zapier, Make)" },
-  { icon: Code2, label: "Backend AI Applications (FastAPI, PostgreSQL)" },
+  { icon: Code2, label: "Backends & APIs (FastAPI, PostgreSQL)" },
   { icon: Cpu, label: "Microsoft Power Automate & Power Platform" },
   { icon: ShieldCheck, label: "Cloud & Deployment (AWS, Azure, Docker)" },
 ];
@@ -30,20 +33,21 @@ const values = [
     description: "We don't sell hype or impossible AI dreams. We build reliable, grounded systems that actually work in production."
   },
   {
-    title: "Founder-Led Delivery",
-    description: "The founder stays hands-on from architecture through to handover, so the person who scopes your system is accountable for what ships. You always know who owns your project."
+    title: "Founder Led Delivery",
+    description: "The founder stays hands on from architecture through to handover, so the person who scopes your system is accountable for what ships. You always know who owns your project."
   },
   {
     title: "Security by Default",
-    description: "Your data is yours. We implement human-in-the-loop approvals and secure API handling from day one."
+    description: "Your data is yours. We implement human in the loop approvals, secure authentication and careful API handling from day one."
   }
 ];
 
 export default function AboutPage() {
   return (
     <>
-      <PageHero kicker="About Us" title="A Founder-Led" muted="AI Automation Studio.">
-        We bridge the gap between complex AI research and practical business operations.
+      <PageHero kicker="About Us" title="A Founder Led" muted="Software and AI Studio.">
+        We design and build websites, apps and AI systems, and bridge the gap between
+        complex AI research and practical business operations.
       </PageHero>
     <div className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -73,21 +77,22 @@ export default function AboutPage() {
             <h2 className="text-3xl font-heading font-bold mb-6 text-foreground">Meet the Founder</h2>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                {siteConfig.founderName} is a software engineer who builds artificial
-                intelligence systems for business operations. His work covers intelligent
-                agents, retrieval augmented assistants, machine learning services, and the
-                automation that connects them to the tools a company already runs.
+                {siteConfig.founderName} is a software engineer who builds web products and
+                artificial intelligence systems for businesses. His work covers full stack
+                web and app development, intelligent agents, retrieval augmented assistants,
+                machine learning services, and the automation that connects them to the
+                tools a company already runs.
               </p>
               <p>
                 He has delivered AI and automation work for international companies across
-                several sectors before founding AgentCraft, a studio built to offer that
-                capability directly, with artificial intelligence engineering at its center.
+                several sectors before founding AgentCraft, a studio that builds complete
+                software products with artificial intelligence engineering at its center.
               </p>
               <p>
-                Most automation fails on the parts nobody demonstrates: error handling,
-                approval steps, monitoring, and the documentation a team needs to run the
-                system without us. Those are the parts we build properly, because they
-                decide whether a workflow still runs months after launch.
+                Most software fails on the parts nobody demonstrates: error handling,
+                approval steps, testing, monitoring, and the documentation a team needs to
+                run the system without us. Those are the parts we build properly, because
+                they decide whether a product still runs well months after launch.
               </p>
             </div>
             <div className="flex gap-4 mt-8">
@@ -129,7 +134,7 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto mb-32">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-heading font-bold mb-4 text-foreground">Technical Expertise</h2>
-            <p className="text-muted-foreground">The stack we use to build robust automation systems.</p>
+            <p className="text-muted-foreground">The stack we use to build robust websites, apps and AI systems.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {expertise.map((item, i) => (
@@ -146,7 +151,7 @@ export default function AboutPage() {
         {/* Why Founder-Led & Values */}
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-32">
           <div>
-            <h2 className="text-3xl font-heading font-bold mb-6 text-foreground">Why Founder-Led Delivery Matters</h2>
+            <h2 className="text-3xl font-heading font-bold mb-6 text-foreground">Why Founder Led Delivery Matters</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               At a lot of agencies you are sold by a senior partner and then handed to someone
               who was not in the room. Here the founder stays involved from the first scoping
@@ -155,7 +160,7 @@ export default function AboutPage() {
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
               In practice that means fewer translation layers, faster decisions, and a team
-              that actually understands why your workflow works the way it does.
+              that actually understands why your business works the way it does.
             </p>
           </div>
           <div className="space-y-8">
@@ -182,7 +187,7 @@ export default function AboutPage() {
               >
                 <Image
                   src="/images/flyer-v2.webp"
-                  alt="Preview of the AgentCraft AI Automations one-page company overview"
+                  alt="Preview of the AgentCraft AI Automations one page company overview"
                   width={900}
                   height={1350}
                   sizes="(max-width: 768px) 90vw, 350px"
@@ -198,7 +203,7 @@ export default function AboutPage() {
             <div className="w-full md:w-1/2 text-left">
               <h2 className="text-3xl font-heading font-bold mb-4 text-foreground">Our Company Overview</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                Want to share what we do with your team? Download our quick one-page overview detailing our services, technical capabilities, and business benefits.
+                Want to share what we do with your team? Download our quick one page overview detailing our services, technical capabilities and business benefits.
               </p>
               <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
                 <a href={siteConfig.overviewPdf} download>Download the PDF</a>
@@ -214,11 +219,11 @@ export default function AboutPage() {
             Let&apos;s Build Something Impactful.
           </h2>
           <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
-            Book a free automation audit and we&apos;ll map out which of your workflows are worth automating first.
+            Book a free consultation and we&apos;ll map out what to build first, whether that is a website, an app, an AI agent or an automation.
           </p>
           <Button variant="gold" size="lg" className="w-full sm:w-auto font-semibold gap-2 shadow-[0_0_20px_rgba(43,107,255,0.2)]" asChild>
             <BookingLink>
-              Book a Free Automation Audit
+              Book a Free Consultation
             </BookingLink>
           </Button>
         </div>

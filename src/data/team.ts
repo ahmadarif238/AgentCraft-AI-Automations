@@ -34,7 +34,7 @@ export const team: TeamMember[] = [
     role: "Full Stack Developer",
     focus:
       "Builds the money paths. Subscription billing, marketplace payouts, invoicing, and the transactional correctness that has to hold when a calculation error is not cosmetic.",
-    specialisms: ["Stripe Connect", "Subscription Billing", "Multi-tenant SaaS", "Deployment"],
+    specialisms: ["Stripe Connect", "Subscription Billing", "Multi Tenant SaaS", "Deployment"],
     links: [
       { label: "Portfolio", href: "https://bilalfaiz.com" },
       { label: "Billiie", href: "https://billiie.co" },
@@ -46,12 +46,12 @@ export const team: TeamMember[] = [
     role: "Full Stack Developer",
     focus:
       "Front of house. Booking engines, calendars, dashboards and responsive delivery, with a track record of building for owner operators who have never used software like it before.",
-    specialisms: ["Next.js", "React", "Booking & Calendars", "PWA", "Third-party APIs"],
+    specialisms: ["Next.js", "React", "Booking & Calendars", "PWA", "Third Party APIs"],
     links: [
       { label: "Work", href: "https://reap-rho.vercel.app" },
       { label: "Fiverr", href: "https://www.fiverr.com/shahid_kahn" },
     ],
-    credential: "5.0 across 83 reviews · delivering since 2019",
+    credential: "5.0 across 83 reviews, delivering since 2019",
   },
   {
     id: "muhammad-maaz",

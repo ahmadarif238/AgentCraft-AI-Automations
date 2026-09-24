@@ -45,13 +45,13 @@ const OG_IMAGE = {
   url: "/og-image.png",
   width: 1200,
   height: 630,
-  alt: `${siteConfig.name} — AI Agents & Workflow Automation`,
+  alt: `${siteConfig.name}: Software Development and AI Agents`,
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | AI Agents & Workflow Automation`,
+    default: `${siteConfig.name} | Software Development and AI Agents`,
     template: `%s | ${siteConfig.shortName}`,
   },
   description: siteConfig.description,
@@ -64,14 +64,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: `${siteConfig.name} | AI Agents & Workflow Automation`,
+    title: `${siteConfig.name} | Software Development and AI Agents`,
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | AI Agents & Workflow Automation`,
+    title: `${siteConfig.name} | Software Development and AI Agents`,
     description: siteConfig.description,
     images: [OG_IMAGE.url],
   },
@@ -128,6 +128,11 @@ export default function RootLayout({
         parentOrganization: { "@id": `${siteConfig.url}/#organization` },
         priceRange: "$$",
         serviceType: [
+          "Website development",
+          "Web application development",
+          "Mobile app development",
+          "SaaS product development",
+          "UI and UX design",
           "AI agent development",
           "Workflow automation",
           "RAG and knowledge systems",

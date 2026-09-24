@@ -10,7 +10,7 @@ export const OG_IMAGE = {
   url: "/og-image.png",
   width: 1200,
   height: 630,
-  alt: `${siteConfig.name} — AI Agents & Workflow Automation`,
+  alt: `${siteConfig.name}: Software Development and AI Agents`,
 };
 
 export function pageMetadata({

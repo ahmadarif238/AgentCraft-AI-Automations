@@ -8,17 +8,17 @@ import { enquiryUrl } from "@/config/site";
 import { PageHero } from "@/components/layout/PageHero";
 
 export const metadata: Metadata = pageMetadata({
-  title: "AI Automation Services",
+  title: "Software Development and AI Services",
   description:
-    "Workflow automation, custom AI agents, RAG and knowledge systems, CRM and lead automation, and API integrations built around the tools you already use.",
+    "Website, web app, mobile app and SaaS development, UI and UX design, custom AI agents, workflow automation, RAG knowledge assistants, chatbots and API integrations, built around the tools you already use.",
   path: "/services",
 });
 
 export default function ServicesPage() {
   return (
     <>
-      <PageHero kicker="Our Services" title="AI Automation" muted="Services">
-        We design, build, and deploy custom AI agents and intelligent workflows that eliminate repetitive tasks and help your business scale efficiently.
+      <PageHero kicker="Our Services" title="Software and AI" muted="Services">
+        We design, build and launch websites, web and mobile apps, SaaS products and custom AI agents, and we connect them with automation so your business can scale without the busywork.
       </PageHero>
     <div className="tone-ice py-24 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
@@ -59,7 +59,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-bold text-foreground mb-4 border-b border-border pb-2">Example Workflows</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-4 border-b border-border pb-2">What We Build</h3>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3 text-muted-foreground">
@@ -84,7 +84,7 @@ export default function ServicesPage() {
                 <div className="pt-4">
                   <Button variant="gold" size="lg" className="w-full sm:w-auto shadow-[0_0_15px_rgba(43,107,255,0.15)] hover:shadow-[0_0_20px_rgba(43,107,255,0.3)] transition-all" asChild>
                     <Link href={enquiryUrl({ service: service.id })}>
-                      Automate This Workflow
+                      Discuss This Project
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>

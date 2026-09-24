@@ -96,10 +96,10 @@ export async function POST(request: Request) {
   const rows: [string, string][] = [
     ["Name", fields.name],
     ["Email", fields.email],
-    ["Company", fields.company || "—"],
+    ["Company", fields.company || "Not given"],
     ["Budget", fields.budget || "Not specified"],
-    ["Wants to automate", fields.workflow],
-    ["Current tools", fields.tools || "—"],
+    ["Wants to build or automate", fields.workflow],
+    ["Current tools", fields.tools || "Not given"],
   ];
 
   const html = `

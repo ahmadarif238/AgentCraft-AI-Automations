@@ -33,7 +33,7 @@ const entries: Entry[] = [
     title: "SalesAI",
     overview: "Automates lead generation, scoring, engagement, and sales workflow coordination.",
     problem: "B2B sales teams spend too much time on manual prospect research, data entry into CRM, and crafting personalized outreach.",
-    solution: "A custom multi-agent system that scrapes target companies, scores leads based on ICP fit, and drafts personalized outreach messages.",
+    solution: "A custom multi agent system that scrapes target companies, scores leads based on ICP fit, and drafts personalized outreach messages.",
     technologies: ["LangGraph", "n8n", "OpenAI", "Pinecone"],
     businessValue: "Cuts manual prospect research time by roughly 60% in our own build of the system.",
     adaptation: "Can be adapted to any CRM (Salesforce, HubSpot) to automatically enrich inbound leads.",
@@ -42,11 +42,11 @@ const entries: Entry[] = [
     id: "contract-iq",
     category: "AI Contract Intelligence",
     title: "ContractIQ",
-    overview: "Multi-agent system for analyzing, verifying, and benchmarking complex legal agreements.",
-    problem: "Legal and procurement teams get bottlenecked reviewing standardized agreements for non-standard clauses.",
-    solution: "A RAG-based workflow that compares uploaded contracts against a master playbook, flagging risks and generating a summary report.",
+    overview: "A multi agent system for analyzing, verifying, and benchmarking complex legal agreements.",
+    problem: "Legal and procurement teams get bottlenecked reviewing standardized agreements for clauses that break from the standard.",
+    solution: "A retrieval workflow that compares uploaded contracts against a master playbook, flagging risks and generating a summary report.",
     technologies: ["FastAPI", "Weaviate", "LangChain", "React"],
-    businessValue: "Grounded outputs with validation-oriented architecture.",
+    businessValue: "Every finding is grounded in the playbook and validated before it reaches a reviewer.",
     adaptation: "Can be deployed internally for HR, Procurement, or Legal teams to speed up document reviews.",
   },
   {
@@ -64,9 +64,9 @@ const entries: Entry[] = [
     id: "ai-operations-copilot",
     category: "IT & Operations Support",
     title: "AI Operations Copilot",
-    overview: "RAG-based IT operations assistant for policy Q&A, log monitoring, and ticket generation.",
+    overview: "An IT operations assistant built on retrieval, for policy questions, log monitoring, and ticket generation.",
     problem: "IT teams are overwhelmed with repetitive level-1 support questions and manual ticket triaging.",
-    solution: "A Slack/Teams integrated assistant that answers questions using internal wikis and auto-creates Jira tickets for unresolved issues.",
+    solution: "An assistant inside Slack or Teams that answers questions from internal wikis and opens Jira tickets automatically for unresolved issues.",
     technologies: ["LangGraph", "Slack API", "Jira API", "PostgreSQL"],
     businessValue: "Deflects routine tickets and standardizes internal support responses.",
     adaptation: "Easily trained on any internal Confluence or Notion workspace.",
@@ -75,11 +75,11 @@ const entries: Entry[] = [
     id: "voice-executive",
     category: "Voice AI & Productivity",
     title: "Voice Executive Agent",
-    overview: "Voice-enabled assistant for email and calendar task management.",
+    overview: "A voice assistant for email and calendar task management.",
     problem: "Executives waste time manually triaging emails and scheduling meetings while on the go.",
-    solution: "A voice-activated agent capable of reading email summaries and scheduling calendar events via natural language.",
+    solution: "A voice activated agent capable of reading email summaries and scheduling calendar events via natural language.",
     technologies: ["ElevenLabs", "Zapier", "Google Workspace APIs", "OpenAI"],
-    businessValue: "Turns drive-time into productive administrative time.",
+    businessValue: "Turns time on the road into productive administrative time.",
     adaptation: "Can be customized for specific executive workflows or field sales teams.",
   },
   {
@@ -91,8 +91,8 @@ const entries: Entry[] = [
     problem:
       "Assessing spoken competence at scale is slow and inconsistent. A human examiner can only sit so many sessions, and two examiners rarely mark the same answer the same way.",
     solution:
-      "Seven agents divide the work of an examiner: question selection, follow-up probing, voice analysis, filler word detection, difficulty adjustment, scoring, and feedback. Difficulty adapts live to how the candidate is performing.",
-    technologies: ["LangGraph", "Voice Analysis", "Multi-Agent Workflows", "Python"],
+      "Seven agents divide the work of an examiner: question selection, follow up probing, voice analysis, filler word detection, difficulty adjustment, scoring, and feedback. Difficulty adapts live to how the candidate is performing.",
+    technologies: ["LangGraph", "Voice Analysis", "Multi Agent Workflows", "Python"],
     businessValue:
       "Delivers consistent, repeatable assessment against the same rubric every time, with detailed feedback attached to each session.",
     adaptation:
@@ -103,9 +103,9 @@ const entries: Entry[] = [
     category: "Monitoring & Alerting",
     title: "Stock News Alert Agent",
     overview:
-      "Watches financial news continuously and pushes sentiment-scored alerts the moment something moves.",
+      "Watches financial news continuously and pushes alerts scored for sentiment the moment something moves.",
     problem:
-      "Market-moving news breaks faster than anyone can read it, and the signal is buried in a very high volume of noise.",
+      "Market moving news breaks faster than anyone can read it, and the signal is buried in a very high volume of noise.",
     solution:
       "An agent monitors news sources, scores each item for sentiment and relevance against a watchlist, and delivers only what clears the threshold straight to Telegram.",
     technologies: ["Python", "Groq", "Sentiment Analysis", "Telegram API"],
@@ -116,15 +116,15 @@ const entries: Entry[] = [
   },
   {
     id: "billiie",
-    category: "Multi-tenant SaaS & Billing",
+    category: "SaaS Platform and Billing",
     title: "Billiie",
     overview:
-      "A live digital signage and commerce platform serving small businesses in the US, with tiered subscription billing and per-unit overage.",
+      "A live digital signage and commerce platform serving small businesses in the US, with tiered subscription billing and usage based overage.",
     problem:
       "Small retail sites, cafes and parking operators want screens that sell, but the software behind them is priced for chains and needs an operator to run it.",
     solution:
-      "A multi-tenant platform where each business manages its own screens, content, campaigns and earnings from an isolated dashboard. Billing is a tiered base subscription with per-unit overage on top, so capacity can be added without changing plan.",
-    technologies: ["Stripe", "Multi-tenant Architecture", "Subscription Billing", "Web & TV Apps"],
+      "A multi tenant platform where each business manages its own screens, content, campaigns and earnings from an isolated dashboard. Billing is a tiered base subscription with usage based overage on top, so capacity can be added without changing plan.",
+    technologies: ["Stripe", "Multi Tenant Architecture", "Subscription Billing", "Web and TV Apps"],
     businessValue:
       "In production and taking paying customers, across web, smart TV and Amazon Fire TV, with mobile in progress.",
     adaptation:
@@ -135,7 +135,7 @@ const entries: Entry[] = [
     category: "Conversational Commerce",
     title: "WhatsApp Ordering Agent",
     overview:
-      "A multi-tenant agent that takes orders over WhatsApp in English and Urdu, by text or voice note, and hands each one to a human to confirm.",
+      "A multi tenant agent that takes orders over WhatsApp in English and Urdu, by text or voice note, and hands each one to a human to confirm.",
     problem:
       "Businesses lose orders in WhatsApp threads. Staff retype items, misprice totals, and there is no record of what was agreed.",
     solution:
@@ -151,32 +151,32 @@ const entries: Entry[] = [
     category: "Fintech Tooling",
     title: "Card Design Tool",
     overview:
-      "A design tool built for a global financial infrastructure company, letting non-technical staff produce branded cards without a designer.",
+      "A design tool built for a global financial infrastructure company, letting staff with no design background produce branded cards without a designer.",
     problem:
       "Card artwork went through a design queue, which made a small change slow and put a specialist between the business and a routine task.",
     solution:
-      "Logo upload with live colour and element customisation, export to a size-constrained PNG that meets production limits, and Google API integration that saves designs and employee data straight to Drive and Sheets.",
+      "Logo upload with live colour and element customisation, export to a PNG sized to production limits, and Google API integration that saves designs and employee data straight to Drive and Sheets.",
     technologies: ["Next.js", "React", "Google APIs", "Image Processing"],
     businessValue:
-      "Puts a production-constrained design task in the hands of the people who need it, with no training.",
+      "Puts a design task with strict production rules in the hands of the people who need it, with no training.",
     adaptation:
       "The same pattern suits any branded asset a team regenerates often, from badges to certificates to menus.",
   },
   {
     id: "client-hunting-agent",
     category: "Outbound Automation",
-    title: "AI Client-Hunting Agent",
+    title: "AI Client Hunting Agent",
     overview:
       "An outbound pipeline that finds prospects, drafts personalised outreach, and sends only after a human approves it.",
     problem:
       "Outbound either goes unsent because nobody has time, or goes out unreviewed and damages the brand it is meant to build.",
     solution:
-      "The agent researches target businesses and drafts a personalised message, then waits. Nothing sends without approval. Once sent, it monitors replies and notifies the operator, so follow-up happens while interest is live.",
+      "The agent researches target businesses and drafts a personalised message, then waits. Nothing sends without approval. Once sent, it monitors replies and notifies the operator, so follow up happens while interest is live.",
     technologies: ["FastAPI", "Next.js", "SQL Migrations", "Automated Testing"],
     businessValue:
       "Approval gating and reply monitoring mean volume goes up without anyone losing control of what goes out under their name.",
     adaptation:
-      "The same shape covers recruitment outreach, partner development, renewals and win-back campaigns.",
+      "The same shape covers recruitment outreach, partner development, renewals and win back campaigns.",
   },
 ];
 

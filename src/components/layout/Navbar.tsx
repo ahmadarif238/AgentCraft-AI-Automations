@@ -69,7 +69,7 @@ export function Navbar() {
             className="flex items-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <BrandLogo priority className="h-8 w-auto sm:h-9" />
-            <span className="sr-only">AgentCraft AI Automations — home</span>
+            <span className="sr-only">AgentCraft AI Automations home page</span>
           </Link>
 
           <div className="flex items-center gap-[3px]">
@@ -94,7 +94,7 @@ export function Navbar() {
             </nav>
 
             <BookingLink className={ctaClass("hidden sm:inline-flex h-8 ml-[3px] text-[10.5px] [&>span:first-child]:px-3.5 [&>span:last-child]:w-8")}>
-              <CtaContent>Book free audit</CtaContent>
+              <CtaContent>Book a free call</CtaContent>
             </BookingLink>
 
             <button
@@ -151,7 +151,7 @@ export function Navbar() {
 
           <div className="mt-auto pt-10 flex flex-col gap-3">
             <BookingLink onClick={closeMenu} className={ctaClass("h-12 w-full [&>span:first-child]:flex-1 [&>span:first-child]:justify-center")}>
-              <CtaContent>Book free audit</CtaContent>
+              <CtaContent>Book a free call</CtaContent>
             </BookingLink>
             {whatsappUrl && (
               <a

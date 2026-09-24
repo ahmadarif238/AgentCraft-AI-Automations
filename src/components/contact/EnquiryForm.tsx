@@ -54,7 +54,7 @@ export function EnquiryForm() {
         </div>
         <h3 className="text-2xl font-bold mb-2 text-foreground">Enquiry sent.</h3>
         <p className="text-muted-foreground">
-          Thanks for reaching out — we&apos;ll reply {siteConfig.responseTime}.
+          Thanks for reaching out. We&apos;ll reply {siteConfig.responseTime}.
         </p>
         <Button variant="outline" className="mt-8" onClick={() => setStatus("idle")}>
           Send another message
@@ -92,8 +92,8 @@ export function EnquiryForm() {
           <select id="budget" name="budget" className={INPUT_CLASS} defaultValue="">
             <option value="">Select budget...</option>
             <option value="Under $5k">Under $5k</option>
-            <option value="$5k - $10k">$5k &ndash; $10k</option>
-            <option value="$10k - $25k">$10k &ndash; $25k</option>
+            <option value="$5k to $10k">$5k to $10k</option>
+            <option value="$10k to $25k">$10k to $25k</option>
             <option value="$25k+">$25k+</option>
             <option value="Not sure yet">Not sure yet</option>
           </select>
@@ -102,9 +102,9 @@ export function EnquiryForm() {
 
       <div className="space-y-2">
         <label htmlFor="workflow" className="text-sm font-medium text-foreground">
-          What do you want to automate? <span className="text-primary-strong">*</span>
+          What do you want to build or automate? <span className="text-primary-strong">*</span>
         </label>
-        <input id="workflow" name="workflow" required maxLength={400} className={INPUT_CLASS} placeholder="e.g. Lead follow-up, document processing..." />
+        <input id="workflow" name="workflow" required maxLength={400} className={INPUT_CLASS} placeholder="e.g. A booking app, a new website, lead follow up..." />
       </div>
 
       <div className="space-y-2">
@@ -122,11 +122,11 @@ export function EnquiryForm() {
           required
           maxLength={4000}
           className="w-full min-h-[120px] p-3 rounded-md border border-input bg-background text-sm text-foreground resize-y focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
-          placeholder="Tell us about your operational bottlenecks..."
+          placeholder="Tell us about your project or the bottlenecks you want to fix..."
         />
       </div>
 
-      {/* Honeypot — hidden from people, irresistible to bots. */}
+      {/* Honeypot: hidden from people, irresistible to bots. */}
       <div className="hidden" aria-hidden="true">
         <label htmlFor="company_website">Company website</label>
         <input id="company_website" name="company_website" tabIndex={-1} autoComplete="off" />

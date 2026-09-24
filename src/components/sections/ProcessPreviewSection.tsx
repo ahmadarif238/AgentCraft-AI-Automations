@@ -17,7 +17,7 @@ export function ProcessPreviewSection() {
           <div>
             <span className="kicker">Process</span>
             <h2 className="display text-4xl md:text-6xl mt-6">
-              Our Proven <span className="text-white/45">Automation Process</span>
+              How We <span className="text-white/45">Deliver Every Project</span>
             </h2>
           </div>
           <Link href="/process" className={ctaClass("shrink-0")}>

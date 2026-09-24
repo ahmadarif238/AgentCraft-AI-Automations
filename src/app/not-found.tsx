@@ -36,7 +36,7 @@ export default function NotFound() {
         </div>
 
         <Button variant="gold" size="lg" asChild>
-          <BookingLink>Book a Free Automation Audit</BookingLink>
+          <BookingLink>Book a Free Consultation</BookingLink>
         </Button>
       </div>
     </section>

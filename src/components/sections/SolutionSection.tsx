@@ -6,20 +6,20 @@ import { ScrollText } from "@/components/ui/ScrollText";
 
 const steps = [
   {
-    label: "Identify",
-    description: "We map out your current workflows and identify exactly where time is being lost to manual data entry or repetitive logic.",
+    label: "Discover",
+    description: "We learn how your business works, what you want to build, and exactly where time is being lost to manual work or tools that no longer fit.",
   },
   {
-    label: "Automate",
-    description: "We build custom logic and AI agents that handle decisions, data formatting, and routing without human intervention.",
+    label: "Build",
+    description: "We design and build the website, app or AI agent, with the logic that handles decisions, data and routing without someone doing it by hand.",
   },
   {
     label: "Integrate",
-    description: "We connect your CRMs, databases, emails, and SaaS tools so information flows seamlessly across your business.",
+    description: "We connect it to your CRMs, databases, email and SaaS tools so information flows smoothly across your business.",
   },
   {
     label: "Optimize",
-    description: "We monitor performance, handle edge cases, and continuously improve the system as your operations scale.",
+    description: "We monitor performance, handle edge cases and keep improving the system as your business grows.",
   },
 ];
 
@@ -51,12 +51,12 @@ export function SolutionSection() {
       <div className="container mx-auto px-4 md:px-6 pt-24 md:pt-32">
         <span className="kicker">How it works</span>
         <h2 className="display text-4xl md:text-6xl mt-6 max-w-4xl">
-          AgentCraft Turns Repetitive Processes{" "}
-          <span className="text-white/45">Into Intelligent Workflows.</span>
+          AgentCraft Turns Ideas and Manual Processes{" "}
+          <span className="text-white/45">Into Intelligent Software.</span>
         </h2>
         <ScrollText
           className="display text-2xl md:text-4xl mt-14 max-w-5xl leading-[1.2]"
-          text="Our approach goes beyond basic triggers and actions. We build robust, error-resistant systems that handle complex business logic."
+          text="Our approach goes beyond templates and basic triggers. We build robust, well tested software and AI systems that handle real business logic."
         />
       </div>
 

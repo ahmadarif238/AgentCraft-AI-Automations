@@ -4,33 +4,33 @@ import { ShieldCheck, KeyRound, DatabaseZap, FileCode2, Activity, Presentation }
 const securityFeatures = [
   {
     icon: ShieldCheck,
-    title: "Human-in-the-loop Approvals",
+    title: "Human in the Loop Approvals",
     description: "Critical actions pause for your approval before execution, ensuring you remain in total control."
   },
   {
     icon: KeyRound,
     title: "Secure API Key Handling",
-    description: "We use enterprise-grade secret managers and environment variables. We never expose your credentials."
+    description: "We use enterprise grade secret managers and environment variables. We never expose your credentials."
   },
   {
     icon: DatabaseZap,
     title: "No Unnecessary Data Storage",
-    description: "Our agents process your data in transit. We avoid storing PII or sensitive business data in our own databases."
+    description: "Our systems process data in transit wherever possible. We avoid storing personal or sensitive business data in our own databases."
   },
   {
     icon: FileCode2,
-    title: "Client-Owned Workflows",
-    description: "You own the automation logic and the documentation. No vendor lock-in or proprietary black boxes."
+    title: "You Own the Code",
+    description: "You own the source code, the automation logic and the documentation. No vendor lock in or proprietary black boxes."
   },
   {
     icon: Activity,
     title: "Monitoring & Maintenance",
-    description: "Optional ongoing support to track API health, catch edge cases, and keep systems running 24/7."
+    description: "Optional ongoing support to track uptime and API health, catch edge cases, and keep your apps and automations running 24/7."
   },
   {
     icon: Presentation,
     title: "Clear Handover & Training",
-    description: "Every deployment includes a video walkthrough, documentation, and training for your operations team."
+    description: "Every launch includes a video walkthrough, documentation and training for your team."
   }
 ];
 
@@ -47,7 +47,7 @@ export function SecuritySection() {
             </h2>
           </div>
           <p className="lg:col-span-4 lg:col-start-9 self-end text-white/65 text-lg">
-            We don&apos;t build brittle web scrapers. We engineer robust, secure, and documented systems that enterprises can trust.
+            We don&apos;t build brittle scripts or throwaway prototypes. We engineer robust, secure and documented software that businesses can trust.
           </p>
         </div>
 

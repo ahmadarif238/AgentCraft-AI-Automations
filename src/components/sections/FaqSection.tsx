@@ -27,7 +27,7 @@ export function FaqSection({
           <p className="text-muted-foreground text-lg mt-6">{subheading}</p>
           {showContactLink && (
             <p className="mt-8 text-muted-foreground">
-              Still unsure whether your workflow is a good fit?{" "}
+              Still unsure whether your project is a good fit?{" "}
               <Link href="/contact" className="text-primary-strong font-semibold hover:underline">
                 Ask us directly
               </Link>

@@ -6,7 +6,7 @@ import { PageHero } from "@/components/layout/PageHero";
 export const metadata: Metadata = pageMetadata({
   title: "Our Process",
   description:
-    "From free automation audit to scoping, build, testing, handover and ongoing support - how an AgentCraft AI automation project actually runs.",
+    "From a free consultation to scoping, design, build, testing, launch and ongoing support: how an AgentCraft AI software, app or automation project actually runs.",
   path: "/process",
 });
 
@@ -14,40 +14,40 @@ const processSteps = [
   {
     num: "01",
     title: "Discover",
-    description: "We understand your workflows, bottlenecks, tools, and goals. We map out exactly where time is being lost.",
+    description: "We learn your goals, users, workflows and current tools, and map out exactly what needs building and where time is being lost.",
   },
   {
     num: "02",
     title: "Design",
-    description: "We map the automation architecture, choose the right tools (n8n, Zapier, custom APIs), and present a clear strategy.",
+    description: "We plan the architecture, design the screens and flows, choose the right stack and tools, and present a clear plan with a fixed quote.",
   },
   {
     num: "03",
     title: "Build",
-    description: "We develop custom AI agents, automations, APIs, dashboards, and integrations according to the approved architecture.",
+    description: "We develop the website, app, AI agents, automations, APIs and integrations in milestones, so you see working software as we go.",
   },
   {
     num: "04",
     title: "Test",
-    description: "We rigorously validate reliability, edge cases, security, and user experience in a staging environment.",
+    description: "We test reliability, edge cases, security and user experience across devices in a staging environment.",
   },
   {
     num: "05",
     title: "Deploy",
-    description: "We launch the system into your real business workflow with full documentation and team training.",
+    description: "We launch to production, the app stores or your live workflow, with full documentation and team training.",
   },
   {
     num: "06",
     title: "Optimize",
-    description: "We monitor performance, improve logic, and expand automation over time as your business evolves.",
+    description: "We monitor performance, fix issues, and add features and automation over time as your business evolves.",
   },
 ];
 
 export default function ProcessPage() {
   return (
     <>
-      <PageHero kicker="Our Process" title="A Proven Path" muted="to Automation">
-        We don&apos;t just write code. We map your business logic and engineer reliable systems that scale.
+      <PageHero kicker="Our Process" title="A Proven Path" muted="From Idea to Launch">
+        We don&apos;t just write code. We understand your business, design around your users, and engineer reliable software that scales.
       </PageHero>
 
       <section className="py-24 bg-secondary relative">

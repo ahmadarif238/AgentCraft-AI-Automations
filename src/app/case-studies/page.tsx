@@ -7,9 +7,9 @@ import { BookingLink } from "@/components/ui/BookingLink";
 import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Case Studies & AI Systems",
+  title: "Case Studies: Software and AI Systems",
   description:
-    "Multi-agent systems, RAG implementations and workflow automations built by AgentCraft AI - the problem, the architecture, and the business value in each.",
+    "SaaS platforms, web apps, AI agents and automations built by AgentCraft AI, with the problem, the architecture and the business value of each.",
   path: "/case-studies",
 });
 
@@ -23,12 +23,12 @@ export default function CaseStudiesPage() {
         <div className="container mx-auto px-4 md:px-6 relative pt-40 pb-20 md:pt-48 md:pb-28">
           <span className="kicker">Case studies</span>
           <h1 className="display text-5xl md:text-7xl mt-6 max-w-4xl">
-            AI Systems &amp; Automations
+            Software and AI Systems
             <span className="block text-white/45">We&apos;ve Built</span>
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-14 pt-8 border-t border-white/10">
             <p className="md:col-span-6 text-lg text-white/75 leading-relaxed">
-              Explore production-grade architecture patterns, RAG implementations, and multi-agent systems built to solve complex business operations.
+              From a live SaaS platform taking payments to multi agent AI systems, each one built end to end: interface, backend, integrations and the intelligence inside.
             </p>
             <dl className="md:col-span-5 md:col-start-8 grid grid-cols-2 gap-[3px]">
               <div className="bg-white/[.06] p-5">
@@ -66,7 +66,7 @@ export default function CaseStudiesPage() {
                       <span>{String(i + 1).padStart(2, "0")} / {String(caseStudies.length).padStart(2, "0")}</span>
                       <span className="text-right">
                         {system.imageKind === "capture"
-                          ? `Live product · ${displayHost(system.liveUrl ?? "")}`
+                          ? `Live product at ${displayHost(system.liveUrl ?? "")}`
                           : "Interface shown with sample data"}
                       </span>
                     </figcaption>
@@ -118,11 +118,11 @@ export default function CaseStudiesPage() {
       <section className="tone-ink">
         <div className="container mx-auto px-4 md:px-6 py-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <p className="display text-3xl md:text-5xl max-w-2xl">
-            Every one of these started as a workflow.{" "}
+            Every one of these started as a conversation.{" "}
             <span className="text-white/45">Yours can be next.</span>
           </p>
           <BookingLink className={ctaClass("h-12 shrink-0")}>
-            <CtaContent>Book free audit</CtaContent>
+            <CtaContent>Book a free call</CtaContent>
           </BookingLink>
         </div>
       </section>

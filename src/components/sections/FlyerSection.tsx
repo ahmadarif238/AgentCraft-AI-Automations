@@ -13,9 +13,9 @@ export function FlyerSection() {
             Get the Full <span className="text-white/45">Executive Overview</span>
           </h2>
           <p className="text-lg text-white/70 leading-relaxed max-w-md mt-6">
-            Download our one-page automation overview. Share it with your team or
-            stakeholders to see exactly how we transform operations, reduce costs, and
-            build custom AI workflows.
+            Download our one page overview. Share it with your team or stakeholders to
+            see how we build websites, apps and custom AI systems that reduce costs and
+            improve how your business runs.
           </p>
           <a href={siteConfig.overviewPdf} download className={ctaClass("mt-10")}>
             <CtaContent icon={<Download className="w-4 h-4" />}>Download the PDF</CtaContent>
@@ -33,7 +33,7 @@ export function FlyerSection() {
             <span className="block aspect-[2/3] overflow-hidden rounded-sm bg-white shadow-[0_40px_80px_-30px_rgba(0,0,0,0.7)] transition-transform duration-500 group-hover:-translate-y-2">
               <Image
                 src="/images/flyer-v2.webp"
-                alt="Preview of the AgentCraft AI Automations one-page company overview"
+                alt="Preview of the AgentCraft AI Automations one page company overview"
                 width={900}
                 height={1350}
                 sizes="(max-width: 1024px) 90vw, 360px"

@@ -18,7 +18,7 @@ export function GET() {
 
   const body = `# ${siteConfig.name}
 
-> ${siteConfig.tagline} We build custom AI agents, workflow automations, RAG assistants, chatbots, websites and applications for businesses that want to stop doing repetitive work by hand.
+> ${siteConfig.tagline} We are an AI and software development agency: we build websites, web applications, mobile apps, SaaS products and internal tools, and custom AI agents, workflow automation, RAG assistants, chatbots and integrations, often combined in one product.
 
 ${siteConfig.description}
 
@@ -28,7 +28,7 @@ ${siteConfig.description}
 - Founder: ${siteConfig.founderName}, ${siteConfig.founderTitle}
 - Based in: ${siteConfig.location.city}, ${siteConfig.location.country}
 - Serves: clients worldwide, delivered remotely
-- Free offer: a no-obligation automation audit (workflow review, opportunity map, ROI estimate, implementation roadmap)
+- Free offer: a free, no obligation project consultation covering websites, apps, AI and automation (goals review, opportunity map, stack recommendations, ROI estimate, delivery roadmap)
 - Typical response time: ${siteConfig.responseTime}
 
 ## Services
@@ -37,7 +37,7 @@ ${services.map((s) => `- **${s.title}**: ${s.description} Ideal for: ${s.idealFo
 
 ## Pricing
 
-${pricingPackages.map((p) => `- ${p.name}: ${formatPrice(p)} — ${p.bestFor}`).join("\n")}
+${pricingPackages.map((p) => `- ${p.name}: ${formatPrice(p)}. ${p.bestFor}`).join("\n")}
 ${buildServices
   .map(
     (b) =>
@@ -45,23 +45,25 @@ ${buildServices
   )
   .join("\n")}
 
+- Mobile apps and SaaS products: scoped individually and quoted at a fixed price
+
 All project work is quoted at a fixed price after a free scoping call. Cost is
-driven by how many systems are integrated, how clean the data is, how much
-human approval the workflow needs, and what monitoring is required.
+driven by how much is built and how many systems are integrated, how clean the
+data is, how much human approval a workflow needs, and what monitoring is required.
 
 ## Docs
 
-${MIRROR_PATHS.map((m) => `- [${m.title}](${abs(m.mirror)}): plain-markdown version of ${abs(m.route)}`).join("\n")}
+${MIRROR_PATHS.map((m) => `- [${m.title}](${abs(m.mirror)}): plain markdown version of ${abs(m.route)}`).join("\n")}
 
 ## Contact
 
-- Book a 30-minute call: ${bookingUrl}
+- Book a 30 minute call: ${bookingUrl}
 - Enquiry form: ${abs("/contact")}
 ${siteConfig.email ? `- Email: ${siteConfig.email}\n` : ""}${siteConfig.phone ? `- Phone: ${siteConfig.phone}\n` : ""}${whatsappUrl ? `- WhatsApp: ${whatsappUrl}\n` : ""}${siteConfig.links.linkedinCompany ? `- LinkedIn: ${siteConfig.links.linkedinCompany}\n` : ""}
 ## Optional
 
 - [Sitemap](${abs("/sitemap.xml")}): every indexable page
-- [Company overview PDF](${abs(siteConfig.overviewPdf)}): one-page summary of services and capabilities
+- [Company overview PDF](${abs(siteConfig.overviewPdf)}): one page summary of services and capabilities
 `;
 
   return new Response(body, {

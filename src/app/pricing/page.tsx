@@ -19,16 +19,16 @@ import { PageHero } from "@/components/layout/PageHero";
 export const metadata: Metadata = pageMetadata({
   title: "Pricing & Packages",
   description:
-    "Transparent starting prices: workflow sprints from $750, custom AI agents from $2,000, monthly automation partnership from $500, plus websites, apps and chatbots priced by tier.",
+    "Transparent starting prices: websites and web apps from $750, workflow sprints from $750, custom AI agents from $2,000, chatbots from $600 and a monthly partnership from $500. Mobile apps and SaaS products are quoted at a fixed price after a free consultation.",
   path: "/pricing",
 });
 
 export default function PricingPage() {
   return (
     <>
-      <PageHero kicker="Pricing" title="AI Automation" muted="Packages">
-        Every project is quoted as a fixed price before work starts, so there are no
-        open-ended hourly bills. What moves that price is set out below.
+      <PageHero kicker="Pricing" title="Software and AI" muted="Packages">
+        Every website, app, AI and automation project is quoted as a fixed price before
+        work starts, so there are no open ended hourly bills. What moves that price is set out below.
       </PageHero>
       <div className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-6">
@@ -100,7 +100,8 @@ export default function PricingPage() {
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Build work is priced by tier so you can see where you land before you
-              talk to us.
+              talk to us. Mobile apps and SaaS products are scoped individually and
+              quoted at a fixed price after the free consultation.
             </p>
           </div>
 
@@ -148,7 +149,7 @@ export default function PricingPage() {
               >
                 <div className="max-w-2xl">
                   <p className="font-heading font-bold text-foreground mb-1">
-                    Add-on: {addOn.name}
+                    Optional extra: {addOn.name}
                   </p>
                   <p className="text-sm text-muted-foreground">{addOn.description}</p>
                 </div>
@@ -161,7 +162,7 @@ export default function PricingPage() {
 
           <p className="mt-8 text-center text-sm text-muted-foreground">
             Prices are starting points for a defined scope. Anything larger is quoted
-            fixed-price after the free audit.
+            at a fixed price after the free consultation.
           </p>
         </div>
       </section>
@@ -174,7 +175,7 @@ export default function PricingPage() {
               What Changes the Price
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Automation work is priced on scope, not on seat count. These four things
+              Every project is priced on scope, not on seat count. These four things
               account for most of the difference between a small build and a large one.
             </p>
           </div>
@@ -193,7 +194,7 @@ export default function PricingPage() {
               <BookingLink>Get a Fixed Quote</BookingLink>
             </Button>
             <p className="text-sm text-muted-foreground mt-4">
-              The audit and the quote are both free.
+              The consultation and the quote are both free.
             </p>
           </div>
         </div>

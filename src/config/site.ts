@@ -44,9 +44,9 @@ export const siteConfig: {
 } & ConfigurableContact = {
   name: "AgentCraft AI Automations",
   shortName: "AgentCraft AI",
-  tagline: "We Automate Workflows. You Scale Effortlessly.",
+  tagline: "Websites, Apps and AI Agents, Engineered to Scale.",
   description:
-    "AgentCraft AI Automations builds custom AI agents, workflow automations, RAG assistants, CRM automation, and intelligent business systems that help companies save time, reduce costs, and scale faster.",
+    "AgentCraft AI Automations is an AI and software development agency. We build websites, web applications, mobile apps, SaaS products and internal tools, along with custom AI agents, workflow automation, RAG knowledge assistants and integrations, often in the same product.",
 
   /**
    * Canonical origin. This drives canonical tags, the sitemap, OG URLs and
@@ -63,7 +63,7 @@ export const siteConfig: {
   whatsappNumber,
   /** Prefilled first message so enquiries arrive with context. */
   whatsappMessage:
-    "Hi AgentCraft AI — I'd like to talk about automating a workflow in my business.",
+    "Hi AgentCraft AI, I'd like to talk about a software or AI project for my business.",
 
   founderName: "Arif Ahmad Khan",
   founderTitle: "AI Engineer & Founder",

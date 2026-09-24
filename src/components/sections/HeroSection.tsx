@@ -6,12 +6,14 @@ import { HeroVisual } from "@/components/hero/HeroVisual";
 import { caseStudies } from "@/data/caseStudies";
 
 const capabilities = [
+  "Websites",
+  "Web Apps",
+  "Mobile Apps",
+  "SaaS Products",
+  "AI Agents",
   "Workflow Automation",
-  "Custom AI Agents",
   "RAG Assistants",
-  "CRM Automation",
-  "API Integrations",
-  "Ongoing Support",
+  "Integrations",
 ];
 
 /** The newest system on the case studies page, surfaced as the hero's bulletin. */
@@ -30,16 +32,16 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 md:px-6 relative flex-1 grid grid-cols-1 lg:grid-cols-12 gap-10 pt-32 sm:pt-36 lg:pt-40 pb-10">
         <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center animate-in fade-in slide-in-from-bottom-4 duration-1000">
-          <span className="kicker">AI Agents &amp; Automations for Modern Businesses</span>
+          <span className="kicker">Software Development &amp; AI for Modern Businesses</span>
 
           <h1 className="display text-[44px] sm:text-6xl lg:text-7xl xl:text-[88px] mt-7">
-            We automate workflows.
-            <span className="block text-white/45">You scale effortlessly.</span>
+            We build software that thinks.
+            <span className="block text-white/45">Websites, apps and AI agents.</span>
           </h1>
 
           <div className="flex flex-col sm:flex-row gap-[3px] mt-10">
             <BookingLink className={ctaClass()}>
-              <CtaContent>Book a free automation audit</CtaContent>
+              <CtaContent>Book a free project call</CtaContent>
             </BookingLink>
             <Link href="/services" className={ctaClass()}>
               <CtaContent tone="ghost">Explore services</CtaContent>
@@ -47,8 +49,8 @@ export function HeroSection() {
           </div>
 
           <p className="text-xs text-white/55 mt-4 max-w-md">
-            Free audit includes workflow review, automation opportunities, and a practical
-            implementation roadmap.
+            The free call covers your idea or workflow, the right stack, and a practical
+            roadmap for your website, app or AI system.
           </p>
         </div>
 
@@ -67,12 +69,12 @@ export function HeroSection() {
       <div className="container mx-auto px-4 md:px-6 relative pb-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-end pt-8 border-t border-white/10">
           <p className="md:col-span-3 label-mono uppercase text-white/50 leading-relaxed">
-            Built with LangGraph, FastAPI, n8n, Zapier, Make, Power Automate, and RAG systems.
+            Built with Next.js, React Native, FastAPI, PostgreSQL, LangGraph, n8n and RAG systems.
           </p>
           <p className="md:col-span-5 text-[15px] sm:text-base text-white/80 leading-relaxed">
-            AgentCraft AI Automations builds custom AI agents, workflow automations, RAG
-            assistants, and business integrations that eliminate repetitive work and help
-            companies grow faster.
+            AgentCraft AI Automations designs and builds websites, web and mobile apps, SaaS
+            products and AI agents, and often both in one: software with the intelligence
+            built in, so it does real work for your business.
           </p>
           <Link
             href={`/case-studies#${latest.id}`}

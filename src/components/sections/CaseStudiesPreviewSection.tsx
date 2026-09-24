@@ -21,11 +21,11 @@ export function CaseStudiesPreviewSection() {
           <div className="max-w-3xl">
             <span className="kicker">Selected work</span>
             <h2 className="display text-4xl md:text-6xl mt-6">
-              AI Systems Built for{" "}
-              <span className="text-muted-extra">Real Business Workflows.</span>
+              Software and AI Built for{" "}
+              <span className="text-muted-extra">Real Business Problems.</span>
             </h2>
             <p className="text-muted-foreground text-lg mt-6">
-              Real systems we have designed and shipped, showcasing advanced Agentic AI, RAG, and automation architectures.
+              Systems we have designed and built ourselves, from SaaS products and web apps to AI agents, RAG assistants and automation.
             </p>
           </div>
           <Link href="/case-studies" className={ctaClass("shrink-0")}>

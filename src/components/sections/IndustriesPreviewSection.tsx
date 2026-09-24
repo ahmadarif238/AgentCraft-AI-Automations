@@ -21,7 +21,7 @@ export function IndustriesPreviewSection() {
             </h2>
           </div>
           <p className="lg:col-span-4 lg:col-start-9 self-end text-white/65 text-lg">
-            Every industry has specific bottlenecks. We tailor automation strategies to solve your exact operational problems.
+            Every industry has its own bottlenecks. We shape the software, apps and AI we build around the exact problems your business has.
           </p>
         </div>
 
